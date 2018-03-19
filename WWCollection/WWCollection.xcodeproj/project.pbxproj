@@ -16,6 +16,8 @@
 		21CB5D7D1FD0413E009AE4ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D7C1FD0413E009AE4ED /* main.m */; };
 		21CB5D871FD0413E009AE4ED /* WWCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D861FD0413E009AE4ED /* WWCollectionTests.m */; };
 		21CB5D921FD0413E009AE4ED /* WWCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */; };
+		4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */; };
+		4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		21CB5D8D1FD0413E009AE4ED /* WWCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWCollectionUITests.m; sourceTree = "<group>"; };
 		21CB5D931FD0413E009AE4ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWSearchResultViewController.h; sourceTree = "<group>"; };
+		4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWSearchResultViewController.m; sourceTree = "<group>"; };
+		4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WWAdd.h"; sourceTree = "<group>"; };
+		4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+WWAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +109,14 @@
 		21CB5D691FD0413D009AE4ED /* WWCollection */ = {
 			isa = PBXGroup;
 			children = (
+				4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */,
+				4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */,
 				21CB5D6A1FD0413D009AE4ED /* AppDelegate.h */,
 				21CB5D6B1FD0413D009AE4ED /* AppDelegate.m */,
 				21CB5D6D1FD0413D009AE4ED /* ViewController.h */,
 				21CB5D6E1FD0413D009AE4ED /* ViewController.m */,
+				4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */,
+				4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */,
 				21CB5D701FD0413E009AE4ED /* Main.storyboard */,
 				21CB5D761FD0413E009AE4ED /* Assets.xcassets */,
 				21CB5D781FD0413E009AE4ED /* LaunchScreen.storyboard */,
@@ -269,8 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CB5D6F1FD0413D009AE4ED /* ViewController.m in Sources */,
+				4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */,
 				21CB5D751FD0413E009AE4ED /* WWCollection.xcdatamodeld in Sources */,
 				21CB5D7D1FD0413E009AE4ED /* main.m in Sources */,
+				4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */,
 				21CB5D6C1FD0413D009AE4ED /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
