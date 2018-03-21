@@ -23,10 +23,54 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupMatchStickMan];
-        [self setupCornerSquareShape];
+        [self test];
+//        [self setupMatchStickMan];
+//        [self setupCornerSquareShape];
     }
     return self;
+}
+
+- (void)test{
+    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
+    //clockwise其实有控制着顺逆时针
+//    clockwise 为NO的时候是顺时针 12点钟位置为0度  3点钟方向为90度 6点钟为180度 9点钟为270度
+    //clockwise为YES的时候是逆时针
+    /*
+     3点钟为值为0 clockwise为YES的时候是顺时针
+     6点钟方向为90度
+     9点钟方向为180度
+     12点钟方向为270度
+     clockwise 为NO的时候是逆时针 这个时候
+     */
+    CGFloat startAngle = -M_PI_2;
+    CGFloat endAngle = -M_PI;
+    CGFloat perAngle = M_PI * 2.0 / 12.0;
+    startAngle = 0;
+    endAngle = M_PI_2;
+    
+    startAngle = perAngle;
+    endAngle = startAngle + perAngle * 2;
+    
+//    [bezierPath addArcWithCenter:CGPointMake(50, 50) radius:25 startAngle:-M_PI_2 endAngle:0 clockwise:YES];
+    [bezierPath addArcWithCenter:CGPointMake(50, 50) radius:25 startAngle:startAngle endAngle:endAngle clockwise:YES];
+    
+    CAShapeLayer *shapeLayer = [CAShapeLayer wyw_lineWidth:2.0f strokeColor:[UIColor blueColor] fillColor:[UIColor whiteColor] lineCap:kCALineCapRound lineJoin:kCALineJoinRound];
+    shapeLayer.path = bezierPath.CGPath;
+    shapeLayer.frame = CGRectMake(300, 300, 200, 200);
+    [self.layer addSublayer:shapeLayer];
+    
+    CGFloat redStartAngle = M_PI_2;
+    CGFloat redEndAngle = redStartAngle + perAngle * 2;
+    
+    UIBezierPath *redBezierPath = [UIBezierPath bezierPath];
+    [redBezierPath addArcWithCenter:CGPointMake(50, 50) radius:25.0f startAngle:redStartAngle endAngle:redEndAngle clockwise:YES];
+    
+    CAShapeLayer *redShapeLayer = [CAShapeLayer wyw_lineWidth:2.0f strokeColor:[UIColor redColor] fillColor:[UIColor whiteColor] lineCap:kCALineCapRound lineJoin:kCALineJoinRound];
+    redShapeLayer.path = redBezierPath.CGPath;
+    redShapeLayer.frame = CGRectMake(300, 300, 200, 200);
+    
+    [self.layer addSublayer:redShapeLayer];
+    
 }
 
 #pragma mark - 使用CAShapeLayer绘制火柴

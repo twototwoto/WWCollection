@@ -1,5 +1,5 @@
 //
-//  WYWLayerViewController.h
+//  WYWLayerTableViewController.h
 //  WWCollection
 //
 //  Created by WYW on 2018/3/21.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-/**
- Layer相关视图控制器
- */
-@interface WYWLayerViewController : UIViewController
-
+@interface WYWLayerTableViewController : UITableViewController
 
 @end
