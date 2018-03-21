@@ -14,9 +14,34 @@
 
 @implementation WYWSearchResultViewController
 
+
+
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    self.navigationController.navigationBar.hidden = NO;
+//    self.tabBarController.tabBar.hidden = NO;
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    self.navigationController.navigationBar.hidden = YES;
+//    self.tabBarController.tabBar.hidden = YES;
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self setupUI];
+}
+
+- (void)setupUI{
+    UIView *redV = [UIView new];
+    redV.backgroundColor = [UIColor redColor];
+    [self.view addSubview:redV];
+    //像这种设置视图的位置和size的 都是使用的 px / scale的值
+//    redV.frame = CGRectMake(0, 0, 375, 667);
+    redV.frame = self.view.bounds;
 }
 
 - (void)didReceiveMemoryWarning {

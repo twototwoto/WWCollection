@@ -5,9 +5,11 @@
 //  Created by WYW on 2018/3/21.
 //  Copyright © 2018年 ITCoderW. All rights reserved.
 //
+//学习核心动画高级技巧之CAShapeLayer
 
 #import "WYWLayerViewController.h"
 #import "CAGradientLayer+WWAdd.h"
+#import "WYWDrawingView.h"
 
 @interface WYWLayerViewController ()
 
@@ -17,7 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self testCAShapeLayer];
+    return;
     [self testCAGradientLayer];
+}
+
+#pragma mark - 测试CAShapeLayer
+- (void)testCAShapeLayer{
+    WYWDrawingView *drawingView = [WYWDrawingView new];
+    drawingView.frame = self.view.bounds;
+    //要用下边的方式 上边的方式 在drawingview的内部后去self.bounds的时候获取不到会出现问题
+    drawingView = [[WYWDrawingView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:drawingView];
+    //开始看出不来颜色 好尴尬 设置的背景色和渲染的颜色是一样的
+//    drawingView.backgroundColor = [UIColor redColor];
+    
 }
 
 - (void)testCAGradientLayer{
