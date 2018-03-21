@@ -62,8 +62,10 @@
     //设置左上角 左下角 右下角 显示为有圆角的形式
     UIRectCorner corners = UIRectCornerTopLeft | UIRectCornerBottomLeft | UIRectCornerBottomRight;
     UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corners cornerRadii:size];
+    
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.backgroundColor = [UIColor blueColor].CGColor;
+    shapeLayer.fillColor = [UIColor blueColor].CGColor;
+//    shapeLayer.backgroundColor = [UIColor blueColor].CGColor;
 //    shapeLayer.frame = self.bounds;
 //    shapeLayer.frame = rect;
 //    shapeLayer.frame =  CGRectMake(0, 0, rect.size.width, rect.size.height);
