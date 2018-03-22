@@ -9,6 +9,7 @@
 #import "WYWLayerTableViewController.h"
 
 #import "WYWLayerViewController.h"
+#import "WYWTestViewController.h"
 
 @interface WYWLayerTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *listTableView;
@@ -20,16 +21,17 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
 
 @implementation WYWLayerTableViewController{
     NSArray *_dataArr;
+    //组数组
+    NSArray *_sectionArr;
+    //第二组的数组  （indexPath.secion 为1的 ）
+    NSArray *_secondSectionArr;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.translucent = NO;
-    _dataArr = @[@"CAGradientLayer",@"CAShapeLayer",@"testCyclePRogressView"];
-    self.listTableView.delegate = self;
-    self.listTableView.dataSource = self;
     
+    [self initialOperation];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -37,6 +39,18 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+#pragma mark - 初始化准备工作
+- (void)initialOperation{
+    self.navigationController.navigationBar.translucent = NO;
+    //相关数据内容可以写到plist文件里边从里边取数据
+    _dataArr = @[@"CAGradientLayer",@"CAShapeLayer",@"testCyclePRogressView"];
+    _secondSectionArr = @[@"测试TextField"];
+    _sectionArr = @[@"Layer",@"测试"];
+    self.listTableView.delegate = self;
+    self.listTableView.dataSource = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,29 +62,67 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
+    return _sectionArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return _dataArr.count;
+    switch (section) {
+        case 0:
+            return _dataArr.count;
+            break;
+        case 1:
+            return _secondSectionArr.count;
+        default:
+            break;
+    }
+    return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIDStr forIndexPath:indexPath];
-    cell.textLabel.text = _dataArr[indexPath.row];
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = _dataArr[indexPath.row];
+            break;
+        case 1:
+            cell.textLabel.text = _secondSectionArr[indexPath.row];
+            break;
+            
+            
+        default:
+            break;
+    }
+    
     // Configure the cell...
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WYWLayerViewController *layerVC = [WYWLayerViewController new];
-    layerVC.title = _dataArr[indexPath.row];
-//    layerVC.titleString = _dataArr[indexPath.row];
-    [self.navigationController pushViewController:layerVC animated:YES];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44.f;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UILabel *label = [UILabel new];
+    label.text = _sectionArr[section];
+    return label;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        WYWLayerViewController *layerVC = [WYWLayerViewController new];
+        layerVC.title = _dataArr[indexPath.row];
+        //    layerVC.titleString = _dataArr[indexPath.row];
+        [self.navigationController pushViewController:layerVC animated:YES];
+    }else if(indexPath.section == 1){
+        WYWTestViewController *testVC = [WYWTestViewController new];
+        testVC.title = _secondSectionArr[indexPath.row];
+        [self.navigationController pushViewController:testVC animated:YES];
+    }
+    
+}
+
 
 
 /*
