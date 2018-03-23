@@ -105,6 +105,7 @@
     CGSize size = CGSizeMake(20, 20);
     //设置左上角 左下角 右下角 显示为有圆角的形式
     UIRectCorner corners = UIRectCornerTopLeft | UIRectCornerBottomLeft | UIRectCornerBottomRight;
+    //注意如果是要往某个视图A的layer上边添加layer要注意RoundedRect后边所跟的值是  A.bounds 
     UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corners cornerRadii:size];
     
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
