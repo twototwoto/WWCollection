@@ -37,13 +37,88 @@
     
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //呈现与模型
+    //获取到触摸点
+    CGPoint point = [[touches anyObject]locationInView:self.view];
+    //检查是否我们点击了移动的layer
+    if ([self.colorLayer.presentationLayer hitTest:point]) {
+        self.colorLayer.backgroundColor = [UIColor colorWithRed:arc4random() % 255 /255.0f green:arc4random() % 255 / 255.0f blue:arc4random() % 255/255.0f alpha:1.0f].CGColor;
+    }else{
+        //慢慢地移动图层到新的位置
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:4.0f];
+        self.colorLayer.position = point;
+        [CATransaction commit];
+    }
+}
+
+#pragma mark - 呈现与模型
+- (void)presentationModel{
+    
+}
+
+#pragma mark - 图层行为
+- (void)wwLayerMotion{
+    //如果是直接那UIView相关联的图层来做处理的话
+    NSLog(@"%@",[self.layerView actionForLayer:self.layerView.layer forKey:@"backgroundColor"]);
+    
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    //在Xcode9.2的情况下 发现 使用上边的代码设置 还是说相关的layerView的部分的相关layer为nil 的时候都可以正常地响应相关动画 不像书上写的会因为是相关的layer的backgroundColor 为nil而禁用了图层行为
+//    [CATransaction setAnimationDuration:1.0f];
+//    换作
+    NSLog(@"%@",[self.layerView actionForLayer:self.layerView.layer forKey:@"backgroundColor"]); // <null>
+    [UIView beginAnimations:nil context:nil];
+    NSLog(@"%@",[self.layerView actionForLayer:self.layerView.layer forKey:@"backgroundColor"]); // <CABasicAnimation: 0x151915670>
+    self.layerView.layer.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0f green:(arc4random() % 255)/255.0f blue:(arc4random() % 255)/255.0f alpha:1.0f].CGColor;
+//    [UIView commitAnimations];
+    
+    
+    [CATransaction commit];
+    
+}
+
 - (void)changeColorBtnClick:(UIButton *)sender{
+//    [self wwLayerMotion];
+//    return;
     //随机展示layer的背景色
 //    CGFloat redValue = arc4random() /(CGFloat)INTMAX_MAX;
 //    CGFloat greenValue = arc4random() /(CGFloat)INTMAX_MAX;
 //    CGFloat blueValue = arc4random() /(CGFloat)INTMAX_MAX;
 //    self.colorLayer.backgroundColor = [UIColor colorWithRed:redValue green:greenValue blue:blueValue alpha:1.0f].CGColor;
-    self.colorLayer.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0f green:(arc4random() % 255)/255.0f blue:(arc4random() % 255)/255.0f alpha:1.0f].CGColor;
+//    self.colorLayer.backgroundColor = [UIColor colorWithRed:(arc4random() % 255)/255.0f green:(arc4random() % 255)/255.0f blue:(arc4random() % 255)/255.0f alpha:1.0f].CGColor;
+    CGFloat red = arc4random() / (CGFloat)INT_MAX;
+    CGFloat green = arc4random() / (CGFloat)INT_MAX;
+    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+//    INTMAX_MAX; INT_MAX;
+//    [UIView animateWithDuration:1.0f animations:^{
+//        self.colorLayer .backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f].CGColor;
+//    } completion:^(BOOL finished) {
+//        CGAffineTransform transform = self.colorLayer.affineTransform;
+//        transform = CGAffineTransformRotate(transform, M_PI_2);
+//        self.colorLayer.affineTransform = transform;
+//    }];
+    
+    //使用动画块的方式和下边是一样的 只不过直觉上感觉下边的方式更有动画的感觉 更平滑
+//    return;
+    [CATransaction begin];
+    //设置动画时长
+    [CATransaction setAnimationDuration:1.0f];
+   
+    self.colorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f].CGColor;
+    //设置完成块
+    [CATransaction setCompletionBlock:^{
+        CGAffineTransform transform = self.colorLayer.affineTransform;
+//        transform = CGAffineTransformMakeRotation(M_PI_2); //这个只是在第一次的时候转动一次
+        transform = CGAffineTransformRotate(transform, M_PI_2);
+        self.colorLayer.affineTransform = transform;
+        
+    }];
+    
+    [CATransaction commit];
+    
+    
 }
 
 - (void)testRoutineAnimation{
@@ -55,6 +130,15 @@
     self.colorLayer.backgroundColor = [UIColor blueColor].CGColor;
     
     [self.layerView.layer addSublayer:self.colorLayer];
+    
+    
+    
+    return;
+    //自定义图层行为补充
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    self.colorLayer.actions = @{@"backgroundColor":transition};
     
     
 }

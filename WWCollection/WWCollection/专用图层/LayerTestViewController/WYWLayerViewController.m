@@ -90,7 +90,7 @@
 - (void)setupUI{
     self.view.backgroundColor = [UIColor whiteColor];
     NSString *titleStr = self.title;
-    NSArray *arr = @[@"CAGradientLayer",@"CAShapeLayer",@"testCyclePRogressView"];
+    NSArray *arr = @[@"CAGradientLayer",@"CAShapeLayer",@"testCycleProgressView"];
     NSInteger index = [arr indexOfObject:titleStr];
     NSArray *selectorArr = @[@"testCAGradientLayer",@"testCAShapeLayer",@"testCycleView"];
     NSString *selectorStr = selectorArr[index];

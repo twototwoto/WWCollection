@@ -11,6 +11,8 @@
 #import "WYWLayerViewController.h"
 #import "WYWTestViewController.h"
 
+#import "WYWImplicitAnimationViewController.h"
+
 @interface WYWLayerTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *listTableView;
 
@@ -25,6 +27,11 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
     NSArray *_sectionArr;
     //第二组的数组  （indexPath.secion 为1的 ）
     NSArray *_secondSectionArr;
+    NSArray *_thirdSectionArr;
+    //数据源数组
+    NSArray *_dataArray;
+    //类名数组
+    NSArray *_classNameArray;
 }
 
 - (void)viewDidLoad {
@@ -47,9 +54,34 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
     //相关数据内容可以写到plist文件里边从里边取数据
     _dataArr = @[@"CAGradientLayer",@"CAShapeLayer",@"testCyclePRogressView"];
     _secondSectionArr = @[@"测试TextField"];
-    _sectionArr = @[@"Layer",@"测试"];
+    
+    _sectionArr = @[@"Layer",@"测试",@"隐式动画"];
     self.listTableView.delegate = self;
     self.listTableView.dataSource = self;
+    
+    _classNameArray = @[@"WYWTestViewController",@"WYWLayerViewController",@"WYWImplicitAnimationViewController"];
+    
+    _dataArray = @[
+                           @{@"测试":
+  @[@"测试"]},
+                           @{@"Layer":
+  @[@"CAGradientLayer",@"CAShapeLayer",@"testCycleProgressView"]},
+                           @{@"隐式动画":
+  @[@"事务"]}
+                           ];
+    
+    //三层for循环才能够取出来数据。。。
+    for (NSInteger i = 0; i < _dataArray.count; i ++) {
+//        NSLog(@"%@",[dataArray[i] allKeys][0]);
+//        NSLog(@"%@",[(dataArray[i]) allValues]);
+        for (NSInteger j = 0; j < ((NSArray *)[_dataArray[i] allValues]).count; j ++) {
+//            NSLog(@"%@",[dataArray[i] allValues][j]);
+            for (NSInteger k = 0; k < ((NSArray *)[_dataArray[i] allValues][j]).count; k ++) {
+                NSLog(@"%@",[_dataArray[i] allValues][j][k]);
+            }
+        }
+    }
+    
     
 }
 
@@ -61,32 +93,49 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
+    return _dataArray.count;
+    
     return _sectionArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return _dataArr.count;
-            break;
-        case 1:
-            return _secondSectionArr.count;
-        default:
-            break;
-    }
-    return 0;
+    NSLog(@"%zd",[((NSDictionary *)_dataArray[section]).allValues[0] count]);
+    return [((NSDictionary *)_dataArray[section]).allValues[0] count];
+    
+//    switch (section) {
+//        case 0:
+//            return _dataArr.count;
+//            break;
+//        case 1:
+//            return _secondSectionArr.count;
+//        default:
+//            break;
+//    }
+//    return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIDStr forIndexPath:indexPath];
+    cell.textLabel.text = ((NSDictionary *)_dataArray[indexPath.section]).allValues[0][indexPath.row];
+    
+    return cell;
+    
+    NSString *textString = [((NSDictionary *) _dataArray[indexPath.section]) allValues][indexPath.row];
+    NSLog(@"%@",textString);
+    cell.textLabel.text = [((NSDictionary *) _dataArray[indexPath.section]) allValues][indexPath.row];
+    return cell;
+    
     switch (indexPath.section) {
         case 0:
             cell.textLabel.text = _dataArr[indexPath.row];
             break;
         case 1:
             cell.textLabel.text = _secondSectionArr[indexPath.row];
+            break;
+        case 2:
+//            cell.textLabel.text =
             break;
             
             
@@ -105,20 +154,29 @@ static NSString* const kCellReuseIDStr = @"kCellReuseIDStr";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel *label = [UILabel new];
-    label.text = _sectionArr[section];
+//    label.text = _sectionArr[section];
+    label.text = [_dataArray[section] allKeys][0];
     return label;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIViewController *vc = [NSClassFromString(_classNameArray[indexPath.section]) new];
+    vc.title = [_dataArray[indexPath.section] allValues][0][indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    return;
+    
     if (indexPath.section == 0) {
+        WYWTestViewController *testVC = [WYWTestViewController new];
+        testVC.title = _secondSectionArr[indexPath.row];
+        [self.navigationController pushViewController:testVC animated:YES];
+    }else if(indexPath.section == 1){
         WYWLayerViewController *layerVC = [WYWLayerViewController new];
         layerVC.title = _dataArr[indexPath.row];
         //    layerVC.titleString = _dataArr[indexPath.row];
         [self.navigationController pushViewController:layerVC animated:YES];
-    }else if(indexPath.section == 1){
-        WYWTestViewController *testVC = [WYWTestViewController new];
-        testVC.title = _secondSectionArr[indexPath.row];
-        [self.navigationController pushViewController:testVC animated:YES];
+    }else if(indexPath.row == 2){
+        
     }
     
 }

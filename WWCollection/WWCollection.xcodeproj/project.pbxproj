@@ -18,6 +18,18 @@
 		21CB5D921FD0413E009AE4ED /* WWCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */; };
 		4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */; };
 		4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */; };
+		4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38C220673B740071C6C6 /* WWSearchBar.m */; };
+		4DCF38E720673B760071C6C6 /* WYWLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38CC20673B740071C6C6 /* WYWLayerViewController.m */; };
+		4DCF38E820673B760071C6C6 /* CAGradientLayer+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38D020673B740071C6C6 /* CAGradientLayer+WWAdd.m */; };
+		4DCF38E920673B760071C6C6 /* WYWDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38D320673B740071C6C6 /* WYWDrawingView.m */; };
+		4DCF38EA20673B760071C6C6 /* CAShapeLayer+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38D520673B740071C6C6 /* CAShapeLayer+WWAdd.m */; };
+		4DCF38EB20673B760071C6C6 /* WYWTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38D820673B740071C6C6 /* WYWTestViewController.m */; };
+		4DCF38EC20673B760071C6C6 /* WYWLayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38DA20673B740071C6C6 /* WYWLayerTableViewController.m */; };
+		4DCF38ED20673B760071C6C6 /* UISearchBar+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38DC20673B750071C6C6 /* UISearchBar+WWAdd.m */; };
+		4DCF38EE20673B760071C6C6 /* WYWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38DD20673B750071C6C6 /* WYWHomeViewController.m */; };
+		4DCF38EF20673B760071C6C6 /* WYWImplicitAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38E020673B750071C6C6 /* WYWImplicitAnimationViewController.m */; };
+		4DCF38F220673CAD0071C6C6 /* WWCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38F120673CAC0071C6C6 /* WWCycleView.m */; };
+		4DCF38F5206742CE0071C6C6 /* dataArray.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DCF38F4206742CE0071C6C6 /* dataArray.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +71,30 @@
 		4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWSearchResultViewController.m; sourceTree = "<group>"; };
 		4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WWAdd.h"; sourceTree = "<group>"; };
 		4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+WWAdd.m"; sourceTree = "<group>"; };
+		4DCF38C120673B730071C6C6 /* WWSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWSearchBar.h; sourceTree = "<group>"; };
+		4DCF38C220673B740071C6C6 /* WWSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWSearchBar.m; sourceTree = "<group>"; };
+		4DCF38C320673B740071C6C6 /* UISearchBar+WWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+WWAdd.h"; sourceTree = "<group>"; };
+		4DCF38C420673B740071C6C6 /* WYWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWHomeViewController.h; sourceTree = "<group>"; };
+		4DCF38CC20673B740071C6C6 /* WYWLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWLayerViewController.m; sourceTree = "<group>"; };
+		4DCF38CD20673B740071C6C6 /* WYWLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWLayerViewController.h; sourceTree = "<group>"; };
+		4DCF38CF20673B740071C6C6 /* CAGradientLayer+WWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+WWAdd.h"; sourceTree = "<group>"; };
+		4DCF38D020673B740071C6C6 /* CAGradientLayer+WWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+WWAdd.m"; sourceTree = "<group>"; };
+		4DCF38D220673B740071C6C6 /* WYWDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWDrawingView.h; sourceTree = "<group>"; };
+		4DCF38D320673B740071C6C6 /* WYWDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWDrawingView.m; sourceTree = "<group>"; };
+		4DCF38D520673B740071C6C6 /* CAShapeLayer+WWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+WWAdd.m"; sourceTree = "<group>"; };
+		4DCF38D620673B740071C6C6 /* CAShapeLayer+WWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAShapeLayer+WWAdd.h"; sourceTree = "<group>"; };
+		4DCF38D820673B740071C6C6 /* WYWTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWTestViewController.m; sourceTree = "<group>"; };
+		4DCF38D920673B740071C6C6 /* WYWLayerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWLayerTableViewController.h; sourceTree = "<group>"; };
+		4DCF38DA20673B740071C6C6 /* WYWLayerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWLayerTableViewController.m; sourceTree = "<group>"; };
+		4DCF38DB20673B740071C6C6 /* WYWTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWTestViewController.h; sourceTree = "<group>"; };
+		4DCF38DC20673B750071C6C6 /* UISearchBar+WWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+WWAdd.m"; sourceTree = "<group>"; };
+		4DCF38DD20673B750071C6C6 /* WYWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWHomeViewController.m; sourceTree = "<group>"; };
+		4DCF38E020673B750071C6C6 /* WYWImplicitAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWImplicitAnimationViewController.m; sourceTree = "<group>"; };
+		4DCF38E120673B750071C6C6 /* WYWImplicitAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWImplicitAnimationViewController.h; sourceTree = "<group>"; };
+		4DCF38E320673B760071C6C6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4DCF38F020673CAC0071C6C6 /* WWCycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWCycleView.h; sourceTree = "<group>"; };
+		4DCF38F120673CAC0071C6C6 /* WWCycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWCycleView.m; sourceTree = "<group>"; };
+		4DCF38F4206742CE0071C6C6 /* dataArray.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dataArray.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +145,17 @@
 		21CB5D691FD0413D009AE4ED /* WWCollection */ = {
 			isa = PBXGroup;
 			children = (
+				4DCF38F3206742B80071C6C6 /* Resources */,
+				4DCF38DE20673B750071C6C6 /* 隐式动画 */,
+				4DCF38CA20673B740071C6C6 /* 专用图层 */,
+				4DCF38E320673B760071C6C6 /* PrefixHeader.pch */,
+				4DCF38E220673B750071C6C6 /* ThirdLib */,
+				4DCF38C320673B740071C6C6 /* UISearchBar+WWAdd.h */,
+				4DCF38DC20673B750071C6C6 /* UISearchBar+WWAdd.m */,
+				4DCF38C120673B730071C6C6 /* WWSearchBar.h */,
+				4DCF38C220673B740071C6C6 /* WWSearchBar.m */,
+				4DCF38C420673B740071C6C6 /* WYWHomeViewController.h */,
+				4DCF38DD20673B750071C6C6 /* WYWHomeViewController.m */,
 				4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */,
 				4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */,
 				21CB5D6A1FD0413D009AE4ED /* AppDelegate.h */,
@@ -143,6 +190,99 @@
 				21CB5D931FD0413E009AE4ED /* Info.plist */,
 			);
 			path = WWCollectionUITests;
+			sourceTree = "<group>";
+		};
+		4DCF38CA20673B740071C6C6 /* 专用图层 */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38CB20673B740071C6C6 /* LayerTestViewController */,
+				4DCF38CE20673B740071C6C6 /* CAGradientLayer */,
+				4DCF38D120673B740071C6C6 /* View */,
+				4DCF38D420673B740071C6C6 /* CAShapeLayer */,
+				4DCF38D720673B740071C6C6 /* ViewController */,
+			);
+			path = "专用图层";
+			sourceTree = "<group>";
+		};
+		4DCF38CB20673B740071C6C6 /* LayerTestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38CC20673B740071C6C6 /* WYWLayerViewController.m */,
+				4DCF38CD20673B740071C6C6 /* WYWLayerViewController.h */,
+			);
+			path = LayerTestViewController;
+			sourceTree = "<group>";
+		};
+		4DCF38CE20673B740071C6C6 /* CAGradientLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38CF20673B740071C6C6 /* CAGradientLayer+WWAdd.h */,
+				4DCF38D020673B740071C6C6 /* CAGradientLayer+WWAdd.m */,
+			);
+			path = CAGradientLayer;
+			sourceTree = "<group>";
+		};
+		4DCF38D120673B740071C6C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38F020673CAC0071C6C6 /* WWCycleView.h */,
+				4DCF38F120673CAC0071C6C6 /* WWCycleView.m */,
+				4DCF38D220673B740071C6C6 /* WYWDrawingView.h */,
+				4DCF38D320673B740071C6C6 /* WYWDrawingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DCF38D420673B740071C6C6 /* CAShapeLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38D520673B740071C6C6 /* CAShapeLayer+WWAdd.m */,
+				4DCF38D620673B740071C6C6 /* CAShapeLayer+WWAdd.h */,
+			);
+			path = CAShapeLayer;
+			sourceTree = "<group>";
+		};
+		4DCF38D720673B740071C6C6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38D820673B740071C6C6 /* WYWTestViewController.m */,
+				4DCF38D920673B740071C6C6 /* WYWLayerTableViewController.h */,
+				4DCF38DA20673B740071C6C6 /* WYWLayerTableViewController.m */,
+				4DCF38DB20673B740071C6C6 /* WYWTestViewController.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4DCF38DE20673B750071C6C6 /* 隐式动画 */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38DF20673B750071C6C6 /* 事务 */,
+			);
+			path = "隐式动画";
+			sourceTree = "<group>";
+		};
+		4DCF38DF20673B750071C6C6 /* 事务 */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38E020673B750071C6C6 /* WYWImplicitAnimationViewController.m */,
+				4DCF38E120673B750071C6C6 /* WYWImplicitAnimationViewController.h */,
+			);
+			path = "事务";
+			sourceTree = "<group>";
+		};
+		4DCF38E220673B750071C6C6 /* ThirdLib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdLib;
+			sourceTree = "<group>";
+		};
+		4DCF38F3206742B80071C6C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF38F4206742CE0071C6C6 /* dataArray.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +393,7 @@
 			files = (
 				21CB5D7A1FD0413E009AE4ED /* LaunchScreen.storyboard in Resources */,
 				21CB5D771FD0413E009AE4ED /* Assets.xcassets in Resources */,
+				4DCF38F5206742CE0071C6C6 /* dataArray.plist in Resources */,
 				21CB5D721FD0413E009AE4ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +419,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DCF38EF20673B760071C6C6 /* WYWImplicitAnimationViewController.m in Sources */,
 				21CB5D6F1FD0413D009AE4ED /* ViewController.m in Sources */,
+				4DCF38EA20673B760071C6C6 /* CAShapeLayer+WWAdd.m in Sources */,
+				4DCF38E920673B760071C6C6 /* WYWDrawingView.m in Sources */,
 				4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */,
+				4DCF38F220673CAD0071C6C6 /* WWCycleView.m in Sources */,
 				21CB5D751FD0413E009AE4ED /* WWCollection.xcdatamodeld in Sources */,
 				21CB5D7D1FD0413E009AE4ED /* main.m in Sources */,
+				4DCF38EE20673B760071C6C6 /* WYWHomeViewController.m in Sources */,
+				4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */,
+				4DCF38ED20673B760071C6C6 /* UISearchBar+WWAdd.m in Sources */,
+				4DCF38EC20673B760071C6C6 /* WYWLayerTableViewController.m in Sources */,
+				4DCF38E820673B760071C6C6 /* CAGradientLayer+WWAdd.m in Sources */,
+				4DCF38EB20673B760071C6C6 /* WYWTestViewController.m in Sources */,
 				4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */,
+				4DCF38E720673B760071C6C6 /* WYWLayerViewController.m in Sources */,
 				21CB5D6C1FD0413D009AE4ED /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
