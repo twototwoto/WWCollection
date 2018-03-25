@@ -27,7 +27,41 @@
     
     [self testCheckBox];
     [self testKVO];
+    [self testUIButtonNormalSelectedHighlighted];
 
+}
+
+#pragma mark -
+- (void)btnClick:(UIButton *)sender{
+    sender.selected = !sender.selected;
+//    if (sender.selected) {
+//        return;
+//    }
+//    sender.selected = YES;
+    
+}
+
+#pragma mark - 关于选中的button 的再次点击的问题
+- (void)testUIButtonNormalSelectedHighlighted{
+    //学习网址：https://www.jianshu.com/p/57b2c41448bf
+    UIButton *btn = [UIButton new];
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 50, 50);
+    btn.backgroundColor = [UIColor blackColor];
+    [btn setTitle:@"button" forState:UIControlStateNormal];
+    [btn setTitle:@"button" forState:UIControlStateHighlighted];
+    [btn setTitle:@"selected" forState:UIControlStateSelected|UIControlStateHighlighted];
+    [btn setTitle:@"selected" forState:UIControlStateSelected];
+    WWLog(@"%zd--%zd---------%zd-%zd",UIControlStateNormal,UIControlStateHighlighted,UIControlStateSelected|UIControlStateHighlighted,UIControlStateSelected);//0-----1---5---4
+    //话说这个和位移枚举有关系
+    
+    [self.view addSubview:btn];
+    btn.center = self.view.center;
+    
+    
+//    [btn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+//    btn setBackgroundImage:[] forState:<#(UIControlState)#>
+    
 }
 
 - (void)dealloc{
