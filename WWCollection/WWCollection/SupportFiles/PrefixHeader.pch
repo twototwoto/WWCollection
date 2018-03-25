@@ -129,5 +129,6 @@
     #else
         #define WWLog(...)
     #endif
+#endif
 
 #endif /* PrefixHeader_pch */

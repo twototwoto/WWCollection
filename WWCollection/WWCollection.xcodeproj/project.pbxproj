@@ -67,6 +67,7 @@
 		21CB5D8D1FD0413E009AE4ED /* WWCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWCollectionUITests.m; sourceTree = "<group>"; };
 		21CB5D931FD0413E009AE4ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D73AC802067998600C8C84B /* ReadMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadMe.h; sourceTree = "<group>"; };
 		4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWSearchResultViewController.h; sourceTree = "<group>"; };
 		4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWSearchResultViewController.m; sourceTree = "<group>"; };
 		4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WWAdd.h"; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		21CB5D691FD0413D009AE4ED /* WWCollection */ = {
 			isa = PBXGroup;
 			children = (
+				4D73AC7F2067996000C8C84B /* ReadMe */,
 				4D73AC7D206795D800C8C84B /* Classes */,
 				4DCF38DE20673B750071C6C6 /* 隐式动画 */,
 				4DCF38CA20673B740071C6C6 /* 专用图层 */,
@@ -230,6 +232,14 @@
 				4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4D73AC7F2067996000C8C84B /* ReadMe */ = {
+			isa = PBXGroup;
+			children = (
+				4D73AC802067998600C8C84B /* ReadMe.h */,
+			);
+			path = ReadMe;
 			sourceTree = "<group>";
 		};
 		4DCF38CA20673B740071C6C6 /* 专用图层 */ = {
@@ -641,7 +651,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6LSH6U6V8;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WWCollection/SupportFiles/PrefixHeader.pch";
-				INFOPLIST_FILE = WWCollection/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WWCollection/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.ITCoderW.WWCollection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -656,7 +666,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6LSH6U6V8;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WWCollection/SupportFiles/PrefixHeader.pch";
-				INFOPLIST_FILE = WWCollection/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WWCollection/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.ITCoderW.WWCollection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
