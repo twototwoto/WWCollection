@@ -26,8 +26,30 @@
     [self testTextField];
     
     [self testCheckBox];
-    
+    [self testKVO];
 
+}
+
+- (void)dealloc{
+    /*对于KVO没有正常地添加的情况下 removeObserver的时候的问题的一个： Cannot remove an observer <WYWTestViewController 0x7f8cfba05af0> for the key path "kvo" from <WYWTestViewController 0x7f8cfba05af0> because it is not registered as an observer.
+     https://www.jianshu.com/p/f339d4f59ce9
+     */
+    
+    @try{
+        [self removeObserver:self forKeyPath:@"kvo"];
+    }
+    @catch(NSException *exception){
+        WWLog(@"%@",exception);
+    }
+    /*https://stackoverflow.com/questions/31708337/ios-kvo-cannot-remove-an-observer  这里也有相关的问题讨论 说到的基本是在ViewDidLoad中来addObserver 然后在dealloc 中removeObserver
+    上边的方式其实算是只是一种防止崩溃的方式 但是可能缺掩盖了问题 可能会引发不可推测的问题
+     */
+    
+    
+}
+
+- (void)testKVO{
+    [self addObserver:self forKeyPath:@"kvo" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)testCheckBox{

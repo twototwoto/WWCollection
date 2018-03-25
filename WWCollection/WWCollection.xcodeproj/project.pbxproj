@@ -295,10 +295,10 @@
 		4DCF38D720673B740071C6C6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4DCF38DB20673B740071C6C6 /* WYWTestViewController.h */,
 				4DCF38D820673B740071C6C6 /* WYWTestViewController.m */,
 				4DCF38D920673B740071C6C6 /* WYWLayerTableViewController.h */,
 				4DCF38DA20673B740071C6C6 /* WYWLayerTableViewController.m */,
-				4DCF38DB20673B740071C6C6 /* WYWTestViewController.h */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
