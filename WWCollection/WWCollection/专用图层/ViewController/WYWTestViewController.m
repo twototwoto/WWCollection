@@ -8,6 +8,8 @@
 
 #import "WYWTestViewController.h"
 
+#import "UIButton+WWAdd.h"
+
 @interface WYWTestViewController ()
 
 @end
@@ -28,7 +30,28 @@
     [self testCheckBox];
     [self testKVO];
     [self testUIButtonNormalSelectedHighlighted];
+    [self testUIButtonTextImagePosition];
 
+    
+}
+
+#pragma mark - 改变UIButton的文字图片位置
+- (void)testUIButtonTextImagePosition{
+    UIButton *btn = [UIButton new];
+    [btn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
+    [btn setTitle:@"title" forState:UIControlStateNormal];
+    [btn setTitle:@"titlee" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor yellowColor];
+    btn.titleLabel.backgroundColor = [UIColor blackColor];
+//    [btn sizeToFit];
+    btn.frame = CGRectMake(0, 0, 240, 240);
+    
+    WWLog(@"%@--%@",NSStringFromCGRect(btn.imageView.frame),NSStringFromCGRect(btn.titleLabel.frame));
+    [btn wyw_buttonCenterImageAndTitle];
+    
+    [self.view addSubview:btn];
+    btn.center = self.view.center;
+    
 }
 
 #pragma mark -

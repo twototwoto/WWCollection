@@ -28,9 +28,24 @@ static NSString *kCellReuseIDStr = @"kCellReuseIDStr";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     //设置导航栏的背景色
-    [self.navigationController.navigationBar wyw_setBackgroundColor:[[UIColor blueColor]colorWithAlphaComponent:0.1f]];
+//    [self.navigationController.navigationBar wyw_setBackgroundColor:[[UIColor blueColor]colorWithAlphaComponent:0.1f]];
+    [self.navigationController.navigationBar wyw_setBackgroundColor:[[UIColor blueColor]colorWithAlphaComponent:0]];
     
-    [self testSearchController];
+    UIColor *color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:0];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.navigationController.navigationBar wyw_setBackgroundColor:color];
+    self.navigationController.title = @"title";
+    self.title = @"title";
+    self.view.backgroundColor = [UIColor redColor];
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [btn setTitle:@"返回" forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    
+//    [self testSearchController];
 //    [self.view addSubview:self.mainTableView];
     
     

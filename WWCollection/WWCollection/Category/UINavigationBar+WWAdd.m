@@ -6,6 +6,7 @@
 //  Copyright © 2018年 ITCoderW. All rights reserved.
 //
 //学习网址：http://tech.glowing.com/cn/change-uinavigationbar-backgroundcolor-dynamically/#
+//https://github.com/ltebean/LTNavigationBar
 #import "UINavigationBar+WWAdd.h"
 #import <objc/runtime.h>
 
@@ -29,7 +30,8 @@ static char overlaykey;
         
         self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 //        self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self insertSubview:self.overlay atIndex:1];
+//        [self insertSubview:self.overlay atIndex:1];
+        [self.subviews.firstObject insertSubview:self.overlay atIndex:0];
     }
     self.overlay.backgroundColor = backgroundColor;
 }

@@ -16,6 +16,7 @@
 		21CB5D7D1FD0413E009AE4ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D7C1FD0413E009AE4ED /* main.m */; };
 		21CB5D871FD0413E009AE4ED /* WWCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D861FD0413E009AE4ED /* WWCollectionTests.m */; };
 		21CB5D921FD0413E009AE4ED /* WWCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */; };
+		4D73AC8C2069399A00C8C84B /* UIButton+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */; };
 		4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */; };
 		4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */; };
 		4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38C220673B740071C6C6 /* WWSearchBar.m */; };
@@ -68,6 +69,8 @@
 		21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWCollectionUITests.m; sourceTree = "<group>"; };
 		21CB5D931FD0413E009AE4ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D73AC802067998600C8C84B /* ReadMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadMe.h; sourceTree = "<group>"; };
+		4D73AC8A2069399A00C8C84B /* UIButton+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WWAdd.h"; sourceTree = "<group>"; };
+		4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WWAdd.m"; sourceTree = "<group>"; };
 		4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWSearchResultViewController.h; sourceTree = "<group>"; };
 		4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWSearchResultViewController.m; sourceTree = "<group>"; };
 		4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WWAdd.h"; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */,
 				4DCF38C320673B740071C6C6 /* UISearchBar+WWAdd.h */,
 				4DCF38DC20673B750071C6C6 /* UISearchBar+WWAdd.m */,
+				4D73AC8A2069399A00C8C84B /* UIButton+WWAdd.h */,
+				4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				4DCF38ED20673B760071C6C6 /* UISearchBar+WWAdd.m in Sources */,
 				4DCF38EC20673B760071C6C6 /* WYWLayerTableViewController.m in Sources */,
 				4DCF38E820673B760071C6C6 /* CAGradientLayer+WWAdd.m in Sources */,
+				4D73AC8C2069399A00C8C84B /* UIButton+WWAdd.m in Sources */,
 				4DCF38EB20673B760071C6C6 /* WYWTestViewController.m in Sources */,
 				4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */,
 				4DCF38E720673B760071C6C6 /* WYWLayerViewController.m in Sources */,
