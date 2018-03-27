@@ -10,6 +10,10 @@
 
 #import "UIButton+WWAdd.h"
 
+#import <objc/runtime.h>
+
+static void *EOCMyAlertViewKey = @"EOCMyAlertViewKey";
+
 @interface WYWTestViewController ()
 
 @end
@@ -31,9 +35,77 @@
     [self testKVO];
     [self testUIButtonNormalSelectedHighlighted];
     [self testUIButtonTextImagePosition];
+    
+    [self testAssociateObject];
 
     
 }
+
+#pragma mark - 关于关联对象的内容
+- (void)testAssociateObject{
+    //学习内容：Effective Objective-C 2.0编写高质量iOS 与OSX代码的52个有效方法
+    /*
+     对象关联类型
+     OBJC_ASSOCIATION_ASSIGN    assign
+     OBJC_ASSOCIATION_RETAIN_NONATOMIC      nonatomic retain
+     OBJC_ASSOCIATION_COPY_NONATOMIC    nonatomic copy
+     OBJC_ASSOCIATION_RETAIN    retain
+     OBJC_ASSOCIATION_COPY  copy
+     //    objc_AssociationPolicy
+     
+     
+     objc_setAssociatedObject
+     objc_getAssociatedObject
+     objc_removeAssociatedObjects
+     */
+//    [self askUserAQuestion];
+    [self askUserAQuestionWithAssociatedObject];
+    
+}
+
+- (void)askUserAQuestionWithAssociatedObject{
+    UIAlertView *alertV = [[UIAlertView alloc]initWithTitle:@"Question" message:@"What do you want to do" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"继续", nil];
+    void (^block)(NSInteger) = ^(NSInteger buttonIndex){
+        if (buttonIndex == 0) {
+            WWLog(@"do cancel")
+        }else{
+            WWLog(@"do continue");
+        }
+    };
+    objc_setAssociatedObject(alertV, EOCMyAlertViewKey, block, OBJC_ASSOCIATION_COPY);
+    [alertV show];
+    
+    /*
+     使用关联对象的方式可以使得创建警告视图和处理操作结果放在一起了
+     不过要注意循环引用
+     给分类添加属性 也会用到关联对象
+     */
+}
+
+- (void)askUserAQuestion{
+    UIAlertView *alertV = [[UIAlertView alloc]initWithTitle:@"Question" message:@"What do you want to do" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
+    [alertV show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//NS_DEPRECATED_IOS(2_0, 9_0)
+    
+    void(^block)(NSInteger) = objc_getAssociatedObject(alertView, EOCMyAlertViewKey);
+    block(buttonIndex);
+    
+    
+    return;
+    if (buttonIndex == 0) {
+        WWLog(@"do cancel");
+    }else{
+        WWLog(@"do continue");
+    }
+}
+
+
+
+
+
 
 #pragma mark - 改变UIButton的文字图片位置
 - (void)testUIButtonTextImagePosition{
