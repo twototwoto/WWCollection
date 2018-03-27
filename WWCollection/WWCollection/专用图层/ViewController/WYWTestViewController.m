@@ -74,11 +74,27 @@ static void *EOCMyAlertViewKey = @"EOCMyAlertViewKey";
     };
     objc_setAssociatedObject(alertV, EOCMyAlertViewKey, block, OBJC_ASSOCIATION_COPY);
     [alertV show];
-    
+//    objc_setAssociatedObject(<#id  _Nonnull object#>, <#const void * _Nonnull key#>, <#id  _Nullable value#>, <#objc_AssociationPolicy policy#>)
+//    objc_getAssociatedObject(<#id  _Nonnull object#>, <#const void * _Nonnull key#>)
     /*
      使用关联对象的方式可以使得创建警告视图和处理操作结果放在一起了
      不过要注意循环引用
      给分类添加属性 也会用到关联对象
+     objc_setAssociatedObject(<#id  _Nonnull object#>, <#const void * _Nonnull key#>, <#id  _Nullable value#>, <#objc_AssociationPolicy policy#>)
+     相当于
+     把object 源对象
+     通过key
+     和value 关联了起来
+     最后是指定的关联的策略
+     
+     objc_getAssociatedObject(<#id  _Nonnull object#>, <#const void * _Nonnull key#>)
+     相当于是把
+     源对象object
+     通过关联的key
+     取出来
+     
+     这样确实是有点类似于字典的 key value 这种键值对了
+     
      */
 }
 
