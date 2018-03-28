@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15B1F69927F508243D86FA31 /* libPods-WWCollectionTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2AD52223B36DB3F155687F /* libPods-WWCollectionTests.a */; };
 		21CB5D6C1FD0413D009AE4ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D6B1FD0413D009AE4ED /* AppDelegate.m */; };
 		21CB5D6F1FD0413D009AE4ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D6E1FD0413D009AE4ED /* ViewController.m */; };
 		21CB5D721FD0413E009AE4ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CB5D701FD0413E009AE4ED /* Main.storyboard */; };
@@ -17,6 +18,12 @@
 		21CB5D871FD0413E009AE4ED /* WWCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D861FD0413E009AE4ED /* WWCollectionTests.m */; };
 		21CB5D921FD0413E009AE4ED /* WWCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */; };
 		4D73AC8C2069399A00C8C84B /* UIButton+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */; };
+		4D73AC95206B2AA600C8C84B /* WYWCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC94206B2AA600C8C84B /* WYWCollectionView.m */; };
+		4D73AC9F206B8A5F00C8C84B /* WYWCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC9E206B8A5E00C8C84B /* WYWCollectionView.m */; };
+		4D73ACA3206B8B3600C8C84B /* WYWCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACA2206B8B3600C8C84B /* WYWCycleScrollView.m */; };
+		4D73ACA6206B9F3F00C8C84B /* WYWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACA5206B9F3F00C8C84B /* WYWCollectionViewCell.m */; };
+		4D73ACA9206BA1F500C8C84B /* UIView+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACA8206BA1F500C8C84B /* UIView+WWAdd.m */; };
+		4D73ACAE206BDEA800C8C84B /* WWExperienceScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACAD206BDEA800C8C84B /* WWExperienceScrollView.m */; };
 		4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */; };
 		4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */; };
 		4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38C220673B740071C6C6 /* WWSearchBar.m */; };
@@ -31,6 +38,8 @@
 		4DCF38EF20673B760071C6C6 /* WYWImplicitAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38E020673B750071C6C6 /* WYWImplicitAnimationViewController.m */; };
 		4DCF38F220673CAD0071C6C6 /* WWCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38F120673CAC0071C6C6 /* WWCycleView.m */; };
 		4DCF38F5206742CE0071C6C6 /* dataArray.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DCF38F4206742CE0071C6C6 /* dataArray.plist */; };
+		5EC21B079EB5248AD37A0E14 /* libPods-WWCollectionUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB8EE79BF2639F7504595F7 /* libPods-WWCollectionUITests.a */; };
+		F5CBDA72ED84ECC835B27D24 /* libPods-WWCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2068C81FC86B41D4B6350BAB /* libPods-WWCollection.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2068C81FC86B41D4B6350BAB /* libPods-WWCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CB5D671FD0413D009AE4ED /* WWCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CB5D6A1FD0413D009AE4ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		21CB5D6B1FD0413D009AE4ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,9 +78,23 @@
 		21CB5D8D1FD0413E009AE4ED /* WWCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWCollectionUITests.m; sourceTree = "<group>"; };
 		21CB5D931FD0413E009AE4ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE32B5C2D0BD80D752FAD3C /* Pods-WWCollectionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollectionUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollectionUITests/Pods-WWCollectionUITests.release.xcconfig"; sourceTree = "<group>"; };
+		490F459D2056CC0D660E064E /* Pods-WWCollectionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollectionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D73AC802067998600C8C84B /* ReadMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadMe.h; sourceTree = "<group>"; };
 		4D73AC8A2069399A00C8C84B /* UIButton+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WWAdd.h"; sourceTree = "<group>"; };
 		4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WWAdd.m"; sourceTree = "<group>"; };
+		4D73AC93206B2AA600C8C84B /* WYWCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCollectionView.h; sourceTree = "<group>"; };
+		4D73AC94206B2AA600C8C84B /* WYWCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionView.m; sourceTree = "<group>"; };
+		4D73AC9D206B8A5E00C8C84B /* WYWCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCollectionView.h; sourceTree = "<group>"; };
+		4D73AC9E206B8A5E00C8C84B /* WYWCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionView.m; sourceTree = "<group>"; };
+		4D73ACA1206B8B3600C8C84B /* WYWCycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCycleScrollView.h; sourceTree = "<group>"; };
+		4D73ACA2206B8B3600C8C84B /* WYWCycleScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCycleScrollView.m; sourceTree = "<group>"; };
+		4D73ACA4206B9F3F00C8C84B /* WYWCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCollectionViewCell.h; sourceTree = "<group>"; };
+		4D73ACA5206B9F3F00C8C84B /* WYWCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionViewCell.m; sourceTree = "<group>"; };
+		4D73ACA7206BA1F500C8C84B /* UIView+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WWAdd.h"; sourceTree = "<group>"; };
+		4D73ACA8206BA1F500C8C84B /* UIView+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WWAdd.m"; sourceTree = "<group>"; };
+		4D73ACAC206BDEA800C8C84B /* WWExperienceScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWExperienceScrollView.h; sourceTree = "<group>"; };
+		4D73ACAD206BDEA800C8C84B /* WWExperienceScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWExperienceScrollView.m; sourceTree = "<group>"; };
 		4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWSearchResultViewController.h; sourceTree = "<group>"; };
 		4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWSearchResultViewController.m; sourceTree = "<group>"; };
 		4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WWAdd.h"; sourceTree = "<group>"; };
@@ -99,6 +123,12 @@
 		4DCF38F020673CAC0071C6C6 /* WWCycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWCycleView.h; sourceTree = "<group>"; };
 		4DCF38F120673CAC0071C6C6 /* WWCycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWCycleView.m; sourceTree = "<group>"; };
 		4DCF38F4206742CE0071C6C6 /* dataArray.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dataArray.plist; sourceTree = "<group>"; };
+		7CD0B15EFC6E3AB752EEDBA5 /* Pods-WWCollectionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollectionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests.release.xcconfig"; sourceTree = "<group>"; };
+		AB2AD52223B36DB3F155687F /* libPods-WWCollectionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWCollectionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B013D51642ECE97AC6D17CC4 /* Pods-WWCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection.debug.xcconfig"; sourceTree = "<group>"; };
+		BFB8EE79BF2639F7504595F7 /* libPods-WWCollectionUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWCollectionUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D196A3EB3F9CBD195F3112C1 /* Pods-WWCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection.release.xcconfig"; sourceTree = "<group>"; };
+		D55569CF00039B1682F07612 /* Pods-WWCollectionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollectionUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollectionUITests/Pods-WWCollectionUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5CBDA72ED84ECC835B27D24 /* libPods-WWCollection.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B1F69927F508243D86FA31 /* libPods-WWCollectionTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EC21B079EB5248AD37A0E14 /* libPods-WWCollectionUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +166,8 @@
 				21CB5D851FD0413E009AE4ED /* WWCollectionTests */,
 				21CB5D901FD0413E009AE4ED /* WWCollectionUITests */,
 				21CB5D681FD0413D009AE4ED /* Products */,
+				6B480F4A86A790B3FDDFA074 /* Pods */,
+				4938273314993059F5508BCD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +217,16 @@
 			path = WWCollectionUITests;
 			sourceTree = "<group>";
 		};
+		4938273314993059F5508BCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2068C81FC86B41D4B6350BAB /* libPods-WWCollection.a */,
+				AB2AD52223B36DB3F155687F /* libPods-WWCollectionTests.a */,
+				BFB8EE79BF2639F7504595F7 /* libPods-WWCollectionUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4D73AC7A2067930E00C8C84B /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +259,8 @@
 				4DCF38DC20673B750071C6C6 /* UISearchBar+WWAdd.m */,
 				4D73AC8A2069399A00C8C84B /* UIButton+WWAdd.h */,
 				4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */,
+				4D73ACA7206BA1F500C8C84B /* UIView+WWAdd.h */,
+				4D73ACA8206BA1F500C8C84B /* UIView+WWAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -221,6 +268,8 @@
 		4D73AC7D206795D800C8C84B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D73ACAA206BDE7700C8C84B /* Experience */,
+				4D73AC9C206B8A4200C8C84B /* Learn */,
 				4D73AC7E206795E000C8C84B /* ViewControllers */,
 			);
 			path = Classes;
@@ -245,6 +294,44 @@
 				4D73AC802067998600C8C84B /* ReadMe.h */,
 			);
 			path = ReadMe;
+			sourceTree = "<group>";
+		};
+		4D73AC9C206B8A4200C8C84B /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACA0206B8A6500C8C84B /* View */,
+			);
+			path = Learn;
+			sourceTree = "<group>";
+		};
+		4D73ACA0206B8A6500C8C84B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D73AC9D206B8A5E00C8C84B /* WYWCollectionView.h */,
+				4D73AC9E206B8A5E00C8C84B /* WYWCollectionView.m */,
+				4D73ACA1206B8B3600C8C84B /* WYWCycleScrollView.h */,
+				4D73ACA2206B8B3600C8C84B /* WYWCycleScrollView.m */,
+				4D73ACA4206B9F3F00C8C84B /* WYWCollectionViewCell.h */,
+				4D73ACA5206B9F3F00C8C84B /* WYWCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D73ACAA206BDE7700C8C84B /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACAB206BDE7F00C8C84B /* View */,
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		4D73ACAB206BDE7F00C8C84B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACAC206BDEA800C8C84B /* WWExperienceScrollView.h */,
+				4D73ACAD206BDEA800C8C84B /* WWExperienceScrollView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4DCF38CA20673B740071C6C6 /* 专用图层 */ = {
@@ -284,6 +371,8 @@
 				4DCF38F120673CAC0071C6C6 /* WWCycleView.m */,
 				4DCF38D220673B740071C6C6 /* WYWDrawingView.h */,
 				4DCF38D320673B740071C6C6 /* WYWDrawingView.m */,
+				4D73AC93206B2AA600C8C84B /* WYWCollectionView.h */,
+				4D73AC94206B2AA600C8C84B /* WYWCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +429,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6B480F4A86A790B3FDDFA074 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B013D51642ECE97AC6D17CC4 /* Pods-WWCollection.debug.xcconfig */,
+				D196A3EB3F9CBD195F3112C1 /* Pods-WWCollection.release.xcconfig */,
+				490F459D2056CC0D660E064E /* Pods-WWCollectionTests.debug.xcconfig */,
+				7CD0B15EFC6E3AB752EEDBA5 /* Pods-WWCollectionTests.release.xcconfig */,
+				D55569CF00039B1682F07612 /* Pods-WWCollectionUITests.debug.xcconfig */,
+				2EE32B5C2D0BD80D752FAD3C /* Pods-WWCollectionUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,9 +449,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21CB5D961FD0413E009AE4ED /* Build configuration list for PBXNativeTarget "WWCollection" */;
 			buildPhases = (
+				B972276FFBA9ED02936563E5 /* [CP] Check Pods Manifest.lock */,
 				21CB5D631FD0413D009AE4ED /* Sources */,
 				21CB5D641FD0413D009AE4ED /* Frameworks */,
 				21CB5D651FD0413D009AE4ED /* Resources */,
+				C62785995FD08C76D2956B40 /* [CP] Embed Pods Frameworks */,
+				C3058024094BBBE2DC408A1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -364,9 +469,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21CB5D991FD0413E009AE4ED /* Build configuration list for PBXNativeTarget "WWCollectionTests" */;
 			buildPhases = (
+				9357C329BA148E7B28799972 /* [CP] Check Pods Manifest.lock */,
 				21CB5D7E1FD0413E009AE4ED /* Sources */,
 				21CB5D7F1FD0413E009AE4ED /* Frameworks */,
 				21CB5D801FD0413E009AE4ED /* Resources */,
+				ABB91F644FB6F388655EC81B /* [CP] Embed Pods Frameworks */,
+				22C21071EA30DA20AFD09C23 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -382,9 +490,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21CB5D9C1FD0413E009AE4ED /* Build configuration list for PBXNativeTarget "WWCollectionUITests" */;
 			buildPhases = (
+				54AD19CCA6D7C73A4AC29880 /* [CP] Check Pods Manifest.lock */,
 				21CB5D891FD0413E009AE4ED /* Sources */,
 				21CB5D8A1FD0413E009AE4ED /* Frameworks */,
 				21CB5D8B1FD0413E009AE4ED /* Resources */,
+				DE1B664F892B57332DFF6F26 /* [CP] Embed Pods Frameworks */,
+				EDE2F51FA748F47EC2E59A3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -469,6 +580,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22C21071EA30DA20AFD09C23 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54AD19CCA6D7C73A4AC29880 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WWCollectionUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9357C329BA148E7B28799972 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WWCollectionTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABB91F644FB6F388655EC81B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B972276FFBA9ED02936563E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WWCollection-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3058024094BBBE2DC408A1D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C62785995FD08C76D2956B40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE1B664F892B57332DFF6F26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionUITests/Pods-WWCollectionUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDE2F51FA748F47EC2E59A3F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionUITests/Pods-WWCollectionUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		21CB5D631FD0413D009AE4ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -476,18 +734,24 @@
 			files = (
 				4DCF38EF20673B760071C6C6 /* WYWImplicitAnimationViewController.m in Sources */,
 				21CB5D6F1FD0413D009AE4ED /* ViewController.m in Sources */,
+				4D73ACA6206B9F3F00C8C84B /* WYWCollectionViewCell.m in Sources */,
 				4DCF38EA20673B760071C6C6 /* CAShapeLayer+WWAdd.m in Sources */,
 				4DCF38E920673B760071C6C6 /* WYWDrawingView.m in Sources */,
+				4D73AC9F206B8A5F00C8C84B /* WYWCollectionView.m in Sources */,
 				4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */,
 				4DCF38F220673CAD0071C6C6 /* WWCycleView.m in Sources */,
+				4D73ACAE206BDEA800C8C84B /* WWExperienceScrollView.m in Sources */,
 				21CB5D751FD0413E009AE4ED /* WWCollection.xcdatamodeld in Sources */,
 				21CB5D7D1FD0413E009AE4ED /* main.m in Sources */,
 				4DCF38EE20673B760071C6C6 /* WYWHomeViewController.m in Sources */,
+				4D73ACA9206BA1F500C8C84B /* UIView+WWAdd.m in Sources */,
 				4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */,
+				4D73ACA3206B8B3600C8C84B /* WYWCycleScrollView.m in Sources */,
 				4DCF38ED20673B760071C6C6 /* UISearchBar+WWAdd.m in Sources */,
 				4DCF38EC20673B760071C6C6 /* WYWLayerTableViewController.m in Sources */,
 				4DCF38E820673B760071C6C6 /* CAGradientLayer+WWAdd.m in Sources */,
 				4D73AC8C2069399A00C8C84B /* UIButton+WWAdd.m in Sources */,
+				4D73AC95206B2AA600C8C84B /* WYWCollectionView.m in Sources */,
 				4DCF38EB20673B760071C6C6 /* WYWTestViewController.m in Sources */,
 				4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */,
 				4DCF38E720673B760071C6C6 /* WYWLayerViewController.m in Sources */,
@@ -652,6 +916,7 @@
 		};
 		21CB5D971FD0413E009AE4ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B013D51642ECE97AC6D17CC4 /* Pods-WWCollection.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -667,6 +932,7 @@
 		};
 		21CB5D981FD0413E009AE4ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D196A3EB3F9CBD195F3112C1 /* Pods-WWCollection.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -682,6 +948,7 @@
 		};
 		21CB5D9A1FD0413E009AE4ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 490F459D2056CC0D660E064E /* Pods-WWCollectionTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -697,6 +964,7 @@
 		};
 		21CB5D9B1FD0413E009AE4ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CD0B15EFC6E3AB752EEDBA5 /* Pods-WWCollectionTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -712,6 +980,7 @@
 		};
 		21CB5D9D1FD0413E009AE4ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D55569CF00039B1682F07612 /* Pods-WWCollectionUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6LSH6U6V8;
@@ -726,6 +995,7 @@
 		};
 		21CB5D9E1FD0413E009AE4ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EE32B5C2D0BD80D752FAD3C /* Pods-WWCollectionUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6LSH6U6V8;

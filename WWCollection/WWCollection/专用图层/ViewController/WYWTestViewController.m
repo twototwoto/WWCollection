@@ -7,14 +7,19 @@
 //
 
 #import "WYWTestViewController.h"
+#import "WYWCollectionView.h"
+#import "WYWCollectionViewCell.h"
+#import "WWExperienceScrollView.h"
 
 #import "UIButton+WWAdd.h"
+
+
 
 #import <objc/runtime.h>
 
 static void *EOCMyAlertViewKey = @"EOCMyAlertViewKey";
 
-@interface WYWTestViewController ()
+@interface WYWTestViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
 
@@ -37,8 +42,89 @@ static void *EOCMyAlertViewKey = @"EOCMyAlertViewKey";
     [self testUIButtonTextImagePosition];
     
     [self testAssociateObject];
+    
+//    [self testUICollectionView];
+    
+    [self testUIScrollViewHitTest];
 
     
+}
+
+- (void)testUIScrollViewHitTest{
+    WWExperienceScrollView *experienceScrollV = [[WWExperienceScrollView alloc]initWithFrame:CGRectMake(0, 100, 300, 300)];
+    [self.view addSubview:experienceScrollV];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    btn.center = experienceScrollV.center;
+    [btn addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)addBtnClick:(UIButton *)sender{
+    WWLog(@"btnClick");
+}
+
+- (void)testUICollectionView{
+    return;
+    self.view.backgroundColor = [UIColor whiteColor];
+    //Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'UICollectionView must be initialized with a non-nil layout parameter'
+
+//    WYWCollectionView *collectionV = [WYWCollectionView new];
+    CGFloat itemW = (self.view.frame.size.width - 15 * 2.0)/3.0f;
+    CGFloat itemH = 210.f + 20.f+ 24.f;
+    CGFloat verticalMargin = 15.f;
+    CGFloat horizontalMargin = 15.0f;
+    
+    
+    
+    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
+    flowLayout.itemSize = CGSizeMake(itemW, itemH);
+//    flowLayout.minimumLineSpacing = verticalMargin;
+//    flowLayout.minimumInteritemSpacing = horizontalMargin;
+    
+    
+//    flowLayout.itemSize = CGSizeMake(self.view.frame.size.width / 3.0f, self.view.frame.size.height / 3.0f);
+//    flowLayout.minimumLineSpacing = 100.0f;
+//    flowLayout.minimumInteritemSpacing = 50.f;
+//    flowLayout.itemSize = CGSizeMake(100.0f, 100.f);
+//    WYWCollectionView *collectionView = [[WYWCollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"reuseID"];
+//    [collectionView registerClass:[WYWCollectionViewCell class] forCellWithReuseIdentifier:@"reuseID"];
+//
+    [self.view addSubview:collectionView];
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    
+    
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 15.0f;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 15.0f;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 2;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 3;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    WYWCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reuseID" forIndexPath:indexPath];
+    if (indexPath.row % 2) {
+        cell.backgroundColor = [UIColor blueColor];
+    }else{
+        cell.backgroundColor = [UIColor yellowColor];
+    }
+    return cell;
 }
 
 #pragma mark - 关于关联对象的内容
