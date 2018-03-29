@@ -14,3 +14,5 @@
 //封面
 @property (nonatomic,strong) UIImageView *coverImageView;
 @end
+
+//WYWCollectionViewCell.h 名字冲突了。。。。
