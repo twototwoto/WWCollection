@@ -21,6 +21,11 @@
 
 @property (nonatomic,copy) void(^btnBlock)(NSInteger tag);
 
+//承载所有button的数组
+@property (nonatomic,strong) NSMutableArray <UIButton *>*buttonArrayM;
+
 + (instancetype)titleBarViewWithFrame:(CGRect)frame TitleArray:(NSArray *)titleArray textNormalColor:(UIColor *)textNormalColor textSelectedColor:(UIColor *)textSelectedColor;
 
+#pragma mark - 按钮点击
+- (void)btnClick:(UIButton *)sender;
 @end

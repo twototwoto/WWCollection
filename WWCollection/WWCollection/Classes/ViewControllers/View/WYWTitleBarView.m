@@ -33,6 +33,7 @@ static NSTimeInterval const kAnimationInterval = 0.5f;
     if (self) {
 //        [self prepareData];
 //        [self setupUI];
+        self.backgroundColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -55,7 +56,7 @@ static NSTimeInterval const kAnimationInterval = 0.5f;
 }
 
 - (void)setupUI{
-    self.backgroundColor = [UIColor lightGrayColor];
+    
     [self setupOtherViews];
     [self setupButtons];
 }
@@ -117,6 +118,7 @@ static NSTimeInterval const kAnimationInterval = 0.5f;
         subBtn.selected = NO;
     }
     sender.selected = YES;
+    NSAssert(self.btnBlock, @"请写明block回调");
     
     self.btnBlock(sender.tag);
 }
