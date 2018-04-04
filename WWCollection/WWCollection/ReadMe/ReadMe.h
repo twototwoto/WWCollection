@@ -48,7 +48,22 @@
         这样才可以适当避免闪动 其实自己就卡在了这一步过
  参考地址：https://github.com/liuzhongning/NNJaneBookView
  
+ 2018-04-04
+ 初步考虑UITableView的Cell上的文字展开和收起的问题：
+ 查看了相关资料后 对于比较简单的cell上主要组成部分为展示文字的UILabel的这种情况
  
+ 比如说我们要一个cell最多展示4行的文字的Label
+    * 那么如果是不要求行间距的情况下 其实UIFont有一个lineHeight的属性 乘以行数就是cell中的文字label的收缩状态下 要展示的高度
+    * 这个我还没试 如果是考虑文字的行间距的情况下 结合上边的lineHeight再加上对应的行间距来计算 或者换种方式计算 参考着字符串和NSMutableParagraphStyle 使用boundingRect来做相关的计算
+    * 那么在heightForRow的代理方法里边需要注意的是
+        * 判断要展示的文字内容的高度 如果高度高于了限制的最大的高度 那么只显示4行数据
+        * 如果是要展示的文字的内容的高度 低于限制的最大的高度 那么就只返回对应的字符串的高度
+    * 在点击cell 的时候展开内容需要注意的是 选用的方式可以是直接改变对应的cell的文字Label 的numberofLines 为 0 ，然后调用到了heightForRow的时候cell就展开了
+        当再次点击label的时候cell的numberofLines 再恢复为限制的行数
+    * 在对cell的内容展开的时候 可以给cell的模型数据一个是否展开的标记 防止重用cell的时候出现问题
+ 相关问题正在探索中 有更多发现再改善
+ 参考的网址有：https://blog.csdn.net/Lotheve/article/details/51011646
+ https://github.com/gsdios/GSD_WeiXin
  
  
  
