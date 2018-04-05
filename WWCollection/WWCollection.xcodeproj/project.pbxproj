@@ -18,12 +18,18 @@
 		21CB5D871FD0413E009AE4ED /* WWCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D861FD0413E009AE4ED /* WWCollectionTests.m */; };
 		21CB5D921FD0413E009AE4ED /* WWCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CB5D911FD0413E009AE4ED /* WWCollectionUITests.m */; };
 		4D73AC8C2069399A00C8C84B /* UIButton+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */; };
-		4D73AC95206B2AA600C8C84B /* WYWCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC94206B2AA600C8C84B /* WYWCollectionView.m */; };
-		4D73AC9F206B8A5F00C8C84B /* WYWCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73AC9E206B8A5E00C8C84B /* WYWCollectionView.m */; };
-		4D73ACA3206B8B3600C8C84B /* WYWCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACA2206B8B3600C8C84B /* WYWCycleScrollView.m */; };
-		4D73ACA6206B9F3F00C8C84B /* WYWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACA5206B9F3F00C8C84B /* WYWCollectionViewCell.m */; };
 		4D73ACA9206BA1F500C8C84B /* UIView+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACA8206BA1F500C8C84B /* UIView+WWAdd.m */; };
 		4D73ACAE206BDEA800C8C84B /* WWExperienceScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACAD206BDEA800C8C84B /* WWExperienceScrollView.m */; };
+		4D73ACC0206CC96700C8C84B /* WYWPraciseLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACBF206CC96700C8C84B /* WYWPraciseLoopView.m */; };
+		4D73ACC3206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACC2206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.m */; };
+		4D73ACC7206CCD3000C8C84B /* WYWPractiseLoopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACC6206CCD3000C8C84B /* WYWPractiseLoopViewModel.m */; };
+		4D73ACCC206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACCB206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.m */; };
+		4D73ACD0206CEE0E00C8C84B /* WYWPractiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACCF206CEE0E00C8C84B /* WYWPractiseViewController.m */; };
+		4D73ACD7206CF4E400C8C84B /* WYWLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACD6206CF4E400C8C84B /* WYWLoopViewController.m */; };
+		4D73ACDA206CF50300C8C84B /* WYWLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACD9206CF50300C8C84B /* WYWLoopView.m */; };
+		4D73ACDD206CF51500C8C84B /* WYWLoopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACDC206CF51500C8C84B /* WYWLoopViewModel.m */; };
+		4D73ACE3206CF68A00C8C84B /* WYWLoopViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACE2206CF68A00C8C84B /* WYWLoopViewCell.m */; };
+		4D73ACE6206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D73ACE5206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.m */; };
 		4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */; };
 		4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7987EA205C06EA00106B1C /* UINavigationBar+WWAdd.m */; };
 		4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38C220673B740071C6C6 /* WWSearchBar.m */; };
@@ -38,6 +44,19 @@
 		4DCF38EF20673B760071C6C6 /* WYWImplicitAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38E020673B750071C6C6 /* WYWImplicitAnimationViewController.m */; };
 		4DCF38F220673CAD0071C6C6 /* WWCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF38F120673CAC0071C6C6 /* WWCycleView.m */; };
 		4DCF38F5206742CE0071C6C6 /* dataArray.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DCF38F4206742CE0071C6C6 /* dataArray.plist */; };
+		4DDDB6A02070754B00A9D60D /* UIDevice+WYWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDB69F2070754B00A9D60D /* UIDevice+WYWAdd.m */; };
+		4DDDB6E42071F73600A9D60D /* WYWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDB6E02071F73600A9D60D /* WYWCollectionViewCell.m */; };
+		4DDDB6E52071F73600A9D60D /* WYWCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDB6E12071F73600A9D60D /* WYWCollectionView.m */; };
+		4DDDB73C2076716E00A9D60D /* EOC1_5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDDB73B2076716E00A9D60D /* EOC1_5ViewController.m */; };
+		4DFAECA7206E3D560067130E /* WYWTitleBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAECA6206E3D560067130E /* WYWTitleBarView.m */; };
+		4DFAECFD206F4D300067130E /* TestClangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAECFC206F4D2F0067130E /* TestClangViewController.m */; };
+		4DFAED00206F4DB20067130E /* TestClangObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAECFF206F4DB20067130E /* TestClangObject.m */; };
+		4DFAED05206F69850067130E /* EOCClassA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAED04206F69850067130E /* EOCClassA.m */; };
+		4DFAED08206F699F0067130E /* EOCClassB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAED07206F699F0067130E /* EOCClassB.m */; };
+		4DFAED0B206F6BB70067130E /* EOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAED0A206F6BB70067130E /* EOCViewController.m */; };
+		4DFAED0E206F6D3A0067130E /* NSObject+WWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAED0D206F6D3A0067130E /* NSObject+WWAdd.m */; };
+		4DFAED11206F782C0067130E /* EOCBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAED10206F782C0067130E /* EOCBaseClass.m */; };
+		4DFAED14206F78400067130E /* EOCSubClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFAED13206F78400067130E /* EOCSubClass.m */; };
 		5EC21B079EB5248AD37A0E14 /* libPods-WWCollectionUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB8EE79BF2639F7504595F7 /* libPods-WWCollectionUITests.a */; };
 		F5CBDA72ED84ECC835B27D24 /* libPods-WWCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2068C81FC86B41D4B6350BAB /* libPods-WWCollection.a */; };
 /* End PBXBuildFile section */
@@ -83,18 +102,30 @@
 		4D73AC802067998600C8C84B /* ReadMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadMe.h; sourceTree = "<group>"; };
 		4D73AC8A2069399A00C8C84B /* UIButton+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WWAdd.h"; sourceTree = "<group>"; };
 		4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WWAdd.m"; sourceTree = "<group>"; };
-		4D73AC93206B2AA600C8C84B /* WYWCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCollectionView.h; sourceTree = "<group>"; };
-		4D73AC94206B2AA600C8C84B /* WYWCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionView.m; sourceTree = "<group>"; };
-		4D73AC9D206B8A5E00C8C84B /* WYWCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCollectionView.h; sourceTree = "<group>"; };
-		4D73AC9E206B8A5E00C8C84B /* WYWCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionView.m; sourceTree = "<group>"; };
-		4D73ACA1206B8B3600C8C84B /* WYWCycleScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCycleScrollView.h; sourceTree = "<group>"; };
-		4D73ACA2206B8B3600C8C84B /* WYWCycleScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCycleScrollView.m; sourceTree = "<group>"; };
-		4D73ACA4206B9F3F00C8C84B /* WYWCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWCollectionViewCell.h; sourceTree = "<group>"; };
-		4D73ACA5206B9F3F00C8C84B /* WYWCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionViewCell.m; sourceTree = "<group>"; };
 		4D73ACA7206BA1F500C8C84B /* UIView+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WWAdd.h"; sourceTree = "<group>"; };
 		4D73ACA8206BA1F500C8C84B /* UIView+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WWAdd.m"; sourceTree = "<group>"; };
 		4D73ACAC206BDEA800C8C84B /* WWExperienceScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWExperienceScrollView.h; sourceTree = "<group>"; };
 		4D73ACAD206BDEA800C8C84B /* WWExperienceScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWExperienceScrollView.m; sourceTree = "<group>"; };
+		4D73ACBE206CC96700C8C84B /* WYWPraciseLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWPraciseLoopView.h; sourceTree = "<group>"; };
+		4D73ACBF206CC96700C8C84B /* WYWPraciseLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWPraciseLoopView.m; sourceTree = "<group>"; };
+		4D73ACC1206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWPractiseLoopCollectionViewCell.h; sourceTree = "<group>"; };
+		4D73ACC2206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWPractiseLoopCollectionViewCell.m; sourceTree = "<group>"; };
+		4D73ACC5206CCD3000C8C84B /* WYWPractiseLoopViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWPractiseLoopViewModel.h; sourceTree = "<group>"; };
+		4D73ACC6206CCD3000C8C84B /* WYWPractiseLoopViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWPractiseLoopViewModel.m; sourceTree = "<group>"; };
+		4D73ACCA206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWPractiseLoopViewCellViewModel.h; sourceTree = "<group>"; };
+		4D73ACCB206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWPractiseLoopViewCellViewModel.m; sourceTree = "<group>"; };
+		4D73ACCE206CEE0E00C8C84B /* WYWPractiseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWPractiseViewController.h; sourceTree = "<group>"; };
+		4D73ACCF206CEE0E00C8C84B /* WYWPractiseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWPractiseViewController.m; sourceTree = "<group>"; };
+		4D73ACD5206CF4E400C8C84B /* WYWLoopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWLoopViewController.h; sourceTree = "<group>"; };
+		4D73ACD6206CF4E400C8C84B /* WYWLoopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWLoopViewController.m; sourceTree = "<group>"; };
+		4D73ACD8206CF50300C8C84B /* WYWLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWLoopView.h; sourceTree = "<group>"; };
+		4D73ACD9206CF50300C8C84B /* WYWLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWLoopView.m; sourceTree = "<group>"; };
+		4D73ACDB206CF51500C8C84B /* WYWLoopViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWLoopViewModel.h; sourceTree = "<group>"; };
+		4D73ACDC206CF51500C8C84B /* WYWLoopViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWLoopViewModel.m; sourceTree = "<group>"; };
+		4D73ACE1206CF68A00C8C84B /* WYWLoopViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWLoopViewCell.h; sourceTree = "<group>"; };
+		4D73ACE2206CF68A00C8C84B /* WYWLoopViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWLoopViewCell.m; sourceTree = "<group>"; };
+		4D73ACE4206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWPractiseLoopViewFlowLayout.h; sourceTree = "<group>"; };
+		4D73ACE5206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWPractiseLoopViewFlowLayout.m; sourceTree = "<group>"; };
 		4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWSearchResultViewController.h; sourceTree = "<group>"; };
 		4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWSearchResultViewController.m; sourceTree = "<group>"; };
 		4D7987E9205C06EA00106B1C /* UINavigationBar+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WWAdd.h"; sourceTree = "<group>"; };
@@ -123,6 +154,32 @@
 		4DCF38F020673CAC0071C6C6 /* WWCycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWCycleView.h; sourceTree = "<group>"; };
 		4DCF38F120673CAC0071C6C6 /* WWCycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWCycleView.m; sourceTree = "<group>"; };
 		4DCF38F4206742CE0071C6C6 /* dataArray.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dataArray.plist; sourceTree = "<group>"; };
+		4DDDB69E2070754B00A9D60D /* UIDevice+WYWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WYWAdd.h"; sourceTree = "<group>"; };
+		4DDDB69F2070754B00A9D60D /* UIDevice+WYWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WYWAdd.m"; sourceTree = "<group>"; };
+		4DDDB6E02071F73600A9D60D /* WYWCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionViewCell.m; sourceTree = "<group>"; };
+		4DDDB6E12071F73600A9D60D /* WYWCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWCollectionView.m; sourceTree = "<group>"; };
+		4DDDB6E22071F73600A9D60D /* WYWCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWCollectionView.h; sourceTree = "<group>"; };
+		4DDDB6E32071F73600A9D60D /* WYWCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWCollectionViewCell.h; sourceTree = "<group>"; };
+		4DDDB73A2076716E00A9D60D /* EOC1_5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOC1_5ViewController.h; sourceTree = "<group>"; };
+		4DDDB73B2076716E00A9D60D /* EOC1_5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOC1_5ViewController.m; sourceTree = "<group>"; };
+		4DFAECA5206E3D560067130E /* WYWTitleBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYWTitleBarView.h; sourceTree = "<group>"; };
+		4DFAECA6206E3D560067130E /* WYWTitleBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYWTitleBarView.m; sourceTree = "<group>"; };
+		4DFAECFB206F4D2F0067130E /* TestClangViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestClangViewController.h; sourceTree = "<group>"; };
+		4DFAECFC206F4D2F0067130E /* TestClangViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestClangViewController.m; sourceTree = "<group>"; };
+		4DFAECFE206F4DB20067130E /* TestClangObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestClangObject.h; sourceTree = "<group>"; };
+		4DFAECFF206F4DB20067130E /* TestClangObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestClangObject.m; sourceTree = "<group>"; };
+		4DFAED03206F69850067130E /* EOCClassA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCClassA.h; sourceTree = "<group>"; };
+		4DFAED04206F69850067130E /* EOCClassA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCClassA.m; sourceTree = "<group>"; };
+		4DFAED06206F699F0067130E /* EOCClassB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCClassB.h; sourceTree = "<group>"; };
+		4DFAED07206F699F0067130E /* EOCClassB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCClassB.m; sourceTree = "<group>"; };
+		4DFAED09206F6BB70067130E /* EOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCViewController.h; sourceTree = "<group>"; };
+		4DFAED0A206F6BB70067130E /* EOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCViewController.m; sourceTree = "<group>"; };
+		4DFAED0C206F6D3A0067130E /* NSObject+WWAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WWAdd.h"; sourceTree = "<group>"; };
+		4DFAED0D206F6D3A0067130E /* NSObject+WWAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WWAdd.m"; sourceTree = "<group>"; };
+		4DFAED0F206F782C0067130E /* EOCBaseClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCBaseClass.h; sourceTree = "<group>"; };
+		4DFAED10206F782C0067130E /* EOCBaseClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCBaseClass.m; sourceTree = "<group>"; };
+		4DFAED12206F78400067130E /* EOCSubClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCSubClass.h; sourceTree = "<group>"; };
+		4DFAED13206F78400067130E /* EOCSubClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCSubClass.m; sourceTree = "<group>"; };
 		7CD0B15EFC6E3AB752EEDBA5 /* Pods-WWCollectionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollectionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB2AD52223B36DB3F155687F /* libPods-WWCollectionTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWCollectionTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B013D51642ECE97AC6D17CC4 /* Pods-WWCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection.debug.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +318,8 @@
 				4D73AC8B2069399A00C8C84B /* UIButton+WWAdd.m */,
 				4D73ACA7206BA1F500C8C84B /* UIView+WWAdd.h */,
 				4D73ACA8206BA1F500C8C84B /* UIView+WWAdd.m */,
+				4DDDB69E2070754B00A9D60D /* UIDevice+WYWAdd.h */,
+				4DDDB69F2070754B00A9D60D /* UIDevice+WYWAdd.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -268,6 +327,7 @@
 		4D73AC7D206795D800C8C84B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D73ACBC206CC53800C8C84B /* Practise */,
 				4D73ACAA206BDE7700C8C84B /* Experience */,
 				4D73AC9C206B8A4200C8C84B /* Learn */,
 				4D73AC7E206795E000C8C84B /* ViewControllers */,
@@ -278,12 +338,17 @@
 		4D73AC7E206795E000C8C84B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DFAECA4206E3D400067130E /* View */,
 				4DCF38C420673B740071C6C6 /* WYWHomeViewController.h */,
 				4DCF38DD20673B750071C6C6 /* WYWHomeViewController.m */,
 				21CB5D6D1FD0413D009AE4ED /* ViewController.h */,
 				21CB5D6E1FD0413D009AE4ED /* ViewController.m */,
 				4D7987E3205BC9A000106B1C /* WYWSearchResultViewController.h */,
 				4D7987E4205BC9A000106B1C /* WYWSearchResultViewController.m */,
+				4DFAECFE206F4DB20067130E /* TestClangObject.h */,
+				4DFAECFF206F4DB20067130E /* TestClangObject.m */,
+				4DFAECFB206F4D2F0067130E /* TestClangViewController.h */,
+				4DFAECFC206F4D2F0067130E /* TestClangViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,22 +364,9 @@
 		4D73AC9C206B8A4200C8C84B /* Learn */ = {
 			isa = PBXGroup;
 			children = (
-				4D73ACA0206B8A6500C8C84B /* View */,
+				4DFAED01206F69570067130E /* Effective-Objectivc2.0 */,
 			);
 			path = Learn;
-			sourceTree = "<group>";
-		};
-		4D73ACA0206B8A6500C8C84B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4D73AC9D206B8A5E00C8C84B /* WYWCollectionView.h */,
-				4D73AC9E206B8A5E00C8C84B /* WYWCollectionView.m */,
-				4D73ACA1206B8B3600C8C84B /* WYWCycleScrollView.h */,
-				4D73ACA2206B8B3600C8C84B /* WYWCycleScrollView.m */,
-				4D73ACA4206B9F3F00C8C84B /* WYWCollectionViewCell.h */,
-				4D73ACA5206B9F3F00C8C84B /* WYWCollectionViewCell.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4D73ACAA206BDE7700C8C84B /* Experience */ = {
@@ -332,6 +384,105 @@
 				4D73ACAD206BDEA800C8C84B /* WWExperienceScrollView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4D73ACBC206CC53800C8C84B /* Practise */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACD1206CF4A700C8C84B /* MVC */,
+				4D73ACCD206CEDEF00C8C84B /* ViewController */,
+				4D73ACC8206CE0A500C8C84B /* ViewModel */,
+				4D73ACC4206CCD1000C8C84B /* Model */,
+				4D73ACBD206CC54400C8C84B /* View */,
+			);
+			path = Practise;
+			sourceTree = "<group>";
+		};
+		4D73ACBD206CC54400C8C84B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACC9206CE0B600C8C84B /* ViewModel */,
+				4D73ACBE206CC96700C8C84B /* WYWPraciseLoopView.h */,
+				4D73ACBF206CC96700C8C84B /* WYWPraciseLoopView.m */,
+				4D73ACC1206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.h */,
+				4D73ACC2206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.m */,
+				4D73ACE4206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.h */,
+				4D73ACE5206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D73ACC4206CCD1000C8C84B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACC5206CCD3000C8C84B /* WYWPractiseLoopViewModel.h */,
+				4D73ACC6206CCD3000C8C84B /* WYWPractiseLoopViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D73ACC8206CE0A500C8C84B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4D73ACC9206CE0B600C8C84B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACCA206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.h */,
+				4D73ACCB206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4D73ACCD206CEDEF00C8C84B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACCE206CEE0E00C8C84B /* WYWPractiseViewController.h */,
+				4D73ACCF206CEE0E00C8C84B /* WYWPractiseViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4D73ACD1206CF4A700C8C84B /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACD4206CF4C000C8C84B /* Model */,
+				4D73ACD3206CF4BC00C8C84B /* View */,
+				4D73ACD2206CF4B400C8C84B /* Controller */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		4D73ACD2206CF4B400C8C84B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACD5206CF4E400C8C84B /* WYWLoopViewController.h */,
+				4D73ACD6206CF4E400C8C84B /* WYWLoopViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4D73ACD3206CF4BC00C8C84B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACD8206CF50300C8C84B /* WYWLoopView.h */,
+				4D73ACD9206CF50300C8C84B /* WYWLoopView.m */,
+				4D73ACE1206CF68A00C8C84B /* WYWLoopViewCell.h */,
+				4D73ACE2206CF68A00C8C84B /* WYWLoopViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D73ACD4206CF4C000C8C84B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D73ACDB206CF51500C8C84B /* WYWLoopViewModel.h */,
+				4D73ACDC206CF51500C8C84B /* WYWLoopViewModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4DCF38CA20673B740071C6C6 /* 专用图层 */ = {
@@ -367,12 +518,14 @@
 		4DCF38D120673B740071C6C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DDDB6E22071F73600A9D60D /* WYWCollectionView.h */,
+				4DDDB6E12071F73600A9D60D /* WYWCollectionView.m */,
+				4DDDB6E32071F73600A9D60D /* WYWCollectionViewCell.h */,
+				4DDDB6E02071F73600A9D60D /* WYWCollectionViewCell.m */,
 				4DCF38F020673CAC0071C6C6 /* WWCycleView.h */,
 				4DCF38F120673CAC0071C6C6 /* WWCycleView.m */,
 				4DCF38D220673B740071C6C6 /* WYWDrawingView.h */,
 				4DCF38D320673B740071C6C6 /* WYWDrawingView.m */,
-				4D73AC93206B2AA600C8C84B /* WYWCollectionView.h */,
-				4D73AC94206B2AA600C8C84B /* WYWCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -429,6 +582,52 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		4DDDB7392076713700A9D60D /* 01-05 */ = {
+			isa = PBXGroup;
+			children = (
+				4DDDB73A2076716E00A9D60D /* EOC1_5ViewController.h */,
+				4DDDB73B2076716E00A9D60D /* EOC1_5ViewController.m */,
+			);
+			path = "01-05";
+			sourceTree = "<group>";
+		};
+		4DFAECA4206E3D400067130E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAECA5206E3D560067130E /* WYWTitleBarView.h */,
+				4DFAECA6206E3D560067130E /* WYWTitleBarView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DFAED01206F69570067130E /* Effective-Objectivc2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				4DDDB7392076713700A9D60D /* 01-05 */,
+				4DFAED02206F69680067130E /* load_initialize */,
+				4DFAED09206F6BB70067130E /* EOCViewController.h */,
+				4DFAED0A206F6BB70067130E /* EOCViewController.m */,
+			);
+			path = "Effective-Objectivc2.0";
+			sourceTree = "<group>";
+		};
+		4DFAED02206F69680067130E /* load_initialize */ = {
+			isa = PBXGroup;
+			children = (
+				4DFAED0C206F6D3A0067130E /* NSObject+WWAdd.h */,
+				4DFAED0D206F6D3A0067130E /* NSObject+WWAdd.m */,
+				4DFAED03206F69850067130E /* EOCClassA.h */,
+				4DFAED04206F69850067130E /* EOCClassA.m */,
+				4DFAED06206F699F0067130E /* EOCClassB.h */,
+				4DFAED07206F699F0067130E /* EOCClassB.m */,
+				4DFAED0F206F782C0067130E /* EOCBaseClass.h */,
+				4DFAED10206F782C0067130E /* EOCBaseClass.m */,
+				4DFAED12206F78400067130E /* EOCSubClass.h */,
+				4DFAED13206F78400067130E /* EOCSubClass.m */,
+			);
+			path = load_initialize;
+			sourceTree = "<group>";
+		};
 		6B480F4A86A790B3FDDFA074 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,8 +652,6 @@
 				21CB5D631FD0413D009AE4ED /* Sources */,
 				21CB5D641FD0413D009AE4ED /* Frameworks */,
 				21CB5D651FD0413D009AE4ED /* Resources */,
-				C62785995FD08C76D2956B40 /* [CP] Embed Pods Frameworks */,
-				C3058024094BBBE2DC408A1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -473,8 +670,6 @@
 				21CB5D7E1FD0413E009AE4ED /* Sources */,
 				21CB5D7F1FD0413E009AE4ED /* Frameworks */,
 				21CB5D801FD0413E009AE4ED /* Resources */,
-				ABB91F644FB6F388655EC81B /* [CP] Embed Pods Frameworks */,
-				22C21071EA30DA20AFD09C23 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -494,8 +689,6 @@
 				21CB5D891FD0413E009AE4ED /* Sources */,
 				21CB5D8A1FD0413E009AE4ED /* Frameworks */,
 				21CB5D8B1FD0413E009AE4ED /* Resources */,
-				DE1B664F892B57332DFF6F26 /* [CP] Embed Pods Frameworks */,
-				EDE2F51FA748F47EC2E59A3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -581,21 +774,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		22C21071EA30DA20AFD09C23 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		54AD19CCA6D7C73A4AC29880 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,21 +810,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABB91F644FB6F388655EC81B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionTests/Pods-WWCollectionTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B972276FFBA9ED02936563E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,66 +828,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3058024094BBBE2DC408A1D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C62785995FD08C76D2956B40 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollection/Pods-WWCollection-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE1B664F892B57332DFF6F26 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionUITests/Pods-WWCollectionUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDE2F51FA748F47EC2E59A3F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWCollectionUITests/Pods-WWCollectionUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -732,27 +835,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D73ACD7206CF4E400C8C84B /* WYWLoopViewController.m in Sources */,
+				4DFAECA7206E3D560067130E /* WYWTitleBarView.m in Sources */,
+				4D73ACE3206CF68A00C8C84B /* WYWLoopViewCell.m in Sources */,
 				4DCF38EF20673B760071C6C6 /* WYWImplicitAnimationViewController.m in Sources */,
+				4DDDB73C2076716E00A9D60D /* EOC1_5ViewController.m in Sources */,
+				4D73ACC7206CCD3000C8C84B /* WYWPractiseLoopViewModel.m in Sources */,
+				4DFAED08206F699F0067130E /* EOCClassB.m in Sources */,
 				21CB5D6F1FD0413D009AE4ED /* ViewController.m in Sources */,
-				4D73ACA6206B9F3F00C8C84B /* WYWCollectionViewCell.m in Sources */,
 				4DCF38EA20673B760071C6C6 /* CAShapeLayer+WWAdd.m in Sources */,
+				4D73ACC3206CCBE600C8C84B /* WYWPractiseLoopCollectionViewCell.m in Sources */,
+				4DFAECFD206F4D300067130E /* TestClangViewController.m in Sources */,
+				4D73ACDD206CF51500C8C84B /* WYWLoopViewModel.m in Sources */,
+				4DDDB6A02070754B00A9D60D /* UIDevice+WYWAdd.m in Sources */,
 				4DCF38E920673B760071C6C6 /* WYWDrawingView.m in Sources */,
-				4D73AC9F206B8A5F00C8C84B /* WYWCollectionView.m in Sources */,
+				4DFAED0E206F6D3A0067130E /* NSObject+WWAdd.m in Sources */,
+				4DDDB6E42071F73600A9D60D /* WYWCollectionViewCell.m in Sources */,
 				4D7987E5205BC9A000106B1C /* WYWSearchResultViewController.m in Sources */,
 				4DCF38F220673CAD0071C6C6 /* WWCycleView.m in Sources */,
 				4D73ACAE206BDEA800C8C84B /* WWExperienceScrollView.m in Sources */,
 				21CB5D751FD0413E009AE4ED /* WWCollection.xcdatamodeld in Sources */,
 				21CB5D7D1FD0413E009AE4ED /* main.m in Sources */,
+				4DFAED05206F69850067130E /* EOCClassA.m in Sources */,
+				4D73ACCC206CE0D300C8C84B /* WYWPractiseLoopViewCellViewModel.m in Sources */,
 				4DCF38EE20673B760071C6C6 /* WYWHomeViewController.m in Sources */,
+				4DFAED14206F78400067130E /* EOCSubClass.m in Sources */,
+				4D73ACDA206CF50300C8C84B /* WYWLoopView.m in Sources */,
 				4D73ACA9206BA1F500C8C84B /* UIView+WWAdd.m in Sources */,
+				4DDDB6E52071F73600A9D60D /* WYWCollectionView.m in Sources */,
+				4DFAED0B206F6BB70067130E /* EOCViewController.m in Sources */,
+				4D73ACE6206D30F400C8C84B /* WYWPractiseLoopViewFlowLayout.m in Sources */,
+				4DFAED11206F782C0067130E /* EOCBaseClass.m in Sources */,
+				4DFAED00206F4DB20067130E /* TestClangObject.m in Sources */,
 				4DCF38E420673B760071C6C6 /* WWSearchBar.m in Sources */,
-				4D73ACA3206B8B3600C8C84B /* WYWCycleScrollView.m in Sources */,
 				4DCF38ED20673B760071C6C6 /* UISearchBar+WWAdd.m in Sources */,
 				4DCF38EC20673B760071C6C6 /* WYWLayerTableViewController.m in Sources */,
 				4DCF38E820673B760071C6C6 /* CAGradientLayer+WWAdd.m in Sources */,
+				4D73ACD0206CEE0E00C8C84B /* WYWPractiseViewController.m in Sources */,
 				4D73AC8C2069399A00C8C84B /* UIButton+WWAdd.m in Sources */,
-				4D73AC95206B2AA600C8C84B /* WYWCollectionView.m in Sources */,
 				4DCF38EB20673B760071C6C6 /* WYWTestViewController.m in Sources */,
+				4D73ACC0206CC96700C8C84B /* WYWPraciseLoopView.m in Sources */,
 				4D7987EB205C06EA00106B1C /* UINavigationBar+WWAdd.m in Sources */,
 				4DCF38E720673B760071C6C6 /* WYWLayerViewController.m in Sources */,
 				21CB5D6C1FD0413D009AE4ED /* AppDelegate.m in Sources */,

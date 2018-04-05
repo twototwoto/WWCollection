@@ -65,7 +65,18 @@
  参考的网址有：https://blog.csdn.net/Lotheve/article/details/51011646
  https://github.com/gsdios/GSD_WeiXin
  
+ 2018-04-05
+ 复习Effective Objective-C 2.0 编写高质量 iOS 与 OSX的52个有效方法
+ 尽量不要使用宏 像时间相关的
+ 可以使用static const NSTimerInterval kDurationTime = 3.0f;
+ const 常量修饰符号 不能够在同一个项目中定义同样的名称的变量（这个时候会生成外部符号 如果是在不同类文件中定义了同名的常量 那么会编译后生成相关类名的.o 文件 并且报错链接错误） 除非是和static结合着使用的时候就可以起到和宏类似的效果 而且还能够清楚看出定义的常量的类型 这种时候是不会创建外部符号的
+ 对于外部可见的类型常量 可以使用的方式是在.h 文件中使用extern 变量类型 变量
+ 在.m 文件中给相应的变量赋值 这样其他的文件就能够看到对应的常量了 并且可以使用
+ 尽量延后引入头文件 可以在头文件中使用@class 类名; 在.m 文件中有需要的话再#import
  
+ 
+ 
+
  
  
  */
