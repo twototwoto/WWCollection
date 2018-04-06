@@ -75,6 +75,15 @@
  尽量延后引入头文件 可以在头文件中使用@class 类名; 在.m 文件中有需要的话再#import
  
  
+ 2018-04-06
+ @autoreleasepool{
+    //内存消耗比较大的代码
+ }
+ 用自动释放块降低内存峰值
+ 每个自动释放池都有其范围 可以避免无意间误用了那些清空池后已为系统回收的对象
+ typedef NSInteger (^EOCMyBlock)(NSInteger value,BOOL flag) //typedef为常用的类型起别名
+ 
+ 
  
 
  
