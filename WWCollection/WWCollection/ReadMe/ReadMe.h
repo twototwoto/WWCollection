@@ -84,6 +84,11 @@
  typedef NSInteger (^EOCMyBlock)(NSInteger value,BOOL flag) //typedef为常用的类型起别名
  
  
+ 2018-04-07
+ 关于UIPageViewController:http://www.theappguruz.com/blog/uipageviewcontroller-in-ios
+ 
+ 组件化：https://blog.cnbang.net/tech/3080/
+ https://casatwy.com/iOS-Modulization.html
  
 
  
