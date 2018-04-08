@@ -90,7 +90,12 @@
  组件化：https://blog.cnbang.net/tech/3080/
  https://casatwy.com/iOS-Modulization.html
  
-
+2018-04-08
+ 学习内容：http://es6.ruanyifeng.com/#docs/style
+ https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
+ 关于继承的内容：最近项目中倒是有界面相似的程度比较大 像背景图片 背景色 导航的返回 这些使用继承的方式可能便于处理了 不过有的视图控制器在继承的时候感觉控制的还是不大好接下来要看看这部分相关内容 相关内容还要消化一下
+ https://www.cnblogs.com/JackieHoo/p/5445549.html
+ https://casatwy.com/tiao-chu-mian-xiang-dui-xiang-si-xiang-yi-ji-cheng.html
  
  
  */
