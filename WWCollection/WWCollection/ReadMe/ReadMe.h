@@ -97,6 +97,14 @@
  https://www.cnblogs.com/JackieHoo/p/5445549.html
  https://casatwy.com/tiao-chu-mian-xiang-dui-xiang-si-xiang-yi-ji-cheng.html
  
+ 2018-04-09
+ 有的时候可能前边的 viewB 在 viewA后边布局 可是还想viewB在ViewA的下边 那么可以考虑下边的方式 平时项目中可能大多是简单地使用addSubView 这种可以适用于后者的滚动视图在前者的头视图的下边滚动的情况
+ [self.view insertSubview:viewA belowSubview:viewB];
+ [self.view insertSubview:viewA aboveSubview:viewB];
+ 
+ 
+ 
+ 
  
  */
 
