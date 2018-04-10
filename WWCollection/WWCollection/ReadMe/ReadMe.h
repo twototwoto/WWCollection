@@ -102,6 +102,73 @@
  [self.view insertSubview:viewA belowSubview:viewB];
  [self.view insertSubview:viewA aboveSubview:viewB];
  
+ 2018-04-10
+ cell的模型的数据的展开的位置应该考虑的是使用模型数据来记录cell的展开的状态
+ 而不是仅仅给某个cell 的属性中添加是否展开的标记
+ 使用模型数据来记录的话 拿到的数据是可靠的
+ 如果是使用cell来记录的话 拿到的数据可能会受到cell的重用的影响
+ 在展开cell的过程中如果只是有文字的展示这种情况 可以考虑是用改变numberofLines的方式
+ 不过如果是还涉及到有其他的视图的话 那么或者考虑在做约束的操作的时候做处理(其中考虑在做约束的时候做向下的约束处理的话，我还没有试验成功，因为如果是其他的图标参照着cell的底部来做约束的话 那么当动态更新展示文字的label的高度的时候，其他的视图并不能做到相应的变化)
+ 或者是考虑是用 下边的方式
+ [self.tableView beginUpdates];
+ [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ [self.tableView endUpdates];
+ 
+ 不过还是会有抖动感觉 或许 把cell的选中的方式改为None好像好一点点
+ 
+ 今天在写一个音频的工具类的时候发现了一些问题 之前的时候写的单例在有些情况下原来是不对的
+ 参考文章：https://www.cnblogs.com/JackieHoo/p/5050010.html#undefined
+ 不仅仅要注意返回的sharedInstance 和 new 和 alloc]init] 的时候返回的实例地址是否相同
+ 尤其像在sharedInstance的地方 不能单单返回   [[self alloc]init] 那么简单 要加上判断 相互之间的调用一定要注意执行的次数 以及是否又重新创建了实例 否则的话即使可能地址都是一致的 但是创建出来的实例却可能不是同一个了。。。
+ 此处引发的更多问题是：block内部修改静态变量的话是可以的原因：待分析 http://www.knowsky.com/882097.html
+ 
+ 在使用//#import <AVFoundation/AVAudioPlayer.h> 的时候会报警告
+ 如果使用#import <AVFoundation/AVFoundation.h> 警告就没了
+ https://stackoverflow.com/questions/39550857/avfoundation-import-warnings-after-xcode-8-upgrade
+ //获取当前时间 的秒数
+ CMTimeGetSeconds(player.currentTime);
+ 
+ long long int seconds =  player.currentItem.currentTime.value / player.currentItem.currentTime.timescale;
+ NSUInteger seconds = player.currentItem.currentTime.value / player.currentItem.currentTime.timescale;
+ 
+ 有两个办法可以快退和快进 其中seekToTime后边的参数 可以填写 我们要操作的秒数
+ 我们可以获取到当前的秒数 然后让当前的秒数和 想要快退或者是快进的秒数做运算就可以得到想要的结果
+ 比如说当前时间快进10秒
+ CMTimeAdd(当前的时间,CMTimeMake(10,1))
+ 如果是当前时间快退10秒
+ CMTimeAdd(当前的时间,CMTimeMake(-10,1))
+ 我试过了 如果是seekTime后边的值小于0秒了 那么也会是从0秒开始 当然最好自己做个判断 包括上界的控制 如果是上界超过了就不行了 不能正常播放了
+     player seekToTime:<#(CMTime)#> completionHandler:<#^(BOOL finished)completionHandler#>
+     player seekToTime:<#(CMTime)#> toleranceBefore:<#(CMTime)#> toleranceAfter:<#(CMTime)#> completionHandler:<#^(BOOL finished)completionHandler#>
+ 
+ 
+ 看起来timeValue好像就是 就相当于是秒数了
+ timescale看样子像是一直是1
+ 
+ //关于获取音频长度 以及秒数转换
+ - (NSUInteger)audioDurationWithURL:(NSString *)audioURLStr{
+ NSURL *audioUrl = [NSURL URLWithString:audioURLStr];
+ //    AVURLAsset *audioAsset = [AVURLAsset assetWithURL:audioUrl];
+ //    CMTime audioDuration = audioAsset.duration;
+ //    return audioDuration.value / audioDuration.timescale;
+ //    return CMTimeGetSeconds(audioDuration);
+ NSDictionary *dict = [NSDictionary dictionaryWithObject:@"NO" forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+ AVURLAsset *asset = [AVURLAsset URLAssetWithURL:audioUrl options:dict];
+ NSUInteger seconds = asset.duration.value / asset.duration.timescale;
+ return seconds;
+ }
+ 
+ - (NSString *)timeStringWithSeconds:(NSUInteger)seconds{
+ NSUInteger minutes = seconds / 60;
+ NSUInteger secondsRemainder = minutes % 60;
+ return [NSString stringWithFormat:@"%zd:%zd",minutes,secondsRemainder];
+ }
+ 
+ 在学习https://github.com/DaMingShen/SUMusic 的时候遇到的问题：
+   * Command /bin/sh failed with exit code 1
+ 通过 TARGETS -> Build Phases -> Copy Pos Resources -> 勾选了 run script only in installing
+ 
+   * 还有一个相关的报错是：友盟的相关的xib的内容有问题 在指定了Pods下的 UMSocial -> Resources 中的xib的内容 设置了 builds for 后可以正常的Run起来了
  
  
  
