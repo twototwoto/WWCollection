@@ -172,6 +172,32 @@
  
  
  
+ 2018-04-11
+ 在WWPractise小项目中有相关的内容
+ [[MPNowPlayingInfoCenter defaultCenter]setNowPlayingInfo:dictM];
+ //使用这个就可以做到锁屏的时候展示出来锁屏的信息 这句代码才是显示出来音频信息的关键代码
+ 图片保存到相册：https://blog.csdn.net/a7359780/article/details/50838515
+ 放大图片：https://blog.csdn.net/qxuewei/article/details/51150404
+ 设置访问相册的代理的时候https://stackoverflow.com/questions/8571783/assigning-to-iduinavigationcontrollerdelegate-uiimagepickercontrollerdelegate
+ 还要遵循那个UINavigationDelegate 否则有警告
+ 待解决 获取编辑过的图片的问题：https://stackoverflow.com/questions/44465904/photopicker-discovery-error-error-domain-pluginkit-code-13
+ 
+ block传值竟然生疏了，使用比如说界面A传值到界面B
+ 可以在界面B中定义block属性 比如说 void(^block)(NSString *str)
+ 在A中回到B的时候使用 self.block(str) 把要回传的值带回来
+ 然后在界面A中使用B的时候使用
+ B的实例.block = = ^(NSString *str) {
+    在其中对A中 要通过B赋值的的操作写在这里
+ };
+ 
+ 关于音频的进度的一点问题
+ /*
+ * 使用定时器是为了查询当前的currentTime的 而不是用来计时的
+ * 拖动的时候valueChanged的位置可以通过slider.value  * 总的时长拿到应该seek 到的时间
+ * 拖动的时候应该先停止定时器再继续定时器
+ * 在处理的过程中会有抖动的问题有待处理
+ *
+ */
  
  */
 
