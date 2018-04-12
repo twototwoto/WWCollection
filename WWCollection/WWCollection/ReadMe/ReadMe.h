@@ -197,7 +197,22 @@
  * 拖动的时候应该先停止定时器再继续定时器
  * 在处理的过程中会有抖动的问题有待处理
  *
- */
+ *
+ 
+ 
+ 2018年4月12日
+ UITableView的group的样式的调节组间距
+ 如果只是设置heightForHeader 或者heightForFooter的话 不会调用
+ 还需要实现viewForHeader相关的内容才能够调节组间距
+ https://blog.csdn.net/yjlios/article/details/52382372
+ Md5加密：https://blog.csdn.net/w582324909/article/details/51939425
+ https://blog.csdn.net/xn4545945/article/details/36755117
+ 调节UICollectionView组间距：https://blog.csdn.net/u014773226/article/details/54317781
+ 
+ 被底部的TabBar遮挡问题：https://blog.csdn.net/liuda18341750560/article/details/50254565
+ Xib的方式设置圆角：http://www.cocoachina.com/ios/20150528/11940.html
+
+
  
  */
 
