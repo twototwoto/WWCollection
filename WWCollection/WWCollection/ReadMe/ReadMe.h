@@ -212,7 +212,22 @@
  被底部的TabBar遮挡问题：https://blog.csdn.net/liuda18341750560/article/details/50254565
  Xib的方式设置圆角：http://www.cocoachina.com/ios/20150528/11940.html
 
-
+再记录一个关于block传递数据的内容
+ 点击cell上的按钮 然后在控制器中做方法处理
+ 
+ * 在自定义的Cell中定义了一个 void(^block)(NSIndexPath *indexPath) 属性
+ 并且定义一个@property (nonatomic,strong) NSIndexPath *indexPath;
+ 
+ * 在控制器的cellForRow中使用 cell.indexPath 来记录下来当前的cell的indexPath
+ 并且cell.block = ^(NSIndexPath *indexpath) {
+    //在此处执行点击cell上的按钮后的操作
+ };
+ 
+ * 在cell的实现的文件中 定义按钮的实现方法 在其中判断是否self.block 有的话 调用
+ self.block(self.indexPath)
+ 
+ 
+ 
  
  */
 
