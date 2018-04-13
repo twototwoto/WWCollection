@@ -226,6 +226,21 @@
  * 在cell的实现的文件中 定义按钮的实现方法 在其中判断是否self.block 有的话 调用
  self.block(self.indexPath)
  
+ 2018年4月13日
+ 
+ 如果项目中有重复的文件是比较方便看出来的
+ YYKit中包含YYModel 如果pod重叠的话 会引发链接错误
+ 一个关于AppIcon的链接问题：
+ https://stackoverflow.com/questions/19145089/asset-catalog-compiler-options-missing
+ 我查看了下相关内容部分 像bundleIdentifier的问题
+ 还有buildsetting种的问题 asset相关的部分 查看Sticker Pack Identifier Prefix 部分是否对应有项目的bundle identifier
+ 还可以重新添加一下相关appicon的图片
+ 
+ SVN添加没有被加入到版本控制的文件：
+ 
+ https://stackoverflow.com/questions/1598968/add-all-unversioned-files-to-svn
+ 有的文件虽然没有commit上去那么update的时候也不会覆盖掉本地的文件，这些文件可能对于SVN来说像是隐形的 不过如果是直接checkout的方式来下拉代码的时候 那些没有没有被加到版本控制中的文件自然就不可能出现了
+ 
  
  
  
