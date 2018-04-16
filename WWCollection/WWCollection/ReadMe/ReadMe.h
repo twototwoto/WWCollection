@@ -241,6 +241,27 @@
  https://stackoverflow.com/questions/1598968/add-all-unversioned-files-to-svn
  有的文件虽然没有commit上去那么update的时候也不会覆盖掉本地的文件，这些文件可能对于SVN来说像是隐形的 不过如果是直接checkout的方式来下拉代码的时候 那些没有没有被加到版本控制中的文件自然就不可能出现了
  
+ 2018年4月16日
+ SVN使用过程中的一个问题：
+ svn: E155010: Commit failed (details follow):
+ svn: E155010: '/文件路径/New Group' is scheduled for addition, but is missing
+ 当我执行了：svn revert /文件路径/New Group --depth infinity
+ 后提示：
+    Skipped '文件路径/New'
+    Skipped 'Group'
+ 不知道是否是因为New Group的原因 还是什么再次提交的时候还是提示
+ svn: E155010: Commit failed (details follow):
+ svn: E155010: '/文件路径/New Group' is scheduled for addition, but is missing
+    另外一种方法 使用Xcode 在commit文件的时候找到这个New Group 文件 然后
+    只好使用Xcode 找到文件 选择discard changes 或者是是用其他的SVN的工具的话 也是discard 这个文件也是一样
+    然后再commit 就可以了
+ 
+ 参考网址相关网址：
+ https://www.cnblogs.com/LQCQ-Silent/p/6120899.html
+ https://blog.csdn.net/rangf/article/details/7408230
+ https://stackoverflow.com/questions/46827071/xcode-9-couldn-t-communicate-with-a-helper-application?rq=1
+ https://www.jianshu.com/p/a64a505202ad
+ https://blog.csdn.net/chengkaizone/article/details/53420469
  
  
  
