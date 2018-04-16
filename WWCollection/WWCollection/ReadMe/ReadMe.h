@@ -263,6 +263,40 @@
  https://www.jianshu.com/p/a64a505202ad
  https://blog.csdn.net/chengkaizone/article/details/53420469
  
+ //改变UITableViewCell右侧的箭头的颜色 通过自定义accessoryView来实现
+ UIImageView *imgV = [UIImageView ww_imageViewWithImageNameString:@""];
+ imgV.frame = CGRectMake(0, 0, (10.f), (15.f));
+ self.accessoryView = imgV;
+ 
+ 参考网址：https://developer.apple.com/documentation/uikit/uitableviewcell/1623219-accessoryview?language=objc
+ 参考网址：http://www.cocoachina.com/bbs/read.php?tid=69554
+ 
+ //UITableView改变组间距 实现 如果单单实现高度的代理方法的话 是不会起到作用的
+
+ - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20.f;
+ }
+ 
+ - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerV = [UIView new];
+    headerV.backgroundColor = WWColorWithRGBA(249.f, 249.f, 249.f, 1.0);
+    return headerV;
+ }
+ 
+ - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return (15.f);
+ }
+ 
+ - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *footerV = [UIView new];
+    return footerV;
+ }
+ 
+ //参考地址https://blog.csdn.net/xumingwei12345/article/details/9664773
+ 
+ 
+ 
+ 
  
  
  */
