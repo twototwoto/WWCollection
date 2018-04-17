@@ -295,6 +295,16 @@
  //参考地址https://blog.csdn.net/xumingwei12345/article/details/9664773
  
  
+ 2018年4月17日
+ 使用宏的时候的注意事项 注意有的宏的变量最好是都是用括号封起来的，避免有的时候做的一些运算出现了问题
+ 比如说
+ #define sampleWidth  3 + 4
+ 那么使用的时候如果想 用 sampleWidth * 2 想要的是 (3+4)* 2 = 14 但是结果却成了 3 + 4 * 2 = 11
+ 所以在对宏做乘除的操作的时候要注意加括号
+ 
+ Masonry使用过程中可能遇到的问题可能原因 reason: 'couldn't find a common superview for <UITableView:
+ 我们都对这个错误感觉很常见 不过有的时候不是因为没有添加到父视图
+ 也可能是因为做约束的时候选择的 参考的对象 有问题造成的崩溃
  
  
  
