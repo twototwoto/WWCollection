@@ -306,6 +306,50 @@
  我们都对这个错误感觉很常见 不过有的时候不是因为没有添加到父视图
  也可能是因为做约束的时候选择的 参考的对象 有问题造成的崩溃
  
+ 友盟第三方登录的时候的注意事项
+ AppKey写对 用于友盟SDK初始化操作 查看AppKey：http://mobile.umeng.com/apps/setting
+ info.plist文件中白名单的配置情况LSApplicationQueriesSchemes
+ URL types下的URLScheme的准确填写 否则无法正常调起第三方
+ 
+ 关于回调的操作方面，记得设置系统回调 否则即使从第三方返回的时候不回走回调方法
+ 
+ 相关方法：https://developer.umeng.com/docs/66632/detail/66825#h3-u8BBEu7F6Eu7CFBu7EDFu56DEu8C03
+ // 支持所有iOS系统
+ - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+ {
+     //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+     if (!result) {
+     // 其他如支付等SDK的回调
+     }
+     return result;
+ }
+ 
+ - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+ {
+     //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+     BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+     if (!result) {
+     // 其他如支付等SDK的回调
+     }
+     return result;
+ }
+ 
+ 支持目前所有iOS系统
+ 
+ - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+ {
+     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+     if (!result) {
+     // 其他如支付等SDK的回调
+     }
+     return result;
+ }
+ 
+ 
+ 
+ 
+ 
  
  
  
