@@ -346,10 +346,67 @@
      return result;
  }
  
+
+ 2018年4月18日 
+ 腾讯开放平台http://open.qq.com
+ 管理中心的位置可以获取到QQAppID 以及 QQAppKey用于友盟的第三方登录
+要注意的是在配置QQ相关的scheme的时候 会要求输入QQ的AppID和tencent+AppID 以及QQ+(QQAppID的16进制的形式)
+ 关于16进制可以考虑的是使用网上的工具来获取相应的16进制的内容 另一种简单的方式是使用%x的输出的方式 或者就是自己写一下了 不过意外发现原来项目中原来用的16进制的数值不对 不过仍然可以正常地使用QQ登录 后来试了下 发现只要10进制的QQ的AppID的位置填写对了就能够正常地QQ登录
+ 这个是QQ登录的时候遇到的一个问题： 看样子是没有代码初始化 QQAppID引发的
+ Error Domain=UMSocialPlatformErrorDomain Code=2002 "(null)" UserInfo={message=appId is nil}
+ 
+ 如果是配置的scheme有问题
+ Error Domain=UMSocialPlatformErrorDomain Code=2007 "(null)" UserInfo={message=Check APP UrlSchema Fail}
+ 
+ 发现即使是16进制的scheme不对 只要十进制的是正确的就可以正常地登录
+ 进制转换工具：https://tool.lu/hexconvert/
+ 
+ 关于新浪微博开放平台对于回调地址的准确填写要求比较明确
+ 如果设置的回调地址不对的时候报出： redirect_uri_mismatch
  
  
+ 在此处再记录一个键盘弹出后 通知执行后键盘没有弹到预期的位置的可能因素，如果是设置的导航栏的translucent为NO的时候
+ 如果是改变要弹起来的textField或者是textView也好，如果是参考的是下方的约束可能还好，如果是使用的参照的顶部的约束的话，由于偏差了一个导航加上一个状态栏的高度可能导致键盘依然遮挡着文本框
+ 在谈一下键盘弹起的时候可能调用了2次 这个问题目前还不知道是何原因 不过不要做那种 += 或者-= 的操作而是直接控制着到某个位置 也算是一种解决方案
+ 
+ #pragma mark - 添加键盘通知
+ - (void)addNotificationKeyboard{
+ [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleKeyboradWillShow:) name:UIKeyboardWillShowNotification object:nil];
+ [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+ }
+ 
+ #pragma mark - 移除键盘通知
+ - (void)removeNotificationKeyboard{
+ [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+ [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+ }
  
  
+ #pragma mark - 处理键盘将要弹出
+ - (void)handleKeyboradWillShow:(NSNotification *)noti{
+    //获取到键盘的高度
+     CGFloat keyboardH = ((NSValue *)(noti.userInfo[@"UIKeyboardFrameEndUserInfoKey"])).CGRectValue.size.height;
+     //其他的就是改变目的视图的位置了 或者是偏移
+     [UIView animateWithDuration:0.2f animations:^{
+        //可以在此做更改目的视图位置改变的操作
+     }];
+ }
+ 
+ #pragma mark - 键盘隐藏
+ - (void)handleKeyboardWillHide:(NSNotification *)noti{
+     //获取到键盘的高度
+     CGFloat keyboardH = ((NSValue *)(noti.userInfo[@"UIKeyboardFrameEndUserInfoKey"])).CGRectValue.size.height;
+     //其他的就是改变目的视图的位置了 或者是偏移
+     [UIView animateWithDuration:0.2f animations:^{
+     //可以在此做更改目的视图位置改变的操作
+     }];
+ 
+ }
+ 
+ 
+ Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'attempting to add unsupported attribute: (null)'
+ Masonry使用的时候的一个问题： 当待参考的对象的内容为空的时候可能出现下列报错
+ 比如说在待参考对象没有创建出来前，我们就让现有的视图参考了待参考对象，相当于参考了为空的对象
  
  
  
