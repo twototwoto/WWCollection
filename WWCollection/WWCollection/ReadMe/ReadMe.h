@@ -347,7 +347,7 @@
  }
  
 
- 2018年4月18日 
+ 2018年4月18日
  腾讯开放平台http://open.qq.com
  管理中心的位置可以获取到QQAppID 以及 QQAppKey用于友盟的第三方登录
 要注意的是在配置QQ相关的scheme的时候 会要求输入QQ的AppID和tencent+AppID 以及QQ+(QQAppID的16进制的形式)
@@ -408,7 +408,19 @@
  Masonry使用的时候的一个问题： 当待参考的对象的内容为空的时候可能出现下列报错
  比如说在待参考对象没有创建出来前，我们就让现有的视图参考了待参考对象，相当于参考了为空的对象
  
+ 2018年4月19日 
+使用UITextView的时候 遇到的一个问题像
+ - (void)textViewDidEndEditing:(UITextView *)textView{
+    if (textView.text.length < 1) {
  
+ 
+    }
+ }
+ 
+ //如果是1上边的获取到的sender 会是UITapGestureRecognizer类型的sender 会崩溃的哦
+ //1    [button addTarget:self action:@selector(buttonClick:)];
+ //2    [button addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+
  
  */
 
