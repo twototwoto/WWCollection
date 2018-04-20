@@ -421,6 +421,21 @@
  //1    [button addTarget:self action:@selector(buttonClick:)];
  //2    [button addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 
+ 2018年4月20日
+ 想了解一个第三方的时候
+ 概览一下
+ 修改一下源码 看看那些对应的位置改变了 比如说改变背景色 文字颜色 这些比较直观
+ 日历控件使用：
+ FSCalendar:https://github.com/WenchaoD/FSCalendar
+ JTCalendar:https://github.com/jonathantribouharet/JTCalendar
+ 
+ 对于某些界面初次展示出来的类似的新手引导页或者是一个提示的界面 又是半透明的情况 可以考虑是用modal的方式
+ 把被modal出来的控制器记为modalVC 在布局modalVC的视图的时候按照全屏去布局UI就可以 避免后期modal出来再调整位置 改大小都不合适
+modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
+ modalVC.modalPresentationStyle = UIModalPresentationCustom;
+ 这样就可以起到半透明的效果了
+ 
+ 
  
  */
 
