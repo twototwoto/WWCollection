@@ -435,6 +435,18 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  modalVC.modalPresentationStyle = UIModalPresentationCustom;
  这样就可以起到半透明的效果了
  
+ FSCalendar 部分学习
+ FSCalendarHeaderView
+ 用于展示顶部的 四月 2018 五月 2018 的顶部View
+ FSCalendarWeekdayView
+ 用于显示 周一 周二 周三 周四 周五 周六 周日的视图
+ 
+ 关于日期的格式指定的一点点基础内容：
+ NSDate *date = [NSDate date];
+ NSDateFormatter *dateFormatter = [NSDateFormatter new];
+ //用于指定展示的日期的格式2018年-04月-21日22:52
+ dateFormatter.dateFormat = @"yyyy年-MM月-dd日HH:mm";
+ NSString *dateStr = [dateFormatter stringFromDate:date];
  
  
  */
