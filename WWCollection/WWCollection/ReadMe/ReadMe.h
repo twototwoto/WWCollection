@@ -448,6 +448,22 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  dateFormatter.dateFormat = @"yyyy年-MM月-dd日HH:mm";
  NSString *dateStr = [dateFormatter stringFromDate:date];
  
+ 2018年4月22日
+ //如果是想用英文形式(March这种的)表示的月份：使用MMMM
+ //yyyy年MM月dd日HH时:mm分
+ FSCalendar中就是这么指定的格式：_headerDateFormat = @"MMMM yyyy";
+ 
+ 关于NSCalendar 周几的表示方法 当然我们可以根据自己的需要自己去指定周几 还是星期几等
+ NSCalendar *regorianCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian
+ ];
+ regorianCalendar.weekdaySymbols;
+ //Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday
+ 
+ regorianCalendar.shortStandaloneWeekdaySymbols;//Sun,Mon,Tue,Wed,Thu,Fri,Sat
+ 
+ regorianCalendar.veryShortWeekdaySymbols;//S,M,T,W,T,F,S
+ 
+ 
  
  */
 
