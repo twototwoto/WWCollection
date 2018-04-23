@@ -463,6 +463,19 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  
  regorianCalendar.veryShortWeekdaySymbols;//S,M,T,W,T,F,S
  
+ 2018年4月23日
+ 关于UILabel多行文字设置行间距和预期的不符的问题
+ http://7xqch1.com1.z0.glb.clouddn.com/有关UILabel的行高设置的探索.html
+ http://pingguohe.net/2018/03/29/how-to-implement-line-height.html
+ paragraphStyle.lineSpacing = lineSpacingH - (label.font.pointSize.font.lineHeight - label.font.pointSize);
+ 还是会有出入可以设置成这种方式 这样有误差了
+ paragraphStyle.lineSpacing = floorf(lineSpacingH - (label.font.lineHeight - label.font.pointSize));
+ 
+ 多行文字的高度计算不准确可能是是最初在布局的时候没有设置好
+ 比如说计算字符串的高度的时所用的label的宽度和当初设置的label的宽度不一致最后可能导致计算的高度不能够容纳cell中的内容
+ 比较简单的可能是在给cell的label的内容赋值的时候出了问题
+ 
+ 
  
  
  */
