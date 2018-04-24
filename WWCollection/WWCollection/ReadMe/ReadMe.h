@@ -475,7 +475,54 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  比如说计算字符串的高度的时所用的label的宽度和当初设置的label的宽度不一致最后可能导致计算的高度不能够容纳cell中的内容
  比较简单的可能是在给cell的label的内容赋值的时候出了问题
  
+ 2018年4月24日
+ 对于既有文字又有图片的情况的cell的展开和收缩的情况
+ 我倒是没有尝试如果是分多个section放置这些cell是否会有缓解 因为可能reloadSection引起的抖动 如果一组里边只有这么一个cell不知道是否会好一些
+ 有个问题是文字展开的时候会发现cell抖动严重 可能有别的办法做缓存高度的处理能够做到效果好一些
+ 不过对比只有文字没有图片的cell的展开可以发现cell基本上没什么抖动
+ 这个时候如果是对于微信的朋友圈界面而言 我们可以考虑的是
+ 可以 把下列内容当作一组cell
+    把头像部分和发表的文字部分当作一个cell   AvatarCell DetailContentCell 可以在一起(这样做的时候当展开文字的时候会发现头像部分抖动)
+    头像部分和发表的文字部分最好还是分开用两个celll来写
+    把是否有图片部分当作一个cell        ImageViewCell
+    把评论部分当作一个cell       commentCell
+    把点赞的人的部分当作一个cell        likeContentCell
+    把评论的内容部分当作多个cell        commentContentCell
+ 这样的话可以在某种程度上解决cell的抖动的问题
+    一组cell的情况是这样的
+        * AvatarCell
+ * DetailContentCell 可以和AvatarCell合二为一((这样做的时候当展开文字的时候会发现头像部分抖动 头像部分和发表的文字部分最好还是分开用两个celll来写)
+        * ImageViewCell
+        * commentCell
+        * likeContentCell
+        * commentContentCell
  
+ //重用标识写错了也可能导致cell错乱
+ UICollectionView为nil可能的原因
+ * 约束有误
+ * 如果是懒加载过程中写错了相应的属性对应的方法 比如说collectionView 写成了别的collectionViewWWWWW的话那么 在懒加载创建的时候就不能正常地创建出来
+ 这种问题看似简单 不过容易出现在有的时候省事粘贴代码的时候
+ - (UICollectionView *)collectionView{
+    if(!_collectionView) {
+        _collectionView = 实例化
+    }
+    return _collectionView;
+ 
+ }
+ 
+ - (UICollectionView *)collectionViewWWWWW{
+ if(!_collectionViewWWWWW) {
+    _collectionViewWWWWW = 实例化
+ }
+ return collectionViewWWWWW;
+ 
+ }
+ *
+ 
+ 
+ 
+ 
+
  
  
  */
