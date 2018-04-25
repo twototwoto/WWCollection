@@ -518,6 +518,65 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  
  }
  
+ 
+ 
+ 2018年4月25日
+ Jpg转换为png：http://www.atool.org/imgextconvert.php
+
+ 注意设置UIButon的  button.titleLabel.font = [UIFont systemFontOfSize:(12.0f)];
+ 之后还要注意要求的button的高度的情况 不然可能对布局造成误差
+ 因为button的高度高于单单的titleLabel部分的高度
+ 
+ 像下边的这种如果是不用weak strong dance 的话可能会造成后边执行方法的时候indexpath为nil了
+ 我不小心直接用过self 调用方法 确实是出现过问题 indexpath为nil了
+ 好像不仅仅是这里的问题还有别的问题
+ 问题是出现在了忘记了给cell的indexpath赋值 导致block回调的时候indexPath为nil
+ 
+ __weak typeof(self) weakSelf = self;
+ cell.block = ^(NSIndexPath *indexPath) {
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    [strongSelf method:indexPath];
+ };
+ 
+ 
+ 对于评论回复的盖楼的情况想到的有两种方式来做
+ 普通的回复的样子的话直接堆积多个cell可以解决
+ 如果是评论堆积过程中评论的样式有变动的话 就不能简单堆积多个相同cell了 毕竟可能出现查看更多的内容等
+ * cell中嵌套UITableView
+ * cell中评论的盖楼部分使用富文本的形式来解决问题
+ 相关网址：
+ * https://daiweilai.github.io/2015/03/15/封装一个简单实用的朋友圈/
+ * https://blog.csdn.net/wenmingzheng/article/details/78081127
+ * https://blog.csdn.net/woaifen3344/article/details/50779743
+ 
+ 一个UITableView在cell的显示与隐藏的时候的崩溃情况：
+ Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (5) must be equal to the number of rows contained in that section before the update (3), plus or minus the number of rows inserted or deleted from that section (1 inserted, 1 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).'
+ *** First throw call stack:
+ (0x18103b164 0x180284528 0x18103b038 0x1819d57f4 0x18a7ba258 0x18a91d098 0x18a7f6300 0x100bc5a6c 0x100dd18a4 0x100dceb34 0x100dd14dc 0x1012a2d08 0x10114e4d4 0x18a62a5cc 0x18a62a54c 0x18a6150f4 0x18a629e40 0x18ac855e4 0x18ac80b94 0x18ac80678 0x18ac7f7d4 0x18a624e5c 0x18a5f5e7c 0x18af4b30c 0x18af4d898 0x18af467b0 0x180fe377c 0x180fe36fc 0x180fe2f84 0x180fe0b5c 0x180f00c58 0x182dacf84 0x18a6595c4 0x100e7e7dc 0x180a2056c)
+ libc++abi.dylib: terminating with uncaught exception of type NSException
+ 其实是每组里边返回不同的row导致的 设置了根据一些标志来返回不同的行数
+ 不过这么做是不行的，那么可以考虑把相应的row的高度设置为0也算是能够起到同样的效果
+ 
+ 
+ //注意下边的方式是 这是刷新相对应的indexPath 组成的数组的 的cell
+ [self.tableView reloadRowsAtIndexPaths:@[nextIndexPath,nextTwoIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+ //下边的方式是刷新的对应的组里边的cell 整个组对应的刷新
+ NSIndexSet *set = [NSIndexSet indexSetWithIndex:indexPath.section];
+ [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+ 
+ 图片旋转一定的角度
+ CGAffineTransform transform = CGAffineTransformRotate(imageView.transform, M_PI);
+ imageView.transform = transform;
+ 
+ 如果在旋转过程中出现了问题就换种思路 考虑使用highlightedImage
+ 
+ 可能导致cell文字图片错乱的情况：
+ * 可能是重用标识写成了其他的重用cell的标识
+ 
+ 有的带图片的cell一经过reloadRowsAtIndexPaths 可能会出现抖动的情况
+ 
+ 
  *
  
  
