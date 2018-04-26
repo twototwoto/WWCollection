@@ -579,6 +579,31 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  
  *
  
+ 2018年4月26日
+ 文字高度计算的选择：
+ NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+ 上边或在一起是为了能够不仅仅矩形高度处理好
+ 还有文字的行间距处理
+ 之前用的时候有只用NSStringDrawingUsesLineFragmentOrigin 的时候发现虽让在相应的属性字典里边写了行间距的配置
+ 但是就是不行
+ 看见下边的文章后可以考虑是因为 NSStringDrawingUsesFontLeading 没有 或 上的原因
+ https://blog.csdn.net/qq_32010299/article/details/51720708
+ 
+富文本朋友圈：
+ https://github.com/waynezxcv/Gallop
+ 在给cell中嵌套UITableView的时候发现会出现问题 有的时候出现cell中的TableView不能够正常显示的问题 一展开一收缩导致有的数据错乱 cell中的tableView上的内容也有误了的问题
+ [cell.embeddedTableView reloadData];
+ 
+ 并且在通过向cell中的TableView传递数组数据时发现数组中的内容为nil，而且此时再set数组的方法中
+ 刷新Acell中的TableView的时候发现TableView上的内容竟然都没了
+ Acell中嵌套embeededTableView的高度计算方法：
+ * 要把TableView的数据传递给Acell前，就能在ACell所在的TableView中的heightForRow中根据数据源计算出来embeededTableView所需的高度
+ * 遍历那个数据源数据即可
+ * 不过其间最好要想个办法，对高度有缓存的处理，不然多次的计算也是一种消耗
+ 注意点：
+ 在ACell所在的TableView中计算完了embeddedTableView的高度后
+ 记得在ACell内部的heightForRow中使用boundingRect用的宽度来计算高度的时候，注意宽度要一致 不然就有cell可能被遮挡了
+ 
  
  
  
