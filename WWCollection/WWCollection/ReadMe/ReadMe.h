@@ -604,6 +604,30 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  在ACell所在的TableView中计算完了embeddedTableView的高度后
  记得在ACell内部的heightForRow中使用boundingRect用的宽度来计算高度的时候，注意宽度要一致 不然就有cell可能被遮挡了
  
+ 2018年4月28日
+ 检测有没有循环引用的办法
+ * 使用内存泄漏查看Cycles & Roots部分
+ * 或者是当当前ViewController在pop的时候看看有没有调用dealloc
+ * 还有一种待更多了解的分享的样子的图标
+ 
+ 如果是没有成功addObserver的时候 (其实有的时候可能addObserver的类没有调用)
+ 发送通知并不会报错没有什么提示 只不过收不到通知罢了
+ 
+ 警告：
+ Presenting view controllers on detached view controllers is discouraged
+ 使用：
+ [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:NO completion:nil];
+ 没有报出警告
+ 
+ 关于启动图：
+ 有时候启动图没有显示出来，卸载掉重新安装一次可能解决。
+ 可以撑起来界面的因素
+ * 自带的launchScreen
+ * 配置好所有尺寸的启动图 尤其注意iPhoneX的启动图 不然就是 375 * 667 的样子 上下有黑边
+ * 如果没有用launchScreen 也没用启动图的话 ，自己设置启动的视图的话，要定制的时候需要设置好尺寸 这个时候默认拿到的[UIScreen mainScreen].bounds 为320 * 480
+ [UIScreen mainScreen].bounds
+ (origin = (x = 0, y = 0), size = (width = 320, height = 480))
+ 
  
  
  
