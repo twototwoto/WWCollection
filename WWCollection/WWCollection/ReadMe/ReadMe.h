@@ -630,6 +630,41 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  
  
  
+ 2018年4月30日
+ 其实不仅仅是block作为属性时 block中的self会被捕获
+ 还有的时候是比如说某一个变量有一个block的属性 而self又对这个变量有引用 变量中的block又对self有使用 那么也是会构成捕获self的情况 这个通过dealloc的方法的调用就能看出来 这种时候就得使用weak strong的方式来解决
+ 有的时候像NSTimer的这种情况 如果reapeats为YES的时候 那么调用的block里边也是会有捕获self的问题 也是双方都释放不了
+ 又一次触及到block的是否捕获self
+ Masony源代码里约束部分有 从这里可以看出只有block引用了self 却不存在self对block的引用 所以在使用的时候block内部不使用weak strong修饰也不会捕获self
+     - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block {
+         self.translatesAutoresizingMaskIntoConstraints = NO;
+         MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];
+         block(constraintMaker);
+         return [constraintMaker install];
+     }
+ 
+ 
+ 
+ 在项目中的plist文件使用模拟器可以修改项目文件里边的内容
+ 使用真机的时候不能修改内容 只能进行读取
+ 
+ 在Documents里边自己创建的plist文件的这种真机模拟器均可以读写
+ 在模拟器中可以定位到的文件 可能在真机中就定位不到 比如说
+ 
+ [NSHomeDirectory() stringByAppendingPathComponent:@"xxx.plist"]
+ 这个文件在模拟器中是和NSDocuments并列的目录下的
+ 但是在真机中就定位不到这个文件
+ 需要使用
+ [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"xxx.plist"];
+ 的这种方式来做 才能够定位到文件 如果没有的话才能够创建出来文件
+ 真机对了查看沙盒中的内容使用 Window -> Devices and Simulators -> 左侧的Devices -> 选中要看的App ->点击下方的+ - 后边的设置部分 ->Download Container即可下载相应的沙盒中的内容 -> 然后 显示包内容 就可以查看到相关的内容了
+ 学习网址：
+ * 查看沙盒文件的软件：https://simpholders.com
+ * https://www.cnblogs.com/fengtengfei/p/5090276.html
+ 
+ * https://www.cnblogs.com/WayneLiu/p/4959515.html
+ * https://www.jianshu.com/p/b37c1bcf8cdc
+ * https://segmentfault.com/q/1010000004343510/a-1020000004347193
  
 
  
