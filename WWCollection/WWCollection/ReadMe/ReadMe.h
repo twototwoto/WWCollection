@@ -668,7 +668,39 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
  
 
  
+ * 2018年5月1日
+ 当忘记写相应的模型的实现文件的时候会报出如下错误：
+ Undefined symbols for architecture arm64:
+ "_OBJC_CLASS_$_xxxxModel", referenced from:
+ objc-class-ref in superXXXXXModel.o
+ ld: symbol(s) not found for architecture arm64
+ clang: error: linker command failed with exit code 1 (use -v to see invocation)
  
+可能原因 忘记写下边的内容：
+ @implementation xxxxModel
+ 
+ @end
+ 
+ 有的时候使用Postman 测试的时候返回结果就是有误
+ 这个时候不妨试试直接使用移动端设备 直接进行网络请求 试试接口是否有问题
+
+ //友盟判断应用是否安装了
+ **
+ *  平台是否安装
+ *
+ *  @param platformType 平台类型 @see UMSocialPlatformType
+ *
+ *  @return YES 代表安装，NO 代表未安装
+ *  @note 在判断QQ空间的App的时候，QQApi判断会出问题
+ *
+//-(BOOL) isInstall:(UMSocialPlatformType)platformType;
+
+//地址：https://developer.umeng.com/docs/66632/detail/66825#h3--umsocialmanager
+
+
+
+
+
  */
 
 
