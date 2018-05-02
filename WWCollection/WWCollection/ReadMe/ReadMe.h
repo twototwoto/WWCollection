@@ -697,7 +697,53 @@ modal被modal出来的时候是全屏的，设置modalVC的modal样式为custom
 
 //地址：https://developer.umeng.com/docs/66632/detail/66825#h3--umsocialmanager
 
+ 
+ 2018年5月2日
+ /**
+ *  是否为同一天
+ 学习网址：https://blog.csdn.net/soindy/article/details/43817557
 
+- (BOOL)isSameDay:(NSDate*)date1 date2:(NSDate*)date2
+{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    //    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth| NSCalendarUnitDay;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day] == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
+}
+
+//打卡记录标识
+static NSString * const kLastPunchDateString = @"lastPunchDate";
+
+//仿钉钉打卡的时间的逻辑
+if (![[NSUserDefaults standardUserDefaults]objectForKey:kLastPunchDateString]) {
+    [[NSUserDefaults standardUserDefaults]setObject:[NSDate date] forKey:kLastPunchDateString];
+    [[NSUserDefaults standardUserDefaults]objectForKey:kLastPunchDateString];
+    WWLog(@"打卡");
+    //此处需要打卡
+}else{
+    NSDate *lastPunchDate = [[NSUserDefaults standardUserDefaults]objectForKey:kLastPunchDateString];
+    //当前时间之后一天多的测试时间
+    //        NSDate *testDifferentDate = [NSDate dateWithTimeIntervalSinceNow:25 * 60 * 60]
+    BOOL sameDay = [self isSameDay:[NSDate date] date2:lastPunchDate];
+    if (sameDay) {
+        //是同一天的时候需要打卡
+        WWLog(@"不需要打卡");
+    }else{
+        [[NSUserDefaults standardUserDefaults]setObject:[NSDate date] forKey:kLastPunchDateString];
+        //不是同一天的时候 打卡
+        WWLog(@"打卡");
+    }
+    
+}
+ 
+ 
+ 
 
 
 
