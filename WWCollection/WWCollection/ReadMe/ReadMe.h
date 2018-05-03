@@ -794,6 +794,74 @@ if (![[NSUserDefaults standardUserDefaults]objectForKey:kLastPunchDateString]) {
  
  
  
+ 视图拖动学习记录：
+ 
+ 
+ 
+ 使用touchesmoved的方法：
+ https://blog.csdn.net/liu537192/article/details/44727413
+ https://blog.csdn.net/long_ios/article/details/48024269
+ 手势的方法待测试
+ https://blog.csdn.net/zhuming3834/article/details/49154305
+ 判断触摸点是否在某个视图内：
+ https://blog.csdn.net/codingfire/article/details/53168856
+ https://www.jianshu.com/p/39a7968c1e4a
+ - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+ 
+ /*
+ UITouch *touch = [touches anyObject];
+ 
+ // 当前触摸点
+ CGPoint currentPoint = [touch locationInView:_label.superview];
+ // 上一个触摸点
+ CGPoint previousPoint = [touch previousLocationInView:_label.superview];
+ 
+ // 当前view的中点
+ CGPoint center = _label.center;
+ 
+ center.x += (currentPoint.x - previousPoint.x);
+ center.y += (currentPoint.y - previousPoint.y);
+ // 修改当前view的中点(中点改变view的位置就会改变)
+ _label.center = center;
+ 
+ *********
+ 
+UITouch *touch = [touches anyObject];
+
+CGPoint point = [touch locationInView:self.view];
+ //排除没有点击到目标视图的情况
+    CALayer *targetLay = _label.layer.presentationLayer;
+    if (!CGRectContainsPoint(targetLay.frame, point)) {
+        WWLog(@"不包含在");
+        return;
+    }
+
+边界控制
+    CGFloat w =  _label.ww_width * 0.5;
+    CGFloat h = _label.ww_height * 0.5;
+    if (point.x < w) {
+        point.x = w;
+    }
+    if (point.y < h) {
+        point.y = h;
+    }
+    if (point.x > WW_WIDTH - w) {
+        point.x = WW_WIDTH - w;
+    }
+    if (point.y > WW_HEIGHT - h) {
+        point.y = WW_HEIGHT - h;
+    }
+    _label.center=point;
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
