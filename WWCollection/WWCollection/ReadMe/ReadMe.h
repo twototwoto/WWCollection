@@ -743,6 +743,56 @@ if (![[NSUserDefaults standardUserDefaults]objectForKey:kLastPunchDateString]) {
 }
  
  
+ 上拉加载更多 下拉刷新的注意事项
+ 
+ 下拉刷新使用的是比较固定的内容 有起始页面 pageSize 这都是固定的 还有盛放cell的数据的数组直接赋值为当前请求到的数据就好
+ 
+ 上拉加载更多的时候需要注意的是 是否请求到了更多的数据
+ 首先是判断是否是进入页面后的第一次上拉加载更多
+    如果是的话 起始页面currentPageNumber += 1;
+ 接下来的时候要根据请求到的结果数据来判断 是否需要 进行相应的 加 的操作
+    如果没有数据的时候tableView的footer显示没有更多的数据显示了
+    不然的话还是要进行数据的添加到可变数组
+ 问题：https://blog.csdn.net/youngstar70/article/details/78493272
+ https://www.jianshu.com/p/2228515777ad
+ 
+ 可变数组不小心使用的copy修饰的造成的崩溃：
+ http://www.cnblogs.com/isItOk/p/7498874.html
+ 复习类之间的循环引用问题：https://blog.csdn.net/jiangwei0910410003/article/details/41926369
+ 
+ 关于应用中特定界面横屏的问题：
+ https://www.cnblogs.com/niit-soft-518/p/5611298.html
+    我用的是博主的第二个方法，在需要横屏的时候写的相应的横屏设置
+    在后边的退出来的界面中写的是竖屏幕的设置 并没有设置根控制器的方向问题
+ 
+ 发现一个问题是如果是在进入到全屏后隐藏导航栏的情况下可以避免pop回来时候的界面闪的问题
+ 配置可以可以Landscape Left  和 Portrait
+ 
+ - (void)viewWillAppear:(BOOL)animated{
+     [super viewWillAppear:animated];
+     self.navigationController.navigationBar.hidden = YES;
+     NSNumber *orientationUnknown = [NSNumber numberWithInt:UIInterfaceOrientationUnknown];
+     [[UIDevice currentDevice] setValue:orientationUnknown forKey:@"orientation"];
+ 
+     NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+     [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
+ }
+ 
+ //支持的方向 公共代码部分
+ - (UIInterfaceOrientationMask)supportedInterfaceOrientations
+ {
+    return UIInterfaceOrientationMaskLandscapeLeft;
+    //在需要竖屏的视图控制器中写明UIInterfaceOrientationMaskPortrait
+ 
+ }
+ 
+ //是否可以旋转
+ - (BOOL)shouldAutorotate
+ {
+    return YES;
+ }
+ 
+ 
  
 
 
