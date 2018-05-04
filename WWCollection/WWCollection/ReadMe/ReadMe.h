@@ -855,7 +855,58 @@ CGPoint point = [touch locationInView:self.view];
     }
  
  
+ 2018年5月4日
+* 关于svn 控制的时候工具
+     一不小心拖动了Xcode左侧的文件夹
+     有些文件显示是红色的显示被删除了 被删除的文件重新添加一下
+     导致某些文件在提交的时候显示是D删除了 为了避免问题 discard changes
  
+ * 关于 .DS_Store 文件：
+     (.DS_Store)避免多人提交代码到GitHub上起冲突
+     https://www.zhihu.com/question/20345704
+     https://blog.csdn.net/iOSTianNan/article/details/52414479
+ 
+ * 关于学习MVVM RAC
+     学习demo的时候：https://github.com/wanglongshuai/MVVM-RAC-Demo
+     使用pod install的时候报出问题：
+     [!] The dependency `Reachability (~> 3.2)` is not used in any concrete target
+     是因为没有指定target
+ 
+     target 'YiDing’ do
+     [!] Invalid `Podfile` file: syntax error, unexpected end-of-input, expecting keyword_end.
+     还要注意在结尾添加end
+ 
+     接下来就可以正常的pod install 了
+     pod install
+     Re-creating CocoaPods due to major version update.
+     Analyzing dependencies
+     Downloading dependencies
+     Installing AFNetworking (3.0.4)
+     Installing CHTCollectionViewWaterfallLayout (0.9.2)
+ 
+     选择pods 找到jsonkit complie Sources fno-objc-arc
+     https://blog.csdn.net/litianpeng0624/article/details/46560739
+     http://eric-gao.iteye.com/blog/2092269
+     结合着上边的两种方式
+     我没有修改isa为NO那个
+ 
+ * 关于iPhoneX的横屏的时候的问题：
+     最好还是要在根视图中写明 需要是竖屏的因为横屏模拟器启动的时候会出现横屏视图的问题
+     注意iPhoneX的横屏
+     https://www.jianshu.com/p/424521c4e3aa
+     在横屏的时候如果是iPhoneX
+     我在原来的基础上在右侧加了个24pt
+ 关于缓冲进度：
+ 方法一：
+    https://blog.csdn.net/wsyx768/article/details/46697683
+     https://blog.csdn.net/flg1554112450/article/details/71424970
+     音频缓冲 在slider下方添加progressView
+     设置progressView的数值
+     设置slider的maxColor alpha为0 这样下方的progressView就能够漏出来了
+     然后计算相关的进度loadedTimeRanges
+     缓冲的进度是很快的就完成了可以注意打印相关内容
+ 
+ 方法二：
  
  
  
