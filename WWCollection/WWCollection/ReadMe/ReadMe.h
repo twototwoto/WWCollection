@@ -908,6 +908,15 @@ CGPoint point = [touch locationInView:self.view];
  
  方法二：
  
+ 2018年5月8日
+ * UIWebView获取高度：https://bingozb.github.io/41.html
+ * 应用打断事件处理 比如说电话中断:
+    https://www.jianshu.com/p/014aa679424b
+ * 关于curl：
+    https://baike.baidu.com/item/curl/10098606?fr=aladdin
+    https://curl.haxx.se
+ * 图片拉伸： 防止变形：https://www.jianshu.com/p/aef225ae1502
+ 
  
  
  
