@@ -917,6 +917,28 @@ CGPoint point = [touch locationInView:self.view];
     https://curl.haxx.se
  * 图片拉伸： 防止变形：https://www.jianshu.com/p/aef225ae1502
  
+ 2018年5月9日
+    上线问题：https://blog.csdn.net/u010008647/article/details/79214964
+    UITextField的clear的代理方法：https://segmentfault.com/q/1010000004008814
+    标签使用的问题：https://github.com/iThinkerYZ/YZTagList/issues/3
+    在添加标签的时候需要先判断是否有相同的标签存在了
+ 
+ * 解析HTML CSS 为NSAttributedString 然后显示出来
+    使用DTCoreText:https://github.com/Cocoanetics/DTCoreText
+    这个库看起来不是很容易应用到项目中：
+    相关文章：
+            * https://blog.cnbang.net/tech/2630/
+            * https://www.jianshu.com/p/b09d3fa1cd98
+                * 注意按照上边的这个文章进行操作的时候编译的时候不用指定开发者账号 Team处于None的状态就行 否则编译不出来相关的文件
+                * 遇到的一个问题 can't move temporary file: /路径/FrameworkResource to file: /路径/FrameworkResource.lipo (Is a directory) 因为最后要写的是文件名字 不是文件路径
+ * 崩溃问题：dyld: Library not loaded: @rpath/DTFoundation.framework/DTFoundation
+ Referenced from: /路径/Library/Developer/CoreSimulator/Devices/58CA68C6-C98B-4621-A66C-F1831E7B6413/data/Containers/Bundle/Application/BA849A75-8E2B-4B61-8BCC-A51123C2B241/WWCollection.app/WWCollection
+ Reason: image not found
+            *
+ 
+ 
+ 
+ 
  
  
  
