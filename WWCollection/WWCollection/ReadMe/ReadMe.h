@@ -936,7 +936,15 @@ CGPoint point = [touch locationInView:self.view];
  Reason: image not found
             *
  
- 
+ 2018年5月10日
+ * 一个是看提供的文档:https://docs.cocoanetics.com/DTCoreText/docs/Setup%20Guide.html
+ * 一个是看提供的demo:https://github.com/Cocoanetics/DTCoreText
+ * 把demo跑通了就算是成功了一半记得是zzz老师说的哈哈
+    * 关于DTCoreText:http://www.cnblogs.com/bucengyongyou/category/410341.html
+    * 运行项目CoreText:http://www.cocoachina.com/bbs/read.php?tid=263789
+ * 加载HTML的形式的demo使用过程中遇到的这个问题：https://github.com/Cocoanetics/DTCoreText/issues/1108
+ * 类似的：https://stackoverflow.com/questions/2125543/setting-a-cgcontext-transparent-background
+ * 图片网址：https://www.vcg.com/creative/search?utm_source=baidu&utm_medium=cpc&utm_campaign=%E9%80%9A%E7%94%A8%E8%AF%8D&utm_content=%E5%B9%BF%E6%B3%9B&utm_term=%E5%9B%BE%E7%89%87%E5%BA%93
  
  
  
