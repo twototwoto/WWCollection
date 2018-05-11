@@ -946,7 +946,40 @@ CGPoint point = [touch locationInView:self.view];
  * 类似的：https://stackoverflow.com/questions/2125543/setting-a-cgcontext-transparent-background
  * 图片网址：https://www.vcg.com/creative/search?utm_source=baidu&utm_medium=cpc&utm_campaign=%E9%80%9A%E7%94%A8%E8%AF%8D&utm_content=%E5%B9%BF%E6%B3%9B&utm_term=%E5%9B%BE%E7%89%87%E5%BA%93
  
+ 2018年5月11日
+ 让Mac OS Safari 显示出来网页源代码的方法
+ 使用Safari -> 偏好设置 -> 高级 -> 选中 在菜单栏中显示"开发”菜单
+ * 触摸板上两个手指点击网页  -> 检查元素 即可
+ * 当然也可以看看菜单栏中的 开发 的网页源代码的快捷键 Commond + option + u
+ 学习网址：https://blog.csdn.net/justinjing0612/article/details/8113377
  
+ 更多html转换为富文本的内容：
+ * https://www.jianshu.com/p/029a5ef4e86a
+ * https://www.jianshu.com/p/a620a2664f58
+ * Url编解码：https://www.cnblogs.com/hanjun/archive/2013/05/02/3054667.html
+ 这个可能在取到html的时候其中有多个%号的时候会用到 把这些百分号去掉还原成原来的html的原来的样子
+ 像这种 %3C!DOCTYPE%20html%3E 转为<!DOCTYPE html>
+    前端相关内容：https://blog.csdn.net/u012230055/article/details/42875253
+ iOS中：
+    str = [str stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+     或者
+     str = [str stringByRemovingPercentEncoding];
+ 
+ 
+    * 使用DTCoreText的时候遇到的问题：
+ 被坑的不轻。。。
+ - (NSAttributedString *)_attributedStringForSnippetUsingiOS6Attributes:(BOOL)useiOS6Attributes
+ {
+
+ }
+    重要！！！！这个方法中写的maxImageSize 控制着图片的宽度高度
+ 
+    如果被其中的maxImageSize限制着 即使是我们在
+ - (void)lazyImageView:(DTLazyImageView *)lazyImageView didChangeImageSize:(CGSize)size {
+ 
+ }
+ 这个方法中修改了imageSize 有的时候也不能使得图片得以改变
+ 需要做的操作是修改maxImageSize 的尺寸来作出限制的让步
  
  
  
