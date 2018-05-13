@@ -981,7 +981,18 @@ CGPoint point = [touch locationInView:self.view];
  这个方法中修改了imageSize 有的时候也不能使得图片得以改变
  需要做的操作是修改maxImageSize 的尺寸来作出限制的让步
  
+ 还有一点是使用DTCoreText的时候后不能给图片使用width = "100%" 的这种形式 否则的话图片显示不出来
+ 不过可以使用width="100px"
  
+ 关于FPS 和 切圆角需要考虑的点：
+ https://zh.wikipedia.org/wiki/帧率
+ https://baike.baidu.com/item/fps/3227416
+ https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/
+ https://github.com/ibireme/YYText/blob/master/Demo/YYTextDemo/YYFPSLabel.m
+ https://github.com/Draveness/analyze/blob/master/contents/AsyncDisplayKit/提升%20iOS%20界面的渲染性能%20.md
+ 实属惭愧 圆角部分自己还没有处理好成没有离屏渲染的情况 不显示黄色的状况
+ https://www.zhihu.com/question/19568972
+ http://www.cocoachina.com/ios/20160301/15486.html
  
  
  
