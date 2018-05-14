@@ -994,7 +994,20 @@ CGPoint point = [touch locationInView:self.view];
  https://www.zhihu.com/question/19568972
  http://www.cocoachina.com/ios/20160301/15486.html
  
+ 在UITableView重用的时候如果错误地把不同的两种类型的cell重用了相同的重用标识 会造成的问题是当这个显示的结果是同一种类型的cell的样式
  
+ 
+ iOS8 + :
+ 在这两个属性的控制下 不用去手动计算TableViewCell的高度了
+ 如自己所试的 在使用Masonry的时候自上而下进行约束的时候 不用去计算cell应该用多多少高度
+ _automaticFitCellTableView.estimatedRowHeight = 100.f;
+ _automaticFitCellTableView.rowHeight = UITableViewAutomaticDimension;
+ 学习网址：
+ http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/
+ https://www.jianshu.com/p/64f0e1557562
+ 
+ 当然给cell高度加个缓存会更好一些 示例Demo:
+ https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
  
 
 
