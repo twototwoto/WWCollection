@@ -1009,8 +1009,45 @@ CGPoint point = [touch locationInView:self.view];
  当然给cell高度加个缓存会更好一些 示例Demo:
  https://github.com/forkingdog/UITableView-FDTemplateLayoutCell
  
+ 2018年5月15日
+ //DTDefaultLineHeightMultiplier 这个属性用于控制行间距的倍数 默认1.0保持不变
+ NSMutableDictionary *options  = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:1.0], NSTextSizeMultiplierDocumentOption,[NSNumber numberWithFloat:1.0f],DTDefaultLineHeightMultiplier,[NSValue valueWithCGSize:maxImageSize], DTMaxImageSize,
+ @"Times New Roman", DTDefaultFontFamily,  @"purple", DTDefaultLinkColor, @"red", DTDefaultLinkHighlightColor, callBackBlock, DTWillFlushBlockCallBack, nil];
+ 
+//官方示例：
+     NSDictionary* options = @{ NSTextSizeMultiplierDocumentOption: [NSNumber numberWithFloat: 1.0],
+     DTDefaultFontFamily: @"Helvetica Neue",
+     };
+ 
+     NSString *html = @"<p>Some Text</p>";
+     NSData* descriptionData = [html dataUsingEncoding:NSUTF8StringEncoding];
+     NSAttributedString* attributedDescription = [[NSAttributedString alloc] initWithHTMLData:descriptionData options:options documentAttributes:NULL];
+ 
+不过下边的高度的计算在图片指定宽度高度px的值的情况下 还准确一些 如果没有指定的话还需要自己多做一些图片高度的处理 得出结果(这部分自己还没有实现 只有实现过图片给定宽高的情况)
+ * 计算DTAttributedTextCell 的高度的计算方法之一：
+ 参考文档：https://docs.cocoanetics.com/DTCoreText/docs/Programming%20Guide.html
+     NSAttributedString *attributedString = ...
+     DTCoreTextLayouter *layouter = [[DTCoreTextLayouter alloc] initWithAttributedString:attributedString];
+ 
+ //把此处的CGFLOAT_WIDTH_UNKNOWN 换成自己想要的即可 比如说固定高度 得高度的 就给定宽度
+     CGRect maxRect = CGRectMake(10, 20, CGFLOAT_WIDTH_UNKNOWN, CGFLOAT_HEIGHT_UNKNOWN);
+     NSRange entireString = NSMakeRange(0, [attributedString length]);
+     DTCoreTextLayoutFrame *layoutFrame = [layouter layoutFrameWithRect:maxRect range:entireString];
+ 
+     CGSize sizeNeeded = [layoutFrame frame].size;
+ 
+ 
+ * 计算DTAttributedTextCell 的高度的计算方法之二：
+ 
+     DTAttributedTextCell *dtAttriCell = [DTAttributedTextCell new];
+     dtAttriCell.attributedTextContextView.attributedString = [self _attributedStringForSnippetUsingiOS6Attributes:NO htmlString:_htmlString];
+ 
+     WWLog(@"所需高度:%f",[dtAttriCell requiredRowHeightInTableView:tableView]);
+     return [dtAttriCell requiredRowHeightInTableView:tableView];
+ 
+ 
 
-
+UIWebView 可以直接load html 字符串 而且遵守协议设置代理后也会调用相应的代理方法
 
  */
 
