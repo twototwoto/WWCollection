@@ -1048,7 +1048,52 @@ CGPoint point = [touch locationInView:self.view];
  
 
 UIWebView 可以直接load html 字符串 而且遵守协议设置代理后也会调用相应的代理方法
-
+ http://www.code4app.com/snippets/one/loadHTMLString加载HTML代码/50d27d666803fa922f000000
+ 
+ 
+ 2018年5月16日
+ 关于UIWebView的高度计算：
+    https://bingozb.github.io/41.html
+     CGFloat webH = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"]floatValue];
+     CGFloat webScrollH = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"]floatValue];
+     self.webViewRealHeight = webScrollH;
+     WWLog(@"webView加载完毕 高度 %f---%f",webH,webScrollH);
+     WWLog(@"加载完webView高度%f",height);
+ 
+ 确实有的时候document.body.offsetHeight 比 document.body.scrollHeight 值小
+ 
+ 
+ 使用
+ 对于cell的抖动的问题可以考虑使用分散到不同的组来解决
+ 如果在同一个组里可能难免会有抖动
+ 有的时候在heightForRow中取- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+ 
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+ 取出的cell有时候为nil 我测试了下大概情况，如果indexPath 是我们自己指定的
+ 如下列的方式：UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+ 可能导致cell为nil
+ 还有一种方式是在TableView滚动的过程中
+ 发现在有的cell滚出了屏幕然后又滚回来的时候取到的cell也会为nil
+ 如果我们对cell中的某些量recordVal有需要的话可以定义一个静态常量staticVal记录下来需要的量
+ 当然其中有部分逻辑，先判断这个staticVal 是否和要记录的量都是0或者某个原始值
+ 
+     if (cell.recordVal == 0 && staticVal == 0) {
+        return 某个固定值;
+     }
+     if (staticVal != 0) {
+        return staticVal + WW_PX_Height(99.f);
+     }
+        staticVal = cell.cell.recordVal;
+     return introlCell.webViewRealHeight + WW_PX_Height(99.f);
+ 
+ 更多相关问题：https://stackoverflow.com/questions/5232849/cellforrowatindexpath-returns-nil
+ 
+ * svn Couldn’t communicate with a helper application
+ 这种问题有的时候是因为有些文件加入了版本控制，但是后来又删除了文件，但是版本控制中的内容没有反应过来，这样提交的时候找不到被删除之前的文件报出的错误：解决办法是使用终端命令的方式来提交，会给出错误原因
+ New Group' is scheduled for addition, but is missing
+ 像上边所说，我们找到这个New Group  文件，然后Discard Changes 之后再提交就可以了
+ 
+ 
  */
 
 
