@@ -1093,8 +1093,65 @@ UIWebView 可以直接load html 字符串 而且遵守协议设置代理后也�
  New Group' is scheduled for addition, but is missing
  像上边所说，我们找到这个New Group  文件，然后Discard Changes 之后再提交就可以了
  
+ 2018年5月17日
+ 
+ Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Invalid update: invalid number of sections.  The number of sections contained in the table view after the update (1) must be equal to the number of sections contained in the table view before the update (1), plus or minus the number of sections inserted or deleted (0 inserted, 1 deleted).'
+ 
+ Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Invalid update: invalid number of sections.  The number of sections contained in the table view after the update (0) must be equal to the number of sections contained in the table view before the update (1), plus or minus the number of sections inserted or deleted (0 inserted, 0 deleted).'
+ https://stackoverflow.com/questions/21870680/invalid-update-invalid-number-of-rows-in-section-0
+ 删除TableView的某一行 或者某一组的时候记得更新相应的numberOfSections 以及numberofRows
+ 
+ 当我们要删除某一组里的最后的一个cell的时候要使用删除section的方法而不能使用常规的deleteRowsAtIndexPaths 否则会崩溃
+ 
+     if (_checkStateArrayM.count == 0) {
+     [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+     }else{
+     [self.tableView deleteRowsAtIndexPaths:[indexPathArrM copy] withRowAnimation:UITableViewRowAnimationFade];
+     }
+ 
+ 
+ //此处应该倒着删除
+     for (NSInteger i = indexPathArrM.count-1; i >= 0  ; i --) {
+     [_checkStateArrayM removeObjectAtIndex:((NSIndexPath *)indexPathArrM[i]).row];
+     }
+ 比如说 标记的序列为
+    NO YES NO YES YES YES YES
+NO YES NO YES YES YES YES       //从低到高
+    NO YES NO YES YES YES YES   //从高到低 可以保持原来的样子
+ 
+ 
+ 从低到高 那么之前的第二个NO的位置变成了当前的YES的位置
+ 从高到低 可以保持原来的样子 这样删除的次序才不会乱
+ 那么如果我们按照从低到高删除出现 我们把带个
+ 下边的方式是有误的 比如说我们要删除 的索引有 0 2 那么当我们删除了0后，原来的2的位置现在已经往前挪动了 所以这个时候再去按照原来的位置去删除肯定会出问题
+     //    for (NSInteger i = 0; i < indexPathArrM.count; i ++) {
+     //        [_checkStateArrayM removeObjectAtIndex:((NSIndexPath *)indexPathArrM[i]).row];
+     //    }
+ 
+ 
+ 更多相关内容：
+ https://www.jianshu.com/p/1d82befe9988
+ 
+ 
+ * 想要使用extern的话也需要是有相关的类的头文件已经引入过了才可以
+ Why won't extern link to a static variable?：https://stackoverflow.com/questions/2841762/why-wont-extern-link-to-a-static-variable
+ 
+ //比如在EOCTest类中 .h头文件中
+ extern const NSTimerInterval EOCAnimatedViewAnimationDuration;
+ //.m 文件中
+ const NSTimeInterval EOCAnimatedViewAnimationDuration = 3.0;
+ //那么import ECOTest头文件 的类就可以同样使用EOCAnimatedViewAnimationDuration了
+ 学习内容:Effective Objective-C 2.0编写高质量iOS与OSX的52个有效方法
+ 
+ 
+ * 有的时候遇到一些奇怪的问题
+ 像滑块使用 CGRect来布局滑块的父视图的时候 滑块能够正常地做动画的操作
+ 但是使用Masonry来做约束滑块的父视图 的时候在有的时候却可能得不到预期的效果
+ 
+ 
  
  */
+
 
 
 #endif /* ReadMe_h */
