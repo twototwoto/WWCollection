@@ -1148,6 +1148,14 @@ NO YES NO YES YES YES YES       //从低到高
  像滑块使用 CGRect来布局滑块的父视图的时候 滑块能够正常地做动画的操作
  但是使用Masonry来做约束滑块的父视图 的时候在有的时候却可能得不到预期的效果
  
+ 把A-Z字符放到的数组 中
+     NSMutableArray* _azArrayM = [NSMutableArray arrayWithCapacity:26];
+     for (NSInteger i = 0; i < 26; i ++) {
+     [_azArrayM addObject: [NSString stringWithFormat:@"%c",(char)(65+i)]];
+     }
+ WWLog(@"%@",_azArrayM);
+ 学习地址：https://my.oschina.net/u/2555813/blog/802887
+ 
  
  
  */
