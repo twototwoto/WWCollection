@@ -1156,9 +1156,42 @@ NO YES NO YES YES YES YES       //从低到高
  WWLog(@"%@",_azArrayM);
  学习地址：https://my.oschina.net/u/2555813/blog/802887
  
+ //英文字母加一个 '#' 直接使用字符的形式的累计
+     _azArrayM = [NSMutableArray arrayWithCapacity:27];
+     for (char a = 'A'; a <= 'Z'; a ++) {
+         [_azArrayM addObject: [NSString stringWithFormat:@"%c",a]];
+     }
+     [_azArrayM addObject:@"#"];
+     WWLog(@"%@",_azArrayM);
+ 
+ * UISearchBar的边框问题
+ https://blog.csdn.net/u013346305/article/details/51802043
+ 设置背景图片后即可去除边框正常地显示
+ searchBar.backgroundImage = [UIImage new];
+ 
+ * 在Xcode9上边测试离屏渲染 给ImageView或者是UIView 设置cornerRadius 以及maskToBounds 已经不会引发离屏渲染了 给按钮在设置图片设置cornerRadius 以及maskToBounds的时候仍会引发离屏渲染
+ 
+ * 对于类似通讯录似的Demo 在处理A-Z 中有的 多音字的排序 的时候想到一种思路是
+ 举例子来说比如说沈(shen) 吧 他是多音字 也念chen 那么如果系统当做chen排序的话就出错了
+ 在处理姓名的姓的时候先把文字的姓名中 姓 查看是否为 "沈"
+    如果是的话 把这个字段替换掉 比如说用 "shen##" 吧
+    然后当姓名中起码 按照姓 已经正常排序好后 再把 "shen##" 改变回 "沈"
+    这算是一种解决多音字排序的办法
+ 
+ 学习网址：
+ https://github.com/gsdios/GSD_WeiXin/blob/master/GSD_WeiXin(wechat)/Classes/Contacts/Host/SDContactsTableViewController.m
+ https://blog.csdn.net/qq_29307685/article/details/51532147
+ http://www.olinone.com/?p=131
+ 相关内容：
+ https://github.com/jkpang/PPGetAddressBook
+ https://github.com/liufan321/FFChineseSort
+ 
+ 
  
  
  */
+
+
 
 
 
