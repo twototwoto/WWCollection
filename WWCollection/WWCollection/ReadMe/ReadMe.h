@@ -1186,6 +1186,26 @@ NO YES NO YES YES YES YES       //从低到高
  https://github.com/jkpang/PPGetAddressBook
  https://github.com/liufan321/FFChineseSort
  
+ 2018年5月21日
+     * 文本框的背景图片的拉伸处理：
+         * 文档：https://developer.apple.com/documentation/uikit/uiimage/1624127-resizableimagewithcapinsets?language=objc
+         * https://onevcat.com/2011/12/uiimage/
+         * http://www.cnblogs.com/mjios/archive/2013/02/26/2934280.html
+         * http://zhong871004.iteye.com/blog/2287009
+         * http://m6830098.github.io/2015/09/06/UIEdgeInsetsMake/
+         * https://blog.csdn.net/shimiso/article/details/41079847
+         * https://blog.csdn.net/ecjtuhq/article/details/52204599
+ 代码的方式是：
+    UIImage *textBackImg = [[UIImage imageNamed:@""] resizableImageWithCapInsets:UIEdgeInsetsMake(28, 19, 6, 8) resizingMode:UIImageResizingModeStretch];
+ 指定CapInsets 的时候左边 下边 右边 要求还比较低 注意是 上边 写的时候多测试下来查看合适的值
+ 其实左边 下边 右边就像是指定了不拉伸的缩进的距离 上边的位置注意不要出现拉伸变形的情况
+ 
+ 关于打开热点的时候的可能遇到的视图偏移的问题留作备用 其实有的时候自己的App里边在对视图布局的时候 如果是滚动视图或者是参考着底部做的约束的话 即使视图向下偏移了 也不会影响正常使用 这里留下相关的内容备用：
+     https://www.2cto.com/kf/201804/738685.html
+     https://www.jianshu.com/p/f8efb79eab21
+     https://www.jianshu.com/p/a3f31cb9a8a3
+     https://blog.csdn.net/jeffasd/article/details/50667664
+ 
  
  
  
