@@ -1206,6 +1206,19 @@ NO YES NO YES YES YES YES       //从低到高
      https://www.jianshu.com/p/a3f31cb9a8a3
      https://blog.csdn.net/jeffasd/article/details/50667664
  
+ 2018年5月22日
+ 
+     //[self.view setNeedsLayout];
+     //[self.view layoutSubviews];
+     [self.view layoutIfNeeded];
+ 
+ 在使用Masonry设置一个ImageView的布局的时候 使用top left bottom right 来进行约束的时候
+ * 在 开始的设置图片 后来请求到数据后的图片更新的时候 不清楚是哪里出了问题
+    在后来的设置了图片以后 图片比之前高了 遮挡了其他的时候
+ * 使用Masonry布局完后frame还是为0
+ * 解决办法 在给ImageView 布局完使用[self.view layoutIfNeeded] 解决的问题 不要直接使用layoutSubViews 使用setNeedsLayout不会有反应是因为不会立即重新布局子视图
+ * 或者是在给ImageView布局的时候指定 top left 以及尺寸 来解决这个问题
+ 
  
  
  
