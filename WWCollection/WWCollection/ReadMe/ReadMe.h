@@ -1219,6 +1219,28 @@ NO YES NO YES YES YES YES       //从低到高
  * 解决办法 在给ImageView 布局完使用[self.view layoutIfNeeded] 解决的问题 不要直接使用layoutSubViews 使用setNeedsLayout不会有反应是因为不会立即重新布局子视图
  * 或者是在给ImageView布局的时候指定 top left 以及尺寸 来解决这个问题
  
+ 使用UIWebView 加载本地gif图的时候发现尺寸有误 本来设置的和屏幕一样的大小但是显示webView的尺寸过大了 使用了下边的这个属性 可以正常显示了
+ webV.scalesPageToFit = YES;
+ 学习地址：http://www.cocoachina.com/bbs/read.php?tid-58789-page-1.html
+ 
+ NSData *data = [[NSData alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"gitName" ofType:@"gif"]];
+ UIWebView *webV = [[UIWebView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+ [webV loadData:data MIMEType:@"image/gif" textEncodingName:@"UTF-8" baseURL:[NSURL new]];
+ webV.scalesPageToFit = YES;
+ [self.window addSubview:webV];
+ [self.window bringSubviewToFront:webV];
+ 
+ 对于移除的时候要注意的是可以在代理方法中进行dispatch_after的计时操作 然后再移除 否则的话移除的时机难以把握
+     - (void)webViewDidFinishLoad:(UIWebView *)webView{
+            WWLog(@"加载完成");
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 _webView.alpha = 0;
+                 [_webView removeFromSuperview];
+                 WWLog(@"移除");
+             });
+     }
+ 
+ 
  
  
  
