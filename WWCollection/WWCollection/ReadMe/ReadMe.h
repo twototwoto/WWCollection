@@ -1222,6 +1222,10 @@ NO YES NO YES YES YES YES       //从低到高
  使用UIWebView 加载本地gif图的时候发现尺寸有误 本来设置的和屏幕一样的大小但是显示webView的尺寸过大了 使用了下边的这个属性 可以正常显示了
  webV.scalesPageToFit = YES;
  学习地址：http://www.cocoachina.com/bbs/read.php?tid-58789-page-1.html
+ UIwebView 加载gif图
+ https://developer.apple.com/documentation/uikit/uiwebview/1617941-loaddata?language=objc
+ https://stackoverflow.com/questions/32084420/uiwebview-loaddata-is-not-accepting-nil-values-for-textencodingname-and-baseurl
+ https://www.jianshu.com/p/767af9c690a3
  
  NSData *data = [[NSData alloc]initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"gitName" ofType:@"gif"]];
  UIWebView *webV = [[UIWebView alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -1240,6 +1244,16 @@ NO YES NO YES YES YES YES       //从低到高
              });
      }
  
+ 更改应用显示的名字：
+ 简单办法：
+    info.plist文件中添加key：CFBundleDisplayName
+    CFBundleDisplayName = "应用名称";
+ 学习地址：https://www.jianshu.com/p/a3a70f0398c4
+ 
+ AFN有个问题待解决：
+ Error Domain=AFNetworkingErrorDomain Code=-1011 “Request failed: method not allowed (405)”
+ https://stackoverflow.com/questions/29789353/error-domain-afnetworkingerrordomain-code-1011-request-failed-method-not-allo
+ 类似的经历的有：https://blog.csdn.net/zkh90644/article/details/51497740
  
  
  
