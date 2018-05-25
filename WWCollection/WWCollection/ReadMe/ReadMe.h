@@ -1255,10 +1255,72 @@ NO YES NO YES YES YES YES       //从低到高
  https://stackoverflow.com/questions/29789353/error-domain-afnetworkingerrordomain-code-1011-request-failed-method-not-allo
  类似的经历的有：https://blog.csdn.net/zkh90644/article/details/51497740
  
+ 解决了这个405的问题主要是请求的地址出现了问题 不小心把图片的地址当作请求的url传入了请求地址
  
+     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+     sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+     sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/xml",@"image/png",@"image/jpeg",@"application/json", nil];
+     //GET
+     [sessionManager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+ 
+     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+     //这种情况下有的时候返回的responseObject为二进制的形式 这里之所以二进制的形式和sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer]; 这行代码有关系 若查看到数据[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil] 得到json形式的数据
+     WWLog(@"%@",responseObject);
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     WWLog(@"%@",error);
+     }];
+ 
+ 废弃的方法
+     NSMutableURLRequest *requestM = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+     NSData *dictData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+     //    [requestM setHTTPBody:dictData];
+     [requestM setValue:@"token" forHTTPHeaderField:@"token"];
+     [requestM setValue:@"fadsfadsf" forHTTPHeaderField:@"content"];
+     [requestM setValue:imageURLStr forHTTPHeaderField:@"imageUrls"];
+     [requestM setValue:self.courseID forHTTPHeaderField:@"courseId"];
+ 
+     [requestM setHTTPMethod:@"POST"];
+     NSOperationQueue *operationQueue = [[NSOperationQueue alloc]init];
+     [NSURLConnection sendAsynchronousRequest:requestM queue:operationQueue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+         if (connectionError) {
+            WWLog(@"%@",connectionError);
+         }else{
+            WWLog(@"%@",response);
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            WWLog(@"--%@",dict);
+        }
+     }];
+ 
+ 
+ 
+ 相关内容：
+ //    [manager.requestSerializer setValue:@"application/xml"forHTTPHeaderField:@"Content-Type"];
+ //    [manager.requestSerializer setValue:@"application/json"forHTTPHeaderField:@"Accept"];
+ 
+ 
+ * 关于字典取值的防治崩溃的问题：
+        * 奔溃示例：[NSNull objectForKeyedSubscript:]
+            * http://www.cocoachina.com/ios/20161110/18036.html
+            * http://tech.glowing.com/cn/how-we-made-nsdictionary-nil-safe/
+            * https://blog.csdn.net/zwl492454828/article/details/52163271
+            * https://blog.csdn.net/kyfxbl/article/details/44538803
+ * 看看第三方是怎么实现的：
+    * https://blog.csdn.net/u010231453/article/details/51424115
+ 
+ 
+ 关于压缩拉伸的设置
+ https://www.jianshu.com/p/e38157d7b828
+ 
+ 关于UITextFiled的一个问题：难道是汉字的文本框比较宽 闪动的光标比较大 而英文的闪动的光标比较小？
+ 还有一个1011外加一个405是请求地址有问题导致的
+ 注意调试的时候不仅仅要看请求参数还要看看请求的地址是否有误
+ 注意fileName 后边的图片名字的后缀 .jpg 不能掉了 否则会报错String index out of range:-1
+  [formData appendPartWithFileData:data name:@"imgName" fileName:@"-imgFile.jpg"  mimeType:@"image/jpeg"];
  
  
  */
+
+
 
 
 
