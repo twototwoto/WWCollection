@@ -1318,6 +1318,15 @@ NO YES NO YES YES YES YES       //从低到高
   [formData appendPartWithFileData:data name:@"imgName" fileName:@"-imgFile.jpg"  mimeType:@"image/jpeg"];
  
  
+ 了解关于Feed流和NLP:
+    * http://www.woshipm.com/tag/feed流
+    * https://www.zhihu.com/question/20690652
+    * https://juejin.im/post/5a090c3c518825320476b3b1
+ NLP:
+    * https://zh.wikipedia.org/wiki/自然语言处理
+    * https://www.zhihu.com/question/19929473
+ 
+ 
  */
 
 
