@@ -1326,6 +1326,23 @@ NO YES NO YES YES YES YES       //从低到高
     * https://zh.wikipedia.org/wiki/自然语言处理
     * https://www.zhihu.com/question/19929473
  
+ 2018年5月27日
+ * pop到指定控制器：
+    * 带有导航的控制器再push和pop的时候分别对应的是视图控制器入栈和出栈的操作 所以可以通过self.navigationController.viewControllers 获取到当前的栈中的控制器 那么遍历这些控制器就可以找到想要pop到的那一个控制器
+    * 学习网址： https://cnbin.github.io/blog/2015/09/18/uinavigationcontroller-fan-hui-de-fang-fa-hui-zong/
+    * https://www.jianshu.com/p/8f385b8a693e
+ for (UIViewController *viewController in self.navigationController.viewControllers) {
+     //isKindOfClass 判断的是当前的视图控制器是否是后边的类的实例或者子类的实例
+     if ([viewController isKindOfClass:[JYZLoginViewController class]]) {
+         [self.navigationController popToViewController:viewController animated:YES];
+     }
+ 
+     if ([viewController isMemberOfClass:[JYZLoginViewController class]]) {
+         ////isMemberOfClass 判断的是当前的视图控制器是否是后边的类的实例
+         [self.navigationController popToViewController:viewController animated:YES];
+    }
+    //选择适合自己的那个就好
+ }
  
  */
 
