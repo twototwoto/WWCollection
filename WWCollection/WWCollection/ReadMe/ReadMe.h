@@ -1344,6 +1344,77 @@ NO YES NO YES YES YES YES       //从低到高
     //选择适合自己的那个就好
  }
  
+ 
+ 像这种链接错误的问题 原因可能在于在重复定了了 一些类
+ 有的时候不是显而易见的
+ 比如说有的时候model中嵌套了model
+ 然后自己在创建新的类的时候 可能起的名字在已有的类中已经存在了同名的类
+ 这种情况是一种连接编译失败的原因之一 这种还是比较简单的 还有比较简单的像 引入头文件.h的时候写成了.m
+ 4 duplicate symbols for architecture arm64
+ clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ 
+     //UICollectionView中数据比较少的时候发现即使设置contentSize很大仍然不能改变能够滚动
+     _collectionView.contentSize = CGSizeMake(1000.f, 1000.f);
+     //使用下边的属性可以控制是否能够滚动
+     _collectionView.alwaysBounceVertical = YES;
+学习网址：
+    https://blog.csdn.net/majiakun1/article/details/50721826
+ 
+ 2018年5月28日
+ * 为键盘添加完成：
+    * https://www.jianshu.com/p/db3596d211db
+     * WYWTextField *textField = [WYWTextField new];
+     textField.backgroundColor = [UIColor blueColor];
+     textField.borderStyle = UITextBorderStyleRoundedRect;
+     textField.backgroundColor = [UIColor lightGrayColor];
+     [self.view addSubview:textField];
+     textField.placeholder = @"占位文字";
+     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+     //        make.left.right.equalTo(self.view);
+     make.left.equalTo(self.view).mas_offset(20.f);
+     make.right.equalTo(self.view).mas_offset(-20.f);
+     make.height.mas_equalTo(40.f);
+     make.top.equalTo(self.view).mas_offset(100.f);
+     }];
+ 
+     UIToolbar *keyboardToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 40.f)];
+     textField.inputAccessoryView = keyboardToolbar;
+     UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+     UIBarButtonItem *completeItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(completeBarButtonItemClick:)];
+     keyboardToolbar.items = @[spaceItem,completeItem];
+     //同样 像 UISearchBar 视图(因为UISearchBar视图中也有UITextField) 也可以设置完成 或者是取消
+     UISearchBar *searchBar = [UISearchBar new];
+     searchBar.inputAccessoryView = keyboardToolbar;
+ 
+ * 关于UITextFiled设置了rightView的时候发现光标太靠左了 解决办法重写UITextField的
+    *textRectForBounds 和editingRectForBounds
+     #import "WYWTextField.h"
+ 
+     //偏移量
+     static CGFloat const kOffsetX = 5.0f;
+     @implementation WYWTextField
+ 
+     //这种尤其会在UITextField显示了rightView影响输入光标的位置
+     - (CGRect)textRectForBounds:(CGRect)bounds{
+     //使用CGRectInset的时候当使用的缩进的值比较大的时候会崩溃还没有发现问题。。returned NaN for an intrinsicContentSizeDimension. Using UIViewNoIntrinsicMetric instead.
+ 
+     //    return CGRectInset(bounds, 50.f, 0);
+     return CGRectMake(bounds.origin.x + kOffsetX, bounds.origin.y, bounds.size.width - kOffsetX, bounds.size.height);
+     }
+ 
+     - (CGRect)editingRectForBounds:(CGRect)bounds{
+     //看起来是两侧都会往里边缩进
+     //        return CGRectInset(bounds, 50.f, 0);
+     return CGRectMake(bounds.origin.x + kOffsetX, bounds.origin.y, bounds.size.width - kOffsetX, bounds.size.height);
+ 
+     }
+ 学习网址:
+ https://blog.csdn.net/wangfeng2500/article/details/50176869
+ https://www.jianshu.com/p/f93b005dc9d4
+ 
+* 关于音频倍速：
+    * 其实对于音频的倍速播放的这种一般设置个 0.75 - 1.0 （以0.25为单位递增到1.75就可以了）市面上好多的App都是这么做的 像喜马拉雅 慕课网 极客时间等
+ 
  */
 
 
