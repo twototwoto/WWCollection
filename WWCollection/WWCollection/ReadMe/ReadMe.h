@@ -1415,6 +1415,30 @@ NO YES NO YES YES YES YES       //从低到高
 * 关于音频倍速：
     * 其实对于音频的倍速播放的这种一般设置个 0.75 - 1.0 （以0.25为单位递增到1.75就可以了）市面上好多的App都是这么做的 像喜马拉雅 慕课网 极客时间等
  
+ 2018年5月29日
+    * nil / Nil / NULL / NSNull：
+        * http://nshipster.cn/nil/
+        * http://blog.sina.com.cn/s/blog_9922bc340101erg2.html
+    [NSNull null] 可以用以判断字典中的value是否为null
+ 像下边的这种情况 自己模拟的地方还有些许不对 有的时候服务器返回的value为空的时候取值会直接崩溃
+     NSDictionary *dict = dict = @{
+     @"a":@{
+     @"b":[NSNull null]
+     }
+     };
+ 
+ 
+     if([dict[@"a"][@"b"] class] == [NSNull class]){
+     WWLog(@"");
+     }
+     if(dict[@"a"][@"b"] == [NSNull null]){
+     WWLog(@"value为空");
+     }
+    * 项目管理软件：
+        * https://www.atteam.cn/project.html?bd-xmglrj1
+        * 禅道：https://www.testin.cn/task_function/list_bug.htm
+ 
+    *
  */
 
 
