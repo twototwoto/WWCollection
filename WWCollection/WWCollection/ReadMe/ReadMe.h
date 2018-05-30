@@ -1439,6 +1439,33 @@ NO YES NO YES YES YES YES       //从低到高
         * 禅道：https://www.testin.cn/task_function/list_bug.htm
  
     *
+ 
+ 
+ 2018年5月30日
+     * 使用NSUserDefaults 存储的value 为NSNumber类型的
+         po [someString class]
+         NSTaggedPointerString
+ 
+         (lldb) po [someUserValue class]
+         __NSCFNumber
+         所以isEqualToString判断并不相等
+ 
+ 
+    * 遇到了一个这个问题还不知道怎么解决：
+     com.alamofire.error.serialization.response Code=-1011 "Request failed: internal server error (500)" UserInfo={NSLocalizedDescription=Request failed: internal server error (500),
+     使用postman 会返回code码
+     使用手机的时候调用到了错误的部分
+ 
+    * 类似朋友圈评论的部分 学习了GSD_WeiXin(wechat) 发现作者是使用的属性字符串来处理的评论部分
+        *    from 发送方
+             to 被回复的方
+             都是使用的有颜色的属性字符串
+        *   而其他的回复  以及回复内容的部分都是使用的普通的属性字符串的内容
+ 
+ 
+    * 这个可以控制内容 有的时候UITableView中有间隔的时候 section有组间距的时候 使用MBProgressHUD 提示框可能会显示的有些部分断开的样子或者说是一种分割开的样子 使用keyWindow就没事了
+    [[UIApplication sharedApplication].keyWindow showTextNoActivity:@“” timeLength:2.0f];
+ 
  */
 
 
