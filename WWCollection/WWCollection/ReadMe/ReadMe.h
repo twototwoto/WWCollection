@@ -1466,6 +1466,44 @@ NO YES NO YES YES YES YES       //从低到高
     * 这个可以控制内容 有的时候UITableView中有间隔的时候 section有组间距的时候 使用MBProgressHUD 提示框可能会显示的有些部分断开的样子或者说是一种分割开的样子 使用keyWindow就没事了
     [[UIApplication sharedApplication].keyWindow showTextNoActivity:@“” timeLength:2.0f];
  
+ 2018年5月31日
+    * 关于悬浮视图 其实有的时候可能这个悬浮视图上边有的部分还需要我们进行时间的处理
+        这个时候就不仅仅需要把悬浮视图当作一个整体来进行拖动悬浮考虑
+        还需要思考的是 对于那些可以接受时间处理的部分(按钮的时间操作还好 如果是slider这种的就需要特殊照顾特殊处理了)
+    在- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{ 中
+ 
+         CALayer *sliderLayer = slider.layer.presentationLayer;
+         if (CGRectContainsPoint(sliderLayer.frame, point)) {
+             WWLog(@"排除slider部分");
+             return;
+         }
+ 
+    * 编解码平台：
+        http://web.chacuo.net/charseturlencode
+    * 如果是html的编码后的内容得到后展示的话再考虑使用下列网站展现
+        http://www.w3school.com.cn/tiy/t.asp?f=html_basic
+ 
+ //是在此处设置的多个label的内部分 把所有的回复的label 都加到了一个数组中 然后对数组中的label依次进行布局的操作
+ 
+ 学习GSD_WeiXin(wechat)的时候不知道作者是怎么布局多条评论的 后来发现 作业是拿到了评论的数量之后 创建了相应的评论的个数的label 然后放入数组中 并且分别对数组中的label进行布局
+ 相关的代码在：SDTimeLineCellCommentView文件中
+ 方法 - (void)setupWithLikeItemsArray:(NSArray *)likeItemsArray commentItemsArray:(NSArray *)commentItemsArray
+ { 
+
+     其实作者是用的把多个回复的label都放到了一个数组中 然后对数组中的label依次进行的布局的操作
+     lastTopView 用于记录上边的参考视图
+     而且后边的时候每次设置的top依赖于上次的label
+     第一次的设置的label的时候因为没有上一个label 这个时候lastTopView 为nil
+ 
+     相关的实例有：
+     po lastTopView
+     <MLLinkLabel: 0x7fdcf1c13e00; baseClass = UILabel; frame = (0 0; 0 0); text = 'GSD_iOS：真有意思啊你💢💢💢'; gestureRecognizers = <NSArray: 0x604000256830>; layer = <_UILabelLayer: 0x60400008e560>>
+ 
+     (lldb) po label
+     <MLLinkLabel: 0x7fdcf1c1ef20; baseClass = UILabel; frame = (0 0; 0 0); text = '风口上的猪：我勒个去，啥世道啊'; gestureRecognizers = <NSArray: 0x6040002564a0>; layer = <_UILabelLayer: 0x6040000990a0>>
+ 
+     测试这部分的时候如果感觉使用cell将要出现的时候加载数据可能不大容易测试的话 可以考虑在第一个朋友圈的位置多写几条评论 然后相当于一进入到界面就会调用相关的方法
+ 
  */
 
 
