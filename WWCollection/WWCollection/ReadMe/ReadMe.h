@@ -1488,7 +1488,7 @@ NO YES NO YES YES YES YES       //从低到高
  学习GSD_WeiXin(wechat)的时候不知道作者是怎么布局多条评论的 后来发现 作业是拿到了评论的数量之后 创建了相应的评论的个数的label 然后放入数组中 并且分别对数组中的label进行布局
  相关的代码在：SDTimeLineCellCommentView文件中
  方法 - (void)setupWithLikeItemsArray:(NSArray *)likeItemsArray commentItemsArray:(NSArray *)commentItemsArray
- { 
+ {
 
      其实作者是用的把多个回复的label都放到了一个数组中 然后对数组中的label依次进行的布局的操作
      lastTopView 用于记录上边的参考视图
@@ -1503,6 +1503,40 @@ NO YES NO YES YES YES YES       //从低到高
      <MLLinkLabel: 0x7fdcf1c1ef20; baseClass = UILabel; frame = (0 0; 0 0); text = '风口上的猪：我勒个去，啥世道啊'; gestureRecognizers = <NSArray: 0x6040002564a0>; layer = <_UILabelLayer: 0x6040000990a0>>
  
      测试这部分的时候如果感觉使用cell将要出现的时候加载数据可能不大容易测试的话 可以考虑在第一个朋友圈的位置多写几条评论 然后相当于一进入到界面就会调用相关的方法
+ 
+ 关于调试：https://developer.apple.com/cn/support/debugging/
+ 
+ 除了打全局断点定位bug 也可以在可能发生错误的位置使用断言以便定位bug
+ 还有依次打断点观察
+ #define NSAssert(condition, desc, ...)
+ Description
+ Generates an assertion if a given condition is false.
+ 断言的使用当第一个参数的为 false的时候输出后边的描述信息 便于测试
+ 
+ NSString *str = nil;
+ NSAssert(str != nil, @"str 不能为空");
+ 
+ 
+     NSString *str;
+     [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+     NSCharacterSet *set;
+     [str stringByAddingPercentEncodingWithAllowedCharacters:set];
+     //    NSCharacterSet *set;
+ 学习地址：
+ http://nshipster.cn/nscharacterset/
+ https://stackoverflow.com/questions/29806098/nscharacterset-urlhostallowedcharacterset-doesnt-replace-sign
+ http://www.cnblogs.com/hanjun/archive/2013/05/02/3054667.html
+ https://blog.csdn.net/chenyufeng1991/article/details/50060061
+ stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+ 
+ 
+    * 改变按钮的文字和图片的位置
+    如果是左右的位置的改变主意左右要一致
+     UIButton *btn;
+     CGFloat imageOffsetX = btn.imageView.ww_left;
+     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -imageOffsetX, 0, imageOffsetX);
+     CGFloat titleLblOffsetX = btn.ww_width - playAllBtn.titleLabel.ww_right;
+     btn.titleEdgeInsets = UIEdgeInsetsMake(0, titleLblOffsetX, 0, -titleLblOffsetX);
  
  */
 
