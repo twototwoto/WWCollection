@@ -1538,6 +1538,17 @@ NO YES NO YES YES YES YES       //从低到高
      CGFloat titleLblOffsetX = btn.ww_width - playAllBtn.titleLabel.ww_right;
      btn.titleEdgeInsets = UIEdgeInsetsMake(0, titleLblOffsetX, 0, -titleLblOffsetX);
  
+ 整理runtime相关的内容准备：
+ https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048-CH1-SW1
+ http://nshipster.com/method-swizzling/
+ Objective-C2.0 52个方法
+ https://www.zhihu.com/question/30721573
+ http://yulingtianxia.com/blog/2014/11/05/objective-c-runtime/
+ http://ios.jobbole.com/84672/
+ https://onevcat.com/2012/04/objective-c-runtime/
+ http://www.cnblogs.com/wengzilin/p/4344952.html
+ 
+ 
  */
 
 
