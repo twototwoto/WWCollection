@@ -1549,7 +1549,119 @@ NO YES NO YES YES YES YES       //从低到高
  http://www.cnblogs.com/wengzilin/p/4344952.html
  
  
+ //学习runtime相关内容：
+ 学习网址：
+ https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048-CH1-SW1
+ https://developer.apple.com/documentation/objectivec/objective_c_runtime?language=objc
+ https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100
+ https://opensource.apple.com/source/objc4/objc4-208/runtime/objc-runtime.m.auto.html
+ 
+ https://blog.csdn.net/windyitian/article/details/19810875
+ http://southpeak.github.io/2014/10/25/objective-c-runtime-1/
+ https://blog.sunnyxx.com/2014/04/13/objc_dig_interface/
+ http://yulingtianxia.com/blog/2014/11/05/objective-c-runtime/#健壮的实例变量-Non-Fragile-ivars
+ https://tech.meituan.com/DiveIntoCategory.html
+ https://halfrost.com/objc_runtime_isa_class/
+ http://www.cnblogs.com/samyangldora/p/4620079.html
+ http://hovertree.com/h/bjaf/xjpdpit6.htm
+ http://wonderdevboy.com/2017/02/04/Objective-C-Runtime-基本使用/
+ 
+ 
+ 
+     - (void)learnRuntime{
+         /*
+         Class objc_allocateClassPair(Class superclass, const char *name, size_t extraBytes);
+         Creates a new class and metaclass.
+         //创建一个新类 和 metaclass
+         You can get a pointer to the new metaclass by calling object_getClass(newClass).
+         To create a new class,
+         //使用步骤
+         * start by calling objc_allocateClassPair.
+         * Then set the class's attributes with functions like class_addMethod and class_addIvar.
+         * When you are done building the class, call objc_registerClassPair.
+         * The new class is now ready for use.
+         Instance methods and instance variables should be added to the class itself. Class methods should be added to the metaclass.
+ 
+         superclass
+         The class to use as the new class's superclass, or Nil to create a new root class.
+         新类的父类 如果设置为Nil的话 就是创建一个新的根类
+         name
+         The string to use as the new class's name. The string will be copied.
+         新类使用的名字 该参数会被拷贝
+         extraBytes
+         The number of bytes to allocate for indexed ivars at the end of the class and metaclass objects. This should usually be 0.
+         在类和metaclass 对象结尾 分配给实例变量的字节数量 这个值经常是0
+         */
+        Class superClass = [NSError class]; //若为根类 则设置为 Nil
+        const char *newClassName = "NewClassName";
+
+        Class newClass = objc_allocateClassPair(superClass, newClassName, 0);
+
+        /*
+         BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);
+         Description
+         Adds a new method to a class with a given name and implementation.
+         给一个类添加一个新的用给定的名字和实现的方法
+         class_addMethod will add an override of a superclass's implementation, but will not replace an existing implementation in this class. To change an existing implementation, use method_setImplementation.
+         class_addMethod 会添加一个父类的实现的重写 但是不会代替一个现存的类中的实现 为了改变一个现存的实现 使用method_setImplementation
+         An Objective-C method is simply a C function that take at least two arguments—self and _cmd. For example, given the following function:
+         Listing 1
+         void myMethodIMP(id self, SEL _cmd)
+         {
+         // implementation ....
+         }
+         you can dynamically add it to a class as a method (called resolveThisMethodDynamically) like this:
+         Listing 2
+         class_addMethod([self class], @selector(resolveThisMethodDynamically), (IMP) myMethodIMP, "v@:");
+         Parameters
+         cls
+         The class to which to add a method.
+         name
+         A selector that specifies the name of the method being added.
+         imp
+         A function which is the implementation of the new method. The function must take at least two arguments—self and _cmd.
+         types
+         //注意这个types参数 这个 @: 都已经定准了 前边的值应该中说的第一个字母 应该指的是函数的返回值类型 如果函数返回类型是void那么用v
+         An array of characters that describe the types of the arguments to the method. For possible values, see Objective-C Runtime Programming Guide > Type Encodings. Since the function must take at least two arguments—self and _cmd, the second and third characters must be “@:” (the first character is the return type).
+         Returns
+         YES if the method was added successfully, otherwise NO (for example, the class already contains a method implementation with that name).
+         SDKs    iOS 2.0+, macOS 10.5+, tvOS 9.0+, watchOS 2.0+
+         */
+        const char * addMethodTypes = "v@:";
+        BOOL addMethodSuccess = class_addMethod(newClass, @selector(newClassAddMethod), (IMP)newClassAddMethodIMP, addMethodTypes);
+
+        /*
+         BOOL class_addIvar(Class cls, const char *name, size_t size, uint8_t alignment, const char *types);
+         Description
+         Adds a new instance variable to a class.
+         This function may only be called after objc_allocateClassPair and before objc_registerClassPair. Adding an instance variable to an existing class is not supported.
+         The class must not be a metaclass. Adding an instance variable to a metaclass is not supported.
+         The instance variable's minimum alignment in bytes is 1<<align. The minimum alignment of an instance variable depends on the ivar's type and the machine architecture. For variables of any pointer type, pass log2(sizeof(pointer_type)).
+         Returns
+         YES if the instance variable was added successfully, otherwise NO (for example, the class already contains an instance variable with that name).
+         SDKs    iOS 2.0+, macOS 10.5+, tvOS 9.0+, watchOS 2.0+
+         */
+        //给类添加新的实例变量这个方法 后边的内容暂不清楚怎么使用
+        //    BOOL addIvarSuccess = class_addIvar(newClass, <#const char * _Nonnull name#>, <#size_t size#>, <#uint8_t alignment#>, <#const char * _Nullable types#>)
+
+
+        objc_registerClassPair(newClass);
+        //typedef NSString *NSErrorDomain;
+        NSErrorDomain errorDomain = @"some errorDomain";
+        id instance = [[newClass alloc]initWithDomain:errorDomain code:0 userInfo:nil];
+        [instance performSelector:@selector(newClassAddMethod)];
+
+
+    }
+
+
+/*
+ 
+ 
+ 
+ 
  */
+
 
 
 
