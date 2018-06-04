@@ -1658,6 +1658,36 @@ NO YES NO YES YES YES YES       //从低到高
 /*
  
  
+ 2018年6月4日
+ UIWebView 底部的一条黑线的去除方法：
+ https://stackoverflow.com/questions/21420137/black-line-appearing-at-bottom-of-uiwebview-how-to-remove
+ 使用 webView.opaque = NO;
+ webView.backgroundColor = [UIColor clearColor];
+ 
+ 书籍：https://objccn.io/products/app-architecture
+ 微博评论接口相关内容：http://open.weibo.com/wiki/微博API#.E8.AF.84.E8.AE.BA
+ 
+ 当UIScrollView类的实例 如UITableView 滚动的时候关闭键盘
+ 学习地址：iOS知识小集 14期
+ 
+ The manner in which the keyboard is dismissed when a drag begins in the scroll view.
+ See UIScrollViewKeyboardDismissMode for possible values. The default value is UIScrollViewKeyboardDismissModeNone.
+ SDKs    iOS 7.0+, tvOS 9.0+
+ 
+ self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+ 
+ 或者使用
+ - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  */
