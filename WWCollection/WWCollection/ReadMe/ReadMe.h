@@ -1694,6 +1694,33 @@ NO YES NO YES YES YES YES       //从低到高
  数据递归遍历可参考学习内容：https://blog.csdn.net/lovechris00/article/details/52682056
  常见面试内容：https://github.com/jwasham/coding-interview-university
  
+     //字典泛型 不是那种 : 的形式写明的
+     而是 ","分隔的
+     学习地址：https://my.oschina.net/u/2340880/blog/514804
+ 
+     NSMutableDictionary <NSString*,NSNumber *>*dictM;
+     //    dict[@"abc"] = @"abc";
+     dictM[@"abc"] = @8;
+     //下边的写法会报出：Incompatible pointer types sending 'NSString *' to parameter of type 'NSNumber * _Nullable' 说明上边的泛型是起到了作用的
+     dictM[@"def"] = @"afd";
+ 
+ 
+     有的时候对于TableView中的某些cell根据数据来展示的时候
+     比如说点赞的cell 或者是子评论的cell 有的时候展示 有的时候不展示
+     那么为了在赋值数据的时候容易些
+        在cellForRow的方法中处理相关的内容的时候，那些没有点赞和子评论的cell的位置在没有数据的时候
+        控制行高为0
+            可以返回一个没有数据的cell
+            如果直接返回点赞或者子评论的cell的话 可能出现cell行错乱 的问题
+ 
+      [<XXX_Model(此处是模型名字) 0x107e8cc60> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key isMine(此处是key的名字).
+     我是因为不小心给 isMine 多加了*
+     应该是@property (nonatomic,assign) BOOL isMine;
+     被我多写了个 "*"
+     @property (nonatomic,assign) BOOL * isMine;
+ 
+ 待学习内容 ：关于iOS开发中的锁：https://bestswifter.com/ios-lock/
+ 
  
  
  
