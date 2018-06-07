@@ -1431,6 +1431,7 @@ NO YES NO YES YES YES YES       //从低到高
      if([dict[@"a"][@"b"] class] == [NSNull class]){
      WWLog(@"");
      }
+    //使用下边的方式
      if(dict[@"a"][@"b"] == [NSNull null]){
      WWLog(@"value为空");
      }
@@ -1722,9 +1723,63 @@ NO YES NO YES YES YES YES       //从低到高
  待学习内容 ：关于iOS开发中的锁：https://bestswifter.com/ios-lock/
  
  
+ 嵌套数组的类似的问题都可以参考下边的文章去调整
  关于嵌套数组：http://www.10tiao.com/html/224/201612/2709545265/1.html
+ 
  相关内容：https://www.itstrike.cn/Question/a1c05234-85d9-403c-95b9-8234880f6243.html
  那么其实我们平时用的YYModel MJExtension也是都有这种思想在
+ 
+ 学习实现数组的嵌套递归遍历：
+     - (NSArray *)allObjectsWithArray:(NSArray *)originalArr {
+         NSMutableArray *result = [NSMutableArray array];
+         [self fillArray:originalArr into:result];
+         return result;
+     }
+ 
+     - (void)fillArray:(NSArray *)array into:(NSMutableArray *)result {
+            for (NSUInteger i = 0; i < array.count; ++i) {
+                 if ([array[i] isKindOfClass:[NSArray class]]) {
+                     [self fillArray:array[i] into:result];
+                 } else {
+                     [result addObject:array[i]];
+                 }
+            }
+        }
+ 
+     - (void)learnDiGui{
+         NSArray *arr = @[@1,@[@4,@3],@6,@[@5,@[@1,@0]]];
+         NSArray *arrResult = [self allObjectsWithArray:arr];
+         WWLog(@"%@",arrResult);
+             /*
+             输出结果：
+             [WYWHomeViewController learnDiGui] [Line 775] (
+             1,
+             4,
+             3,
+             6,
+             5,
+             1,
+             0
+             )
+    }
+ 
+ 
+ 
+ 重用多种cell遇到的问题：
+ Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Attempted to dequeue multiple cells for the same index path, which is not allowed. If you really need to dequeue more cells than the table view is requesting, use the -dequeueReusableCellWithIdentifier: method (without an index path). Cell identifier: kBlankCellReuseIDString, index path: <NSIndexPath: 0xc000000000800016> {length = 2, path = 0 - 4}'
+ *** First throw call stack:
+ (0x18297ed8c 0x181b385ec 0x18297ebf8 0x18336efa0 0x18c61c870 0x18c61c684 0x10112a210 0x18c61c5ec 0x18c61c148 0x18c61be00 0x18c61ab1c 0x18c616668 0x18c553770 0x186af525c 0x186af93ec 0x186a65aa0 0x186a8d5d0 0x186a8e450 0x182926910 0x182924238 0x182924884 0x182844da8 0x184827020 0x18c82578c 0x100cae9b0 0x1822d5fc0)
+ libc++abi.dylib: terminating with uncaught exception of type NSException
+ 出现这个问题的原因是在有的cell没有数据的时候使用的一个空白的cell 有数据的时候使用的特定的cell
+ 上边的问题按照错误提示 使用dequeueReusableCellWithIdentifier: 重用cell
+ 
+ * 使用MJRefresh的时候的一个问题
+ 如果使用的上拉加载更多先加载更多一直到没有数据了
+ 然后当请求不到数据后显示没有更多数据后
+ 再次使用下拉刷新可以发现数据是能够正常返回 但是当在使用上拉加载更多的时候可以发现此时的已经加载完毕不能正常的恢复为加载更多数据 此时应该充值footer的noMoreData
+ [self.tableView.mj_footer resetNoMoreData];
+ 
+ https://github.com/CoderMJLee/MJRefresh/issues/649
  
  
  
