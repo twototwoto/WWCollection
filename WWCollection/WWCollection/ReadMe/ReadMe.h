@@ -1782,10 +1782,45 @@ NO YES NO YES YES YES YES       //从低到高
  https://github.com/CoderMJLee/MJRefresh/issues/649
  
  
+ 给UITableView添加Tap手势 收起来键盘 思路可以借鉴
+ https://www.jianshu.com/p/df6d1f277792
+ 关于UITableView的点击cell以及按钮外的其余的部分 的时候 为了隐藏键盘的办法
+    * 可以考虑给UITableView添加手势 并且要注意设置手势的tapGes.cancelsTouchesInView = NO;
+    * 或者自定义一个UITableView 通过hitTest 方法来控制事件处理的办法
+ 使用self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; 的时候会有个警告
+ 
+ -[UIWindow endDisablingInterfaceAutorotationAnimated:] called on <UITextEffectsWindow: 0x11a11d400; frame = (0 0; 375 667); opaque = NO; autoresize = W+H; layer = <UIWindowLayer: 0x11bee1970>> without matching -beginDisablingInterfaceAutorotation. Ignoring.
+ 学习网址：
+ https://stackoverflow.com/questions/33071271/uiwindow-enddisablinginterfaceautorotationanimated-error-appears-in-console-when
+ https://www.jianshu.com/p/cb1860444f8f
+ 
+有的时候遇到数据没有赋值上的问题 要去上一级中查找
+ 比如在didSelectRowAtIndexPath中获取到cell后取到cell相应的模型数据的时候发现没有值 这个时候要去看看cell的模型是不是上一级的模型赋值的时候出问题了
+ 
+ 关于@dynamic的学习：
+ https://blog.csdn.net/deft_mkjing/article/details/78215876
+ 要了解下dynamic的应用场景
+ 
+ // - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text 这个方法 会先于 - (void)textViewDidChange:(UITextView *)textView 方法 这两方法的一个应用场景是当textView中开始输入文字的时候再去隐藏自己设置的占位文字 上边的方法还可以控制textView输入的文字的限制 就像微信的朋友圈的回复的文本框就是这样
+     - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+         _textViewPlaceholderLabel.hidden = YES;
+         _textViewImageView.hidden = YES;
+         WWLog(@"");
+         return YES;
+     }
+ 
+     - (void)textViewDidChange:(UITextView *)textView{
+         _textViewPlaceholderLabel.hidden = YES;
+         _textViewImageView.hidden = YES;
+         WWLog(@"");
+     }
+
+    * 使用becomeFirstResponder 和 resignFirstResponder 以及相应的键盘通知的关系
  
  
- 
- 
+ 有的时候键盘弹出不灵敏可能和设置的约束有关系 以及键盘弹出和隐藏的效果
+ 如果使用Masonry和使用绝对布局约束的文本框的键盘弹出可能就有所不同
+ 其实设置完后可以立即使得约束生效[self.view layoutIfNeeded];并且在更改文本框的时候同样适用Masonry进行更新约束
  */
 
 
