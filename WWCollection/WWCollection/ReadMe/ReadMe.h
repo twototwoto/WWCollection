@@ -1821,6 +1821,20 @@ NO YES NO YES YES YES YES       //从低到高
  有的时候键盘弹出不灵敏可能和设置的约束有关系 以及键盘弹出和隐藏的效果
  如果使用Masonry和使用绝对布局约束的文本框的键盘弹出可能就有所不同
  其实设置完后可以立即使得约束生效[self.view layoutIfNeeded];并且在更改文本框的时候同样适用Masonry进行更新约束
+ 
+ 
+ 关于UIActivityViewController：
+    * http://nshipster.com/uiactivityviewcontroller/
+ 
+ 关于id *delegate 会引发问题：https://stackoverflow.com/questions/9263713/arc-pointer-to-non-const-type-id-with-no-explicit-ownership
+ Change id* to id. id is already defined as an object pointer.
+ id 已经定义为一个对象指针类型了
+ 
+ 关于按钮点击范围的问题：
+    * http://kevinmky.github.io/2015/12/17/扩大按钮点击范围/
+ 
+ 
+ 
  */
 
 
