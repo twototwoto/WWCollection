@@ -1832,6 +1832,21 @@ NO YES NO YES YES YES YES       //从低到高
  
  关于按钮点击范围的问题：
     * http://kevinmky.github.io/2015/12/17/扩大按钮点击范围/
+    * http://www.cocoachina.com/bbs/read.php?tid-285433-page-1.html
+ 
+ 嵌套评论的实现：http://www.cocoachina.com/bbs/read.php?tid-270175-page-2.html
+ 从这里边的一个用section显示某个正文
+ 后边的section显示评论的内容
+ 其实也可以是row = 0 的显示 正文 后边的依次显示评论 反正不管怎样都是数据驱使的显示的样子
+ 相关内容：http://www.xiaomlove.com/2015/07/11/网易cnbeta的嵌套评论实现/
+ 
+ 动画的暂停和继续：https://blog.csdn.net/cc199501/article/details/51222774
+ *按钮动画效果： https://www.cnblogs.com/rglmuselily/p/6077028.html
+ 
+ 浏览器返回数据和应用程序返回的数据不一致可能的问题：https://bbs.csdn.net/topics/390272367
+ 
+ 
+ 
  
  
  
