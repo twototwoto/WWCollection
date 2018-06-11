@@ -1847,6 +1847,17 @@ NO YES NO YES YES YES YES       //从低到高
  
  
  
+横屏启动额时候布局错乱的问题：https://blog.csdn.net/ccnyou/article/details/51901257
+ https://www.jianshu.com/p/650ba0ff626b?utm_campaign=hugo&utm_medium=reader_share&utm_content=note&utm_source=weixin-friends
+横屏的部分下边的网址是用的最后的那个通知的方式 在viewDidAppear的时候发送的可以自动旋转的通知 然后支持各个方向
+ 在viewDidDisAppear的时候发送的不能够自动旋转的通知 然后只支持竖屏
+ 
+ 今天出了个bug:和继承有关系 和目标控制器.view 后会调用viewDidLoad 有关系 和子类的方法调用super 的重名方法有关系 和子类的.h 文件中的属性和 父类的.m文件中的extension中的属性名相同有关系 导致子类中的暴露的属性一直为空
+ 这是一个属性传值的过程中遇到的一个比较找了半天的问题了。。。。。没想到在这里也会栽跟头
+ 相关的内容还和目标控制器.view 的调用时间有关系
+ 相关内容可以查看：http://www.cocoachina.com/bbs/read.php?tid=286110
+ 
+ 
  
  
  
