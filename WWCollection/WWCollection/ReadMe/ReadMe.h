@@ -1858,9 +1858,35 @@ NO YES NO YES YES YES YES       //从低到高
  相关内容可以查看：http://www.cocoachina.com/bbs/read.php?tid=286110
  
  
+ 防止取值的时候崩溃的方法：
+    * 使用添加分类的方法 使用自己写的分类 而不是原来的系统方法
+        * 其中还有办法使用 消息转发 的方式
+    * 使用runtime的方式 交换方法
+ 相关内容：
+    * http://tech.glowing.com/cn/how-we-made-nsdictionary-nil-safe/
+    * http://triplecc.github.io/blog/2016-06-05-yymodelyue-du-xiao-ji/
+    * http://www.cocoachina.com/ios/20161110/18036.html https://github.com/chenfanfang/AvoidCrash
+    * http://www.cnblogs.com/CoderAlex/p/5031671.html
+    * https://juejin.im/entry/5882e980b123db75e096971e
+    * https://www.jb51.net/article/78073.htm
+    * http://blog.alwawee.com/2014/11/19/check-nsdictionary-key-check-value-key-nil/
+ 相关崩溃问题：http://blog.wangruofeng007.com/blog/2016/10/23/appchang-jian-beng-kui-wen-ti-fen-xi/
+ 相关的崩溃的问题还是要看YYModel 和 MJExtension 等是怎么处理的
+ 
+ 有个分类NSNullSafe比较神奇地完成了 处理字典取值中有null 的问题
+    * https://github.com/nicklockwood/NullSafe
  
  
+ 关于消息转发
+    * https://developer.apple.com/documentation/objectivec/nsobject/1571960-methodsignatureforselector
+    * https://nianxi.net/ios/objc-multi-inheritance.html
+    * https://toutiao.io/posts/71r9zc/preview
+    * https://swiftcafe.io/2016/11/08/objc-forward/
+    * https://slpowercoder.github.io/2017/02/11/Objective-C-%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6/
+    * https://blog.csdn.net/winzlee/article/details/51742762
+    *
  
+ 又是： RUNTIME: http://blog.leichunfeng.com/blog/2015/06/14/objective-c-method-swizzling-best-practice/
  */
 
 
