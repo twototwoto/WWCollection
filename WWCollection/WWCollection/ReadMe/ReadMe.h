@@ -2053,12 +2053,24 @@ NO YES NO YES YES YES YES       //从低到高
     //注：
     The name of the nib file, which need not include the .nib extension.
     使用xib的时候记得给label设置高度 因为设置的文字的大小的高度可能小于和label占的总的高度
+ 
  使用xib的时候在没有指定fileOwner的时候 只是指定了View对应的类的时候 使用command + option + 回车的时候 View对应的类的名字做连接
+ 
  如果指定了FileOwner的类的名字的时候将会执行的操作是展示出来的View对应的View类的文件
+ 如果不需要指定FileOwner的时候 使用对应的类名 的方式来加载就可以
+ [[NSBundle mainBundle]loadNibNamed:@"xibName" owner:nil options:nil][0];
+ 不过遇到一个问题是FileOwner为nil的时候 想要在多个界面用这个xib的时候
+ 不知道是不是先前设置的FileOwner导致的某些线没有去除干净
+ 导致总是崩溃 崩溃的结果是：this class is not key value coding-compliant for the key
+ 参考地址：https://stackoverflow.com/questions/3088059/what-does-this-mean-nsunknownkeyexception-reason-this-class-is-not-key-v
+ 去除线的方法是选中FileOwner 然后看看右侧的最右边的指向右侧的箭头 看看其中是否还有些线段
+ xib的视图设置圆角：https://blog.csdn.net/nvlangxin/article/details/52069778
  
  
  
  
+ 
+  Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<ControllerName 0x10d586a10> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key labelName.'
  
  
  */
