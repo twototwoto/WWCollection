@@ -1887,6 +1887,180 @@ NO YES NO YES YES YES YES       //从低到高
     *
  
  又是： RUNTIME: http://blog.leichunfeng.com/blog/2015/06/14/objective-c-method-swizzling-best-practice/
+ 
+     好玩：Xcode设置背景图片：
+        * https://www.jianshu.com/p/c1accc5764c1
+        * 没有测试https://github.com/STAR-ZERO/XFunnyEditor
+ 
+     学习教程：https://www.ioscreator.com
+ 
+     修改popOver连带箭头的颜色：
+         UIPopoverPresentationController *popOverVC = popPresentionVC.popoverPresentationController;
+         popOverVC.backgroundColor = WWColorWithRGBA(51.f, 51.f, 51.f, 1.f);
+ 
+    * 使用AFN的时候
+        //虽然AFN指定的是传入的value是NSString *类型的 不过传入字典也是可以的
+ 后来发现是会崩溃的 所以要把NSDictionary 转换为二进制data 然后再转换为字符串
+ 
+        [manager.requestSerializer setValue:(id)self.dict forHTTPHeaderField:@"headerFieldName"];
+        AFN内部实现是这样的
+         dispatch_barrier_async(self.requestHeaderModificationQueue, ^{
+         [self.mutableHTTPRequestHeaders setValue:value forKey:field];
+         });
+ - (void)setValue:(nullable ObjectType)value forKey:(NSString *)key;
+ 
+ //
+     NSData *data = [NSJSONSerialization dataWithJSONObject:self.deviceInfoDict options:NSJSONWritingPrettyPrinted error:nil];
+     NSString *deviceInfoStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+     //str (id)self.deviceInfoDict
+     [_jyzSessionManger.requestSerializer setValue:deviceInfoStr forHTTPHeaderField:@"enjoyapp_info"];
+ 
+ 崩溃位置：
+     - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
+     withParameters:(id)parameters
+     error:(NSError *__autoreleasing *)error
+     {
+         NSParameterAssert(request);
+ 
+         NSMutableURLRequest *mutableRequest = [request mutableCopy];
+ 
+         [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
+         if (![request valueForHTTPHeaderField:field]) {
+         [mutableRequest setValue:value forHTTPHeaderField:field];
+         }
+         }];
+ 
+ *
+    [manager.requestSerializer setValue:@"header" forHTTPHeaderField:@""];
+    //因为把header 和value赋值写反的时候遇到的一个崩溃
+ 
+     Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[__NSDictionaryI length]: unrecognized selector sent to instance 0x1090710c0'
+     *** First throw call stack:
+ 
+ 
+    使用bundleVersion:
+ 
+ 
+ 
+ 在配置好了信息后
+ 内购的时候首先添加StoreKit.framework
+ (Xcode9.2 其实直接引入的#import <StoreKit/StoreKit.h>即可)
+ 
+ 相关代码：
+    * 0.#import <StoreKit/StoreKit.h>
+ 
+    * 1.添加观察者：
+         - (void)addObserver{
+             [[SKPaymentQueue defaultQueue]addTransactionObserver:self];
+         }
+            报出来的问题：
+            Sending '控制器名字 *const __strong' to parameter of incompatible type 'id<SKPaymentTransactionObserver> _Nonnull'
+        点击上述方法去看
+         // Observers are not retained.  The transactions array will only be synchronized with the server while the queue has observers.  This may require that the user authenticate.
+         - (void)addTransactionObserver:(id <SKPaymentTransactionObserver>)observer NS_AVAILABLE_IOS(3_0);
+         SKPaymentTransactionObserver点进去看样子是有设置代理的相关的内容
+            遵守代理：SKPaymentTransactionObserver
+        有下述几个代理方法：
+ 
+         // Sent when the transaction array has changed (additions or state changes).  Client should check state of transactions and finish as appropriate.
+         - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions NS_AVAILABLE_IOS(3_0){
+ 
+         }
+ 
+ 
+         // Sent when transactions are removed from the queue (via finishTransaction:).
+         - (void)paymentQueue:(SKPaymentQueue *)queue removedTransactions:(NSArray<SKPaymentTransaction *> *)transactions NS_AVAILABLE_IOS(3_0){
+ 
+         }
+ 
+         // Sent when an error is encountered while adding transactions from the user's purchase history back to the queue.
+         - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error NS_AVAILABLE_IOS(3_0){
+ 
+         }
+ 
+         // Sent when all transactions from the user's purchase history have successfully been added back to the queue.
+         - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue NS_AVAILABLE_IOS(3_0){
+ 
+         }
+ 
+         // Sent when the download state has changed.
+         - (void)paymentQueue:(SKPaymentQueue *)queue updatedDownloads:(NSArray<SKDownload *> *)downloads NS_AVAILABLE_IOS(6_0){
+ 
+         }
+ 
+         // Sent when a user initiates an IAP buy from the App Store
+         - (BOOL)paymentQueue:(SKPaymentQueue *)queue shouldAddStorePayment:(SKPayment *)payment forProduct:(SKProduct *)product NS_SWIFT_NAME(paymentQueue(_:shouldAddStorePayment:for:)) NS_AVAILABLE_IOS(11_0){
+         return YES;
+         }
+ 
+    * 2.
+ 
+    * 关于内购的时候的返回的二进制数据处理为base64的时候所用的编码选项NSDataBase64EncodingOptions
+ https://blog.csdn.net/zch127617/article/details/42015153
+ 
+         typedef NS_OPTIONS(NSUInteger, NSDataBase64EncodingOptions) {
+         // Use zero or one of the following to control the maximum line length after which a line ending is inserted. No line endings are inserted by default.
+         NSDataBase64Encoding64CharacterLineLength = 1UL << 0,
+         NSDataBase64Encoding76CharacterLineLength = 1UL << 1,
+ 
+         // Use zero or more of the following to specify which kind of line ending is inserted. The default line ending is CR LF.
+         NSDataBase64EncodingEndLineWithCarriageReturn = 1UL << 4,
+         NSDataBase64EncodingEndLineWithLineFeed = 1UL << 5,
+ 
+         } API_AVAILABLE(macos(10.9), ios(7.0), watchos(2.0), tvos(9.0));
+
+ 
+ 
+ 
+ //对微信读书可以邀请内测的考虑：
+ 相关内容：https://yanggao1991.github.io/2017/09/22/TestFlight%E7%81%B0%E5%BA%A6%E6%9C%BA%E5%88%B6%E7%A0%94%E7%A9%B6/
+ 
+ YYModel中 有用到(id)kCFNull 都是用来判断字典是否为null的
+     po [NSNull null] == (id)kCFNull
+     true
+ 
+ 注意这两个之间：
+ //所创建的queue不同handler中的[NSThread currentThread] 也不同
+ 上边的handler中的handler非主线程
+ 下边的是主线程
+ 
+     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+     //    NSOperationQueue *queue = [NSOperationQueue mainQueue];
+ 
+     [NSURLConnection sendAsynchronousRequest:storeRequest queue:queue
+     completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+ 
+     dispatch_async(dispatch_get_main_queue(), ^{
+ 
+     });
+ 
+     如果创建的是mainQueue 如果handler中又有 dispatch_async(dispatch_get_main_queue(), ^{
+ 
+     });
+ 那么其中的block执行的次序是不定的
+ 
+    下边的方式会崩溃 死锁
+     dispatch_sync(dispatch_get_main_queue(), ^{
+     WWLog(@"sync mainQueue");
+     });
+ 
+ 再次遇到这个设置消息的背景图的问题 设置缩进的时候控制的方式是主要的不能让那个尖尖的位置变形 那么在上边的缩进的时候需要控制的是上边的缩进的间距应该  把那个尖尖的角缩进在上边的不拉伸的区域
+ UIImage *textBackImg = [[UIImage imageNamed:@""] resizableImageWithCapInsets:UIEdgeInsetsMake(28, 19, 6, 8) resizingMode:UIImageResizingModeStretch];
+ 
+ 
+     [[NSBundle mainBundle]loadNibNamed:@"nibName" owner:self options:nil][0];
+     - (NSArray *)loadNibNamed:(NSString *)name owner:(id)owner options:(NSDictionary *)options;
+    //注：
+    The name of the nib file, which need not include the .nib extension.
+    使用xib的时候记得给label设置高度 因为设置的文字的大小的高度可能小于和label占的总的高度
+ 使用xib的时候在没有指定fileOwner的时候 只是指定了View对应的类的时候 使用command + option + 回车的时候 View对应的类的名字做连接
+ 如果指定了FileOwner的类的名字的时候将会执行的操作是展示出来的View对应的View类的文件
+ 
+ 
+ 
+ 
+ 
+ 
  */
 
 
