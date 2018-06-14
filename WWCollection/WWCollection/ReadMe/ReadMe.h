@@ -2072,6 +2072,82 @@ NO YES NO YES YES YES YES       //从低到高
  
   Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<ControllerName 0x10d586a10> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key labelName.'
  
+ 当使用继承UITableViewController的时候
+ make.left.equalTo(self.view);
+ make.left.right.equalTo(self.view); 像.right这种 不能够确定出来TableView的右侧
+ make.width.mas_equalTo(WW_WIDTH);
+ 
+ 下边的值是在我设置了tableHeaderView之后的结果
+ 在numberOfSection为1的时候 self.tableView.contentSize
+     (width = 375, height = 739)
+ 
+ 在numberOfSection为2的时候 self.tableView.contentSize
+ po self.tableView.contentSize
+     (width = 375, height = 811)
+ 
+ 在numberOfSection为3的时候默认的TableView的contentSize
+     po self.tableView.contentSize
+     warning: could not execute support code to read Objective-C class data in the process. This may reduce the quality of type information available.
+     (width = 375, height = 883)
+ 
+ 在numberOfSection为4的时候默认的TableView的contentSize还挺大
+ self.tableView.contentSize
+     (width = 375, height = 955)
+ 
+ 间隔是每多了一个section contentSize.height 就自动的加了72
+  在这种情况下如果想改变contentSize的话 可以在下列方法中设置
+     - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+     self.tableView.contentSize = CGSizeMake(WW_WIDTH, WW_HEIGHT);
+ 学习网址：https://www.cnblogs.com/hikoming/p/3452223.html
+ 毕竟感觉cellForRow的调用次数太多了
+    不过其实使用下边的方式也是可以的
+     - (void)viewDidLayoutSubviews{
+     self.tableView.contentSize = CGSizeMake(WW_WIDTH,WW_PX_Height(1460.f));
+     }
+ 
+     viewDidLayoutSubviews 调用时机
+     * 在进入页面后涉及到往 self.view 添加子视图并且设置约束后会调用 这种情况基本都是到viewDidload都执行完后才调用
+     *  或者下边的这种也会调用
+        self.tableView.tableHeaderView = tableHeadView;
+ 
+     * 在退出页面的时候也会调用它
+     * cellForRow都调用完了之后也会调用它
+     * 点击了cell后也会调用它 猜测 主要还是因为会push或者modal出来另一个控制器前的操作导致的
+ 
+ 学习网址：https://stackoverflow.com/questions/540345/how-do-you-load-custom-uitableviewcells-from-xib-files
+ 使用xib创建cell的时候在重用的时候使用：
+ 
+     XibCell *cell = [tableView dequeueReusableCellWithIdentifier:@"XibCellReuseID"];
+     if (!cell) {
+     cell = [[[NSBundle mainBundle]loadNibNamed:@"XibCellName" owner:nil options:nil]firstObject];
+     }
+ 
+ 否则会遇到问题如下
+ 使用下边的方式也不行
+     [self.tableView registerNib:[[[NSBundle mainBundle] loadNibNamed:@"XibName" owner:nil options:nil]firstObject] forCellReuseIdentifier:@"XibReuseID"];
+     [tableView dequeueReusableCellWithIdentifier:@"XibReuseID" forIndexPath:indexPath];
+ 
+ 相关内容：https://www.jianshu.com/p/2f9e71ef7f52
+ 发现设置了xib的背景色后cell的背景色没改变过来
+ 后来我设置的self.backgroundColor 就可以了
+     - (void)awakeFromNib {
+     [super awakeFromNib];
+     // Initialization code
+     //无效
+        //    self.contentView.backgroundColor = [UIColor redColor];
+     要使用
+        self.backgroundColor = WWbackgroundGrayColor;
+     }
+ 
+    相关内容：https://www.jianshu.com/p/fcbfba5a5733
+ 
+ xib崩溃之 连线后修改了属性的名字的崩溃
+  Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<NameCell 0x10415a600> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key panTypeImageView.'
+ 这一点观察连线的圆点位置是空心的还是实心的也可以看出来
+ 
+    获取AppDelegate中属性：https://blog.csdn.net/soindy/article/details/49911265
+ 
+ 
  
  */
 
