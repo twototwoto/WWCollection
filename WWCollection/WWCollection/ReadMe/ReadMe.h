@@ -2149,6 +2149,28 @@ NO YES NO YES YES YES YES       //从低到高
  
  
  
+ /*
+ 
+ 
+ 
+ 关于FSCalendar :FSCalendarWeekdayView 中的 “周日” 还是 "日" "一" "二"的数据显示 的处理部分：
+ 
+ - (void)configureAppearance
+ {
+ BOOL useVeryShortWeekdaySymbols = (self.calendar.appearance.caseOptions & (15<<4) ) == FSCalendarCaseOptionsWeekdayUsesSingleUpperCase;
+ NSArray *weekdaySymbols = useVeryShortWeekdaySymbols ? self.calendar.gregorian.veryShortStandaloneWeekdaySymbols : self.calendar.gregorian.shortStandaloneWeekdaySymbols;
+ 
+ po self.calendar.gregorian.shortWeekdaySymbols
+ <__NSArrayI 0x11d04ee40>(周日,周一,周二,周三,周四,周五,周六)
+ 
+ po self.calendar.gregorian.veryShortWeekdaySymbols
+ <__NSArrayI 0x11e10dd10>(日,一,二,三,四,五,六)
+ 
+ 改变self.calendar.appearance.caseOptions 中的caseOptions 即可完成需求 其实(15<<4)就是0 和0 与完之后还是原来的option
+ fsCalendar.appearance.caseOptions = FSCalendarCaseOptionsWeekdayUsesSingleUpperCase; 可以显示为 "日" "一" "二" "三"  "四" 等的样式
+ 
+ 
+ 
  */
 
 
