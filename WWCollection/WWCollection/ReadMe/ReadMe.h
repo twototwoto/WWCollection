@@ -2170,6 +2170,14 @@ NO YES NO YES YES YES YES       //从低到高
  fsCalendar.appearance.caseOptions = FSCalendarCaseOptionsWeekdayUsesSingleUpperCase; 可以显示为 "日" "一" "二" "三"  "四" 等的样式
  
  
+ 有的时候显示的图片不是自己想要的那一张 可能是在往Assets中添加图片的时候加的图片的名字有重复导致的 加载图片的识货不确定加载哪一张
+ 关于MVVM RAC的内容：
+ MVVM
+ https://objccn.io/issue-13-1/
+ http://yulingtianxia.com/blog/2015/05/21/ReactiveCocoa-and-MVVM-an-Introduction/
+ http://gracelancy.com/blog/2016/01/06/ape-ios-arch-design/
+ http://www.cocoachina.com/ios/20170612/19500.html
+ https://academy.realm.io/cn/posts/krzysztof-zablocki-mDevCamp-ios-architecture-mvvm-mvc-viper/
  
  */
 
