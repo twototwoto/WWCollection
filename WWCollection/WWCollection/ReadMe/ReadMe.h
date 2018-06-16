@@ -2179,6 +2179,32 @@ NO YES NO YES YES YES YES       //从低到高
  http://www.cocoachina.com/ios/20170612/19500.html
  https://academy.realm.io/cn/posts/krzysztof-zablocki-mDevCamp-ios-architecture-mvvm-mvc-viper/
  
+    * 存储文件相关权限问题：https://ask.csdn.net/questions/233608
+     关于文件管理系统：https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW2
+ 
+ 
+ 关于音频格式：https://baike.baidu.com/item/音频格式/3234139?fr=aladdin#1_5
+     看完了这个 或许可以猜到网易云通信的语音使用aac编码音频的原因估计是考虑到
+     （摘抄自https://baike.baidu.com/item/音频格式/3234139?fr=aladdin#1_5）
+     AAC所采用的运算法则与MP3的运算法则有所不同，AAC 通过结合其他的功能来提高编码效率。AAC的音频算法在压缩能力上远远超过了以前的一些压缩算法（比如MP3等）。它还同时支持多达48个音轨、15个低频音轨、更多种采样率和比特率、多种语言的兼容能力、更高的解码效率。总之，AAC可以在比MP3文件缩小30%的前提下提供更好的音质。
+ 
+ 今天在弱网测试App的时候发现
+     在测试过程中测试访问淘宝网页的时候 无意中发现 在网络较差的环境下 就会有cdn 的存在了
+     CDN:内容分发网络 Content Delivery Network
+     https://baike.baidu.com/item/内容分发网络/4034265
+     https://blog.csdn.net/coolmeme/article/details/9468743
+ 
+     哈哈~真是被各种信息容易带跑偏 又找到了Charles 的使用 以及破解版部分
+     之前一直是满足于Charles的简单使用 其实之前也倒弄过了 https 的配置证书的内容 不过都没记录下来 只是简单的试了试 测试设备请求的接口 返回的信息等内容
+     不过还是需要考虑下怎么过滤出来我们需要的网址  还有可以替换测试 和 发步的环境
+     包括找到了Charles的破解 不至于之前好像是30分钟大概Charles自己就关闭了
+     感谢：
+     https://www.jianshu.com/p/fdd7c681929c
+     https://www.zzzmode.com/mytools/charles/
+     当然官方提供的使用参考内容：https://www.charlesproxy.com/documentation/using-charles/
+    官方提供的使用参考内容：https://www.charlesproxy.com/documentation/using-charles/
+ 
+ 
  */
 
 
