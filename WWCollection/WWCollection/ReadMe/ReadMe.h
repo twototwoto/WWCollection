@@ -2220,6 +2220,18 @@ NO YES NO YES YES YES YES       //从低到高
  接口相关：http://httpbin.org/#/HTTP_Methods/get_get
  
  
+ 1.下边的这种情况发生在size为Inferred的时候
+     使用xib的时候遇到的一个子视图跑偏的问题 子视图都往右跑偏了
+         后来改变约束后
+         定住左边 然后设置宽度后
+         发现可能是因为在xib中的内容设置的是宽度是整屏的宽度 然而是在设置 xib创建出来的子视图的布局的时候发现的问题 如果布局的宽度比xib中设置的宽度小的话就会发生偏移 那么如果左边还有多出来的部分肯定又不能设置为0 开始 所以可以设置成 负值 这样的话就能够正常显示相应的内容了
+ 
+     2.对于有的xib的显示的部分的内容：如果想在布局xib的时候确定出来xib的尺寸的时候
+     http://www.cnblogs.com/tx8899/p/4159128.html
+     修改 Show the Attributes in inspector 中的从原来的Inferred 为freedom
+ 
+ 
+ 
  
  
  */
