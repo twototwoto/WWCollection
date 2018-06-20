@@ -1897,6 +1897,7 @@ NO YES NO YES YES YES YES       //从低到高
      修改popOver连带箭头的颜色：
          UIPopoverPresentationController *popOverVC = popPresentionVC.popoverPresentationController;
          popOverVC.backgroundColor = WWColorWithRGBA(51.f, 51.f, 51.f, 1.f);
+    相关内容：http://www.cnblogs.com/XYQ-208910/p/4897511.html
  
     * 使用AFN的时候
         //虽然AFN指定的是传入的value是NSString *类型的 不过传入字典也是可以的
@@ -2229,6 +2230,27 @@ NO YES NO YES YES YES YES       //从低到高
      2.对于有的xib的显示的部分的内容：如果想在布局xib的时候确定出来xib的尺寸的时候
      http://www.cnblogs.com/tx8899/p/4159128.html
      修改 Show the Attributes in inspector 中的从原来的Inferred 为freedom
+ 关于xib的使用的更多内容：
+    https://blog.sunnyxx.com/2014/07/01/ios_ib_bridge/
+    使用xib自定义按钮：https://lvwenhan.com/ios/453.html
+ 
+ 
+ 真机测试中可能遇到的问题：
+    部分网络相关问题 手机联网问题
+    * http://www.cnblogs.com/sdsunjing/p/6068984.html
+    * https://stackoverflow.com/questions/27159510/nsurlerrordomain-code-1001-error-when-a-http-post-request-is-sent
+ 
+    关于#define :http://blog.jobbole.com/108624/
+    问题：点对点和聊天室的区别：？
+ 学习书籍：https://yimouleng.com/2018/01/10/free-programming-books/
+ 
+ 使用属性字符串的时候发现 使用numberOfLines = 0 或者是使用numberOfLines 来操作展开还是收起的时候 文字的显示有的时候有误差(像明明是展开的高度 却没有全部显示出来) 所以当使用的是属性字符串的时候 其实去控制高度的改变就可以了 在最开始创建label的时候写上numberOfLines = 0 就可以了 然后后边只用去控制高度变化就可以
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
