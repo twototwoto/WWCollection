@@ -2252,6 +2252,29 @@ NO YES NO YES YES YES YES       //从低到高
     * 初始化过的全局变量和局部静态变量是存放在数据段.data
     * 程序代码编译后的执行语句存放在代码段 .Text
  
+ Guides地址：https://developer.apple.com/library/archive/navigation/#section=Resource%20Types&topic=Guides
+ 
+    当实现下拉放大的类似的效果的时候
+    * 如果下拉的是TableView ,那么下拉放大的视图不能 直接 作为TableView的TableHeaderView 如有需要可以做出假象流出来TableHeaderView 的占位部分 然后把要下拉放大的视图随着TableView滚动的时候改变其origin和高度来实现下拉放大
+    * 或者是下拉放大的时候是tableHeaderView 然后tableHeaderView上添加的有UIImageView 然后去改变其frame 来实现效果
+ 
+    学习网址：
+         * https://www.jianshu.com/p/1f11b9387a8a
+         * https://blog.csdn.net/u010545480/article/details/53020074
+ 
+     @property(nonatomic) CGPoint contentOffset;
+     Description
+     The point at which the origin of the content view is offset from the origin of the scroll view.
+     The default value is CGPointZero.
+ 
+    有的时候存在这么一种场景：
+    在后台没有提供数据之前 在做模拟数据的时候 可能出现的显示效果和预期不符的情况 这种情况可能是数据部分除了问题 比如说heightForRow在CellForRow之前调用 可是却在heightForRow中确定height的部分用了cellForRow中才能确定的值 这个时候如果在没有tableView 刷新数据的情况下很可能视图和预期不符 
+ 
+    对UITableViewCell中的UICollectionView中的数据赋值后 记得刷新collectionView 否则显示效果可能和预期不符
+ 
+ 
+ 
+ 
  
  
  
