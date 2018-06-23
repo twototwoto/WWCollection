@@ -2336,6 +2336,23 @@ NO YES NO YES YES YES YES       //从低到高
      }
  //如果经过了以上的设置看着顶部还有间距 还有一种情况就是设置的UITableView的tableHeaderView的问题
  
+ * 关于长连接 心跳 部分的知识 但是自己也不是很清楚应该是什么样的
+ * 其实关于连接部分的 可能之前自己写的关于MQTT的内容也是和连接有关系的
+ * 之前写MQTT部分的内容的时候也是有订阅主题 订阅的host port username password 等等 内容  当时有使用MQTTClient这个第三方来做相关的操作
+ * socket相关内容
+     * https://github.com/robbiehanson/CocoaAsyncSocket
+     * https://blog.csdn.net/wenwen227/article/details/3543497
+     * http://www.cnblogs.com/Hakim/p/5887756.html
+     * https://blog.csdn.net/zhoutaozagt/article/details/52054482
+     * http://www.cocoachina.com/bbs/read.php?tid=254762
+     * https://www.zhihu.com/question/31079440
+     * http://www.cnblogs.com/beifei/archive/2011/06/26/2090611.html
+     * http://www.cnblogs.com/knowledgesea/p/6813832.html
+     * https://www.zhihu.com/question/20654687
+     * https://blog.csdn.net/tencent_bugly/article/details/77897466
+     * https://www.1688.com/ask/8f03017a-2ffa-42a3-a952-511570e5f85e.html
+     * https://www.cnblogs.com/lcw/p/3565459.html
+     * 客户端 这边 其实像KVO 或者是NSTimer 都可以看作是一种查看当前和服务器的连接状态的方法 如果觉得KVO 有的时候会出现一些问题可以考虑使用FBKVOController https://github.com/facebook/KVOController
     
  
  
