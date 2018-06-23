@@ -2275,6 +2275,69 @@ NO YES NO YES YES YES YES       //从低到高
  
  
  
+ 关于UISearchController
+     - (instancetype)initWithSearchResultsController:(UIViewController *)searchResultsController;
+         Description
+         Initializes and returns a search controller with the specified view controller for displaying the results.
+         After creating the search controller, always assign an object to the searchResultsUpdater property. The search controller uses that object to update the search results.
+         Parameters
+         searchResultsController
+         The view controller that displays the search results. Specify nil if you want to display the search results in the same view controller that displays your searchable content.
+ searchResultsController注意这个参数如果指定搜索结果控制器 就指定 如果就在当前的界面进行搜索的操作 就传入nil
+ 
+     @property(nonatomic, assign, getter=isActive) BOOL active;
+         Description
+         The presented state of the search interface.
+         When the user taps in the search field of a managed search bar, the search controller automatically displays the search results controller. Usually, you get the value of this property to determine whether the search results are displayed. However, you can set this property to YES to force the search interface to appear, even if the user has not tapped in the search field.
+         The default value of this property is NO.
+ 
+ 这里提到However, you can set this property to YES to force the search interface to appear, even if the user has not tapped in the search field.
+ 你可以设置这个属性为YES 即使在用户没有点击搜索区域的时候
+ 
+ 其实有的App的SearchController的实现方式可能是
+ 在用户点击到搜索区域的时候弹出了一个控制器来处理相关的搜索的问题
+ 而不是用的原来的那种和搜索区域关联好的形式 这样分开可能也好 避免混合在一起比较乱
+ 
+     * 正则：https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/Articles/pSyntax.html#//apple_ref/doc/uid/TP40001795
+ 
+ 当我把UISearchResultController 继承自UISearchController的时候发生了如下错误
+ Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'UISearchController only supports modal presentation styles UIModalPresentationPopover, UIModalPresentationFormSheet and UIModalPresentationCustom'
+ 不知道是不是因为UISearchController遵循了<UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>代理的原因
+ 
+ 
+ - (void)setupSearchResultUI{
+ //其中searchVC 应该是属性或者是实例变量的形式否则的话 看不见UISearchController出现
+ self.searchResultVC = [WWSearchResultViewController new];
+ _searchVC = [[UISearchController alloc]initWithSearchResultsController:self.searchResultVC];
+ _searchVC.searchResultsUpdater = self.searchResultVC;
+ self.tableView.tableHeaderView = _searchVC.searchBar;
+ }
+ 
+ //原来导航栏的translucent对SearchController也有影响
+ self.navigationController.navigationBar.translucent = YES;
+ 当设置为NO的时候 搜索的框可能就不见了跑到了上边去了难道是？
+ 不过渲染的时候也没看见
+ 
+  像这种连接错误中的重复字符的问题：
+ duplicate symbol _OBJC_CLASS_$_WYWSearchResultViewController in
+ 可以搜索一下 提示重复的类名 如 WYWSearchResultViewController.m 这样容易查看重复
+ 
+ 注意像ContainerUIViewController 中嵌套subTableView的这种情况
+ 如果嵌套的subTableView是 以另外一个SubUITableViewController 中的子view 的形式放到ContainerUIViewController中的
+ 那么 这种情况UISearchController在成为第一响应者的时候会发现 UISearchBar不见了 可能是向上偏移了导航栏的高度 不见了
+ 这种情况就是需要再ContainerUIViewController中去 设置 SubUITableViewController 的subTableView 的UISearchController中的相关内容才行
+ 
+ 搜索结果视图在搜索的时候展示出来的搜索结果部分的TableView 可能会向下偏移了 这种情况下 在自定义的搜索结果控制器中的ViewDidAppear 中去改变contentOffset
+     - (void)viewDidAppear:(BOOL)animated{
+         [super viewDidAppear:animated];
+         self.searchResultTableView.contentOffset = CGPointMake(0, 0);
+ //但是如果按照上述的方式设置后 只能够保证 显示的时候是正常的 手一拖动TableView 就又显示不正常了
+        self.searchResultTableView.contentInset = UIEdgeInsetsZero;
+     }
+ //如果经过了以上的设置看着顶部还有间距 还有一种情况就是设置的UITableView的tableHeaderView的问题
+ 
+    
+ 
  
  
  
