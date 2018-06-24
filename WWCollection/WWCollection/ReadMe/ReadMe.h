@@ -2492,6 +2492,39 @@ NO YES NO YES YES YES YES       //从低到高
  https://blog.csdn.net/l2i2j2/article/details/51040076
  https://www.jianshu.com/p/82fedceb902d
  
+ 一点相关的内容：
+    下边三行代码比较乱
+     NSString *testStr = @"abc\ndef\n";
+     NSScanner *scannerNextLine = [NSScanner scannerWithString:testStr];
+     [scannerNextLine scanCharactersFromSet:[NSCharacterSet newlineCharacterSet] intoString:NULL];
+ 
+ 这个是学习自stackOverFlow:https://stackoverflow.com/questions/34581367/nsscanner-scancharactersfromset-fails-to-find-leading-tabs
+ 
+     NSString *recordString = @"\t\t\tHello\t\tGoodbye\tHello";
+     // 1 2 3456789 1012345678 90123
+     //0102034567890A0BCDEF
+     NSScanner* theScanner = [NSScanner scannerWithString: recordString];
+     theScanner.charactersToBeSkipped = nil;
+ 
+     NSRange asciiTabRange;
+     asciiTabRange.location = 0x09;
+     asciiTabRange.length   = 1;
+     NSCharacterSet* asciiTab = [NSCharacterSet characterSetWithRange: asciiTabRange];
+ 
+     NSString *tabString;
+     unsigned long indexOfFirstTabInRun = 0;
+     unsigned long tabsInRun = 0;
+ 
+     while (!theScanner.isAtEnd) {
+         indexOfFirstTabInRun = (unsigned long)theScanner.scanLocation;
+         if ([theScanner scanCharactersFromSet: asciiTab intoString: &tabString]) {
+             tabsInRun = (unsigned long) theScanner.scanLocation - indexOfFirstTabInRun;
+             WWLog(@"tabCount: %lu - starting at index %lu", tabsInRun, indexOfFirstTabInRun);
+         } else {
+             [theScanner scanCharactersFromSet:asciiTab.invertedSet intoString:nil];
+         }
+     }
+ 
  
  */
 
