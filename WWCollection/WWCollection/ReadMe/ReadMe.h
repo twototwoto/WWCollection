@@ -2420,6 +2420,79 @@ NO YES NO YES YES YES YES       //从低到高
  #sifangiOS,si#fangiOS,sifang#iOS,#sfi,#四方iOS
  
  
+ 下边的几种方法中
+     static NSString* kCurrentSearchBarText = @"";
+     NSString static *kCCurrentSearchBarText = @"";
+     static NSString* const kCurrentTest = @"";
+     //下边的方式会报错 Expected identifier or '('
+     //NSString* static kCCurrentSearchBarText = @"";
+ 
+ 学习后：https://blog.csdn.net/seiven009/article/details/52127782
+ 关于UISearchController 展示搜索结果的时候需要隐藏TabBar以及不再显示搜索结果的时候需要再次展现原来的视图控制器的时候 可以采用的办法是 下边的translucent 为YES还是NO对searchBar成为第一响应者后有影响
+ 在UISearchControllerDelegate的代理方法中去做操作
+     - (void)willPresentSearchController:(UISearchController *)searchController{
+     self.navigationController.navigationBar.translucent = YES;
+     self.tabBarController.tabBar.hidden = YES;
+     }
+ 
+     - (void)willDismissSearchController:(UISearchController *)searchController{
+     self.navigationController.navigationBar.translucent = NO;
+     self.tabBarController.tabBar.hidden = NO;
+     }
+ 
+ 
+ 
+ 关于判断字符串中是否有数字 判断某个字符是否是数字
+ 
+ - (void)testNSScaner{
+ [NSScanner scannerWithString:@""];
+ 
+     NSInteger value = 2;
+     BOOL exist = [[NSScanner scannerWithString:@"ac"]scanInteger:&value];
+     BOOL notExist = [[NSScanner scannerWithString:@"2220"]scanInteger:&value];
+     NSScanner *scan = [NSScanner scannerWithString:@"ad"];
+ 
+     [scan isAtEnd];//可以用于判断是否是扫描的最后一个了
+     NSScanner *scane = [NSScanner scannerWithString:@"1"];
+     NSInteger valuee;
+     //下列式子 用于判断一个字符是否是NSInteger类型的数字
+     ([scane scanInteger:&valuee] && [scane isAtEnd]);
+     /*isAtEnd 适用于检测当前的scan中是否还有数据 如果都scan完了 就是没数据了 否则就是还有数据 scan 有点类似于是一个队列 这个队列里边放着内容 一个一个的扫描 当扫描完了的时候scan isAtEnd 即为true了
+ 
+     Flag that indicates whether the receiver has exhausted all significant characters.
+ 
+     当有数据的时候 scanInteger就能够扫描出来数据 否则就不能
+     po scane.string
+     1
+ 
+     (lldb) po [scane scanInteger:&value]
+     YES
+ 
+     (lldb) po [scane scanInteger:&value]
+     NO
+ 如果能够访问到数据的话就返回YES否则为NO
+ *
+ 
+    [scane scanInteger:&valuee]&&[scane isAtEnd] ;
+    WWLog(@"%zd-%zd",exist,notExist);
+ 
+//输出结果
+    /*注意这个&value 这种形式
+     - (BOOL)scanInteger:(nullable NSInteger *)result
+     其中result 的类型是NSInteger * 可能很久没有写过指向常量的指针这种形式 看到这种会有些不习惯
+     https://stackoverflow.com/questions/1014053/why-dont-i-declare-nsinteger-with-a
+     
+     //相关：
+     po [NSScanner scannerWithString:@"acd"].string
+     acd
+     *
+}
+ 
+ 学习网址 :
+ https://blog.csdn.net/l2i2j2/article/details/51040076
+ https://www.jianshu.com/p/82fedceb902d
+ 
+ 
  */
 
 
