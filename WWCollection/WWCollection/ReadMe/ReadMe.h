@@ -2357,10 +2357,67 @@ NO YES NO YES YES YES YES       //从低到高
  
  
  
+ 字符串转拼音 相关方法
+ 学习地址：https://www.jianshu.com/p/ab0761bafe4e
  
+ - (NSString *)transformToPinyin:(NSString *)aString
+ {
+     //转成了可变字符串
+     NSMutableString *str = [NSMutableString stringWithString:aString];
+     CFStringTransform((CFMutableStringRef)str,NULL, kCFStringTransformMandarinLatin,NO);
+     
+     //再转换为不带声调的拼音
+     CFStringTransform((CFMutableStringRef)str,NULL, kCFStringTransformStripDiacritics,NO);
+     NSArray *pinyinArray = [str componentsSeparatedByString:@" "];
+     NSMutableString *allString = [NSMutableString new];
+     
+     /*
+     下边这里相当于 我已经有了一个 数组 如@[@"si",@"fang",@"iOS"]
+     想要按照顺序分组拼接到一起
+     si#fangiOS sifang#iOS
+     其中三个 以2个一组 另外的一个自成一组的形式
+     其中的一个count是用于记录第几个的
+     
+     ----------
+    NSInteger count = 0;
+    for (NSInteger  i = 0; i < pinyinArray.count; i++)
+    {
+        for(NSInteger j = 0; j < pinyinArray.count;j++)
+        {
+            if (j == count) {
+                [allString appendString:@"#"];
+                //区分第几个字母
+            }
+            [allString appendFormat:@"%@",pinyinArray[j]];
+        }
+        
+        [allString appendString:@","];
+        count ++;
+    }
+
+    NSMutableString *perFirstStr = [NSMutableString new];
+    //拼音首字母
+    for (NSString *s in pinyinArray)
+    {
+        if (s.length > 0)
+        {
+            [perFirstStr appendString:  [s substringToIndex:1]];
+        }
+    }
+    //拼接 划分开的字符串 的每个首字母
+    [allString appendFormat:@"#%@",perFirstStr];
+
+    //拼接上最原始传入的字符串
+    [allString appendFormat:@",#%@",aString];
+    return allString;
+    }
+     
  
+ 测试：
+ NSString *numAbcCharacterStr = [self transformToPinyin:@"四方iOS"];
  
- 
+ 输出结果：
+ #sifangiOS,si#fangiOS,sifang#iOS,#sfi,#四方iOS
  
  
  */
