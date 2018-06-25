@@ -2525,6 +2525,32 @@ NO YES NO YES YES YES YES       //从低到高
          }
      }
  
+ //更多相关内容：
+    * http://nshipster.cn/nscharacterset/
+    * https://objccn.io/issue-9-4/
+ 
+ 
+ 
+ 关于即时通讯：
+    * https://www.jianshu.com/p/2dbb360886a8
+    * 即时通讯网比较全面：http://www.52im.net/thread-33-1-1.html
+ 
+ //重写了UISearchController 也可能导致出现 点击了searchBar之后 searchBar就消失的问题
+ 
+ //点击了UISearchBar 后present 出来另一个搜索控制器的时候
+ //需要直接让键盘弹出的办法：
+ 解决办法：
+ https://stackoverflow.com/questions/31274058/make-uisearchcontroller-search-bar-automatically-active
+ 
+ - (void)viewDidAppear:(BOOL)animated{
+     [super viewDidAppear:animated];
+     self.searchVC.active = YES;
+ }
+ #pragma mark - UISearchControllerDelegate
+ - (void)didPresentSearchController:(UISearchController *)searchController{
+     [searchController.searchBar becomeFirstResponder];
+ }
+ 
  
  */
 

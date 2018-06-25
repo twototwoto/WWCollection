@@ -9,15 +9,22 @@
 #import "WYWSearchViewController.h"
 #import "WYWNavSearchResultViewController.h"
 
+#import "WYWSearchBarTitleView.h"
+
+#import "WYWCustomResultViewController.h"
+
 @interface WYWSearchViewController ()<UISearchResultsUpdating,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UISearchControllerDelegate>
 @property (nonatomic,strong) UISearchController *searchVC;
+
 @property (nonatomic,strong) UITableView *tableView;
 //崩溃测试
 //@property (nonatomic,copy) NSMutableArray *arrM;
 
 @end
 
-@implementation WYWSearchViewController
+@implementation WYWSearchViewController{
+    UISearchController *_searchC;
+}
 
 //- (void)viewDidLayoutSubviews{
 //    _searchVC.searchBar.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200.f);
@@ -171,10 +178,29 @@
     }
 }
 
+- (void)setupStatusBarStyle{
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupStatusBarStyle];
     
+    [self setupCustomViewNavSearchBar];
+    return;
+    [self setupNavSearchBar];
+    
+    return;
+    /*
+     [self.view addSubview:self.tableView];
+     self.tableView.frame = self.view.bounds;
+     self.tableView.dataSource = self;
+     self.tableView.delegate = self;
+     
+     [self setupTableViewSearchBar];
+     */
+   
     [self testNSScaner];
     NSString *abcStr = [self transformToPinyin:@"abc"];
     NSString *numStr = [self transformToPinyin:@"123"];
@@ -204,19 +230,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = YES;
 //    self.navigationController.navigationBar.translucent = NO;
-    
-//    [self setupNavSearchBar];
-//    return;
-    
-
-    
-    [self.view addSubview:self.tableView];
-    self.tableView.frame = self.view.bounds;
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
-    [self setupTableViewSearchBar];
-    
 }
 
 //- (void)viewDidAppear:(BOOL)animated{
@@ -246,17 +259,79 @@
     _searchVC.searchBar.backgroundColor = [UIColor redColor];
     _searchVC.searchBar.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 200.f);
 //    self.navigationItem.titleView = _searchVC.searchBar;
-//    self.definesPresentationContext = NO;
+//    self.definesPresentationContext = YES;
     self.tableView.tableHeaderView = _searchVC.searchBar;
     _searchVC.searchBar.backgroundImage = [UIImage new];
 //    _searchVC.searchBar.backgroundColor = [UIColor yellowColor];
     
 }
 
+- (void)setupCustomViewNavSearchBar{
+    //CGRectGetWidth(self.view.frame)
+    self.navigationController.navigationBar.translucent = YES;
+     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"右侧" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemClick:)];
+    
+    WYWSearchBarTitleView *titleView = [[WYWSearchBarTitleView alloc] initWithFrame:CGRectMake(15.f, 0, 310.f, 28.f)];
+//    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(15, 0, 310.f, 28.f)];
+    //其实使用自定义类 并没有什么用
+    titleView.layer.cornerRadius = 14.f;
+    titleView.backgroundColor = [UIColor colorWithRed:232.f/255.f green:232.0f/255.f blue:232.f/255.f alpha:1.0f];
+    
+//    _searchC = [[UISearchController alloc]initWithSearchResultsController:nil];
+//    _searchC.view.backgroundColor = [UIColor redColor];
+//    self.definesPresentationContext = YES;
+//    UISearchBar *searchBar = _searchC.searchBar;
+//    searchBar.frame = titleView.bounds;
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:titleView.bounds];
+    
+    searchBar.frame = CGRectMake(15.f, 0, 310.f, 28.f);
+    searchBar.delegate = self;
+    searchBar.placeholder = @"自定义searchBar";
+    UITextField *searchTextField = [searchBar valueForKey:@"_searchField"];
+    if (searchTextField) {
+        searchTextField.backgroundColor = [UIColor colorWithRed:232.f/255.f green:232.0f/255.f blue:232.f/255.f alpha:1.0f];
+    }
+    [titleView addSubview:searchBar];
+    
+    titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+//    self.navigationItem.titleView = titleView;
+    self.navigationItem.titleView = searchBar;
+    /*
+    [self.navigationController.navigationBar addSubview:titleView];
+
+    [titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.navigationController.navigationBar).mas_offset(15.f);
+        make.centerY.equalTo(self.navigationController.navigationBar);
+//        make.right.equalTo(self.navigationController.navigationBar).mas_offset(-50.f);
+        make.width.mas_equalTo(310.f);
+        make.height.mas_equalTo(28.f);
+        
+    }];
+     */
+    
+    
+    /*
+     导航栏上的titleView 在布局方面还是不大好控制的
+     感觉想更好的控制位置尺寸等 内容还是使用 UITableView的tableHeaderView 比较好控制
+     */
+    
+   
+    WWLog(@"");
+    
+}
+
+
+- (void)rightBarButtonItemClick:(id)sender{
+    
+}
+
 
 - (void)setupNavSearchBar{
-//    WYWSearchResultViewController *searchResultVC = [WYWSearchResultViewController new];
     
+//    WYWSearchResultViewController *searchResultVC = [WYWSearchResultViewController new];
+    self.navigationController.navigationBar.translucent = YES;
     WYWNavSearchResultViewController *navSearchResultVC = [WYWNavSearchResultViewController new];
 //    UISearchController *searchVC 需要使用全局的UISearchController
     _searchVC = [[UISearchController alloc]initWithSearchResultsController:navSearchResultVC];
@@ -265,11 +340,83 @@
 //    searchVC.searchResultsUpdater = self;
     _searchVC.searchResultsUpdater = navSearchResultVC;
     _searchVC.searchBar.placeholder = @"搜索";
-    self.navigationItem.titleView = _searchVC.searchBar;
-    self.definesPresentationContext = NO;
+//    self.navigationItem.titleView = _searchVC.searchBar;
+    
+    UIView *customTitleV = [UIView new];
+    customTitleV.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, CGRectGetWidth(self.view.frame), self.navigationController.navigationBar.frame.size.height);
+    customTitleV.backgroundColor = [UIColor yellowColor];
+    _searchVC.searchBar.frame = CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height, CGRectGetWidth(self.view.frame), self.navigationController.navigationBar.frame.size.height);
+    [customTitleV addSubview:_searchVC.searchBar];
+    _searchVC.searchBar.frame = customTitleV.bounds;
+//    [self.navigationItem.titleView addSubview:customTitleV];
+    self.navigationItem.titleView = customTitleV;
+    //不论是直接设置searchBar 还是设置customTitleV 都是会在点击后消失
+//    _searchVC.hidesNavigationBarDuringPresentation = YES;
+    self.definesPresentationContext = YES;
 }
 
-#pragma mark -
+
+- (void)setupSearchBar{
+    //注意：这句代码写在这里是因为不写的话会导致下边的textField为空 看来是懒加载
+    
+    /*
+    self.testSearchController.searchBar.tintColor = WWbackgroundGrayColor;;
+    self.testSearchController.searchBar.placeholder = @"";
+    self.testSearchController.searchBar.layer.cornerRadius = WW_PX_Width(28.f);
+    self.testSearchController.searchBar.backgroundColor = [UIColor colorWithRed:242.0/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    
+    UITextField *searchTextField = [self.testSearchController.searchBar valueForKey:@"_searchField"];
+    searchTextField.textColor = [UIColor blackColor];
+    searchTextField.backgroundColor = [UIColor colorWithRed:242.0/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    
+    NSDictionary *attriDict = @{NSForegroundColorAttributeName:[UIColor colorWithRed:153.0/255.f green:153.0/255.0f blue:153.0f/255.0f alpha:1.0f]};
+    NSAttributedString *attriStr = [[NSAttributedString alloc]initWithString:@"  搜索  " attributes:attriDict];
+    searchTextField.attributedPlaceholder = attriStr;
+    
+    UIToolbar *cancelToolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, WW_WIDTH, WW_PX_Height(60.f))];
+    [cancelToolBar setBarStyle:UIBarStyleDefault];
+    
+    UIBarButtonItem *spaceBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    //取消
+    UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelClick:)];
+    //    cancelBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    [cancelToolBar setItems:@[spaceBarButtonItem,cancelBarButtonItem]];
+    self.testSearchController.searchBar.inputAccessoryView = cancelToolBar;
+    //    self.testSearchController.searchBar.frame = CGRectMake(0, WW_Status_Nav_Height, WW_WIDTH, WW_PX_Height(56.f));
+     */
+}
+
+- (void)presentToSearchController{
+    /*
+    UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = [UIColor yellowColor];
+    [self showViewController:vc sender:nil];
+    [self showDetailViewController:vc sender:nil];
+     */
+    WYWCustomResultViewController *customResultVC = [WYWCustomResultViewController new];
+    [self showDetailViewController:customResultVC sender:nil];
+
+}
+
+#pragma mark - Delegate --
+
+#pragma mark - UISearchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    [self presentToSearchController];
+    return NO;
+    /*
+     其实只是简单地设置searchBar到titleView 那么不会出现searchBar消失的情况
+     如果是以
+     [[UISearchController alloc] initWithSearchResultsController:resultsController];
+     这种形式创建的UISearchController的searchBar添加到导航栏的情况下 searchBar就确实会消失掉
+     
+     其实如果是分析喜马拉雅 点击searchBar后的效果的话可以 视觉上看起来我感觉他们不是用的UISearchResultController的方式 他们应该是用的简单地searchBar设置到titleView 之后在searchBar成为第一响应者的时候(注意这个时候不弹出键盘) modal出来的控制器 然后在新的控制器中进行的搜索相关的操作
+     而且modal出来新的控制器后 可以设置新的界面的 UISearchController* 类型的对象_searC 的active 强制使得searchResultController出现
+     或者是也得让键盘先弹出 类似的办法
+     [_searchVC.searchBar becomeFirstResponder];
+     */
+}
 
 //学习网址：https://blog.csdn.net/seiven009/article/details/52127782
 - (void)willDismissSearchController:(UISearchController *)searchController{
@@ -284,7 +431,10 @@
     self.navigationController.navigationBar.translucent = YES;
 }
 
+
+
 #pragma mark - Delegate------
+
 //
 //#pragma mark - UISearchBarDelegate --
 //- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
