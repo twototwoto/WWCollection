@@ -2551,6 +2551,20 @@ NO YES NO YES YES YES YES       //从低到高
      [searchController.searchBar becomeFirstResponder];
  }
  
+ 对于点击searchBar跳转的
+ 偶然看到这个https://www.jb51.net/article/130775.htm 原文在（https://www.jb51.net/article/130775.htm）
+ 也确实 可以使用UIButton作为titleView  这样会更方便些
+ 不用去设置searchBar 的代理方法中去做操作
+ 
+ 问题：关于内购的更改购买商品的问题：
+ Where do I find iTunes Connect "Review the updated Paid Applications Schedule."？
+ https://www.reddit.com/r/iOSProgramming/comments/7o5bzp/where_do_i_find_itunes_connect_review_the_updated/
+ * Xcode9.2 iOS11.3 关于使用Profile进行性能测试的时候 发现CoreAnimation没有数据显示的办法
+ https://stackoverflow.com/questions/49744280/time-profiler-in-instruments-not-working
+ 
+ 
+ 
+ 
  
  */
 
