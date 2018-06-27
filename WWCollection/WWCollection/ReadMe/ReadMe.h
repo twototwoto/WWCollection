@@ -2562,9 +2562,73 @@ NO YES NO YES YES YES YES       //从低到高
  * Xcode9.2 iOS11.3 关于使用Profile进行性能测试的时候 发现CoreAnimation没有数据显示的办法
  https://stackoverflow.com/questions/49744280/time-profiler-in-instruments-not-working
  
+ 在视图切圆角的时候注意：
+ 有的时候如果是视图使用的Masonry这种 可能没有具体制定 视图的尺寸位置 可能在设置某个圆角的时候会遇到问题（比如说显示出来什么都没有了）
+ //    CGRect imageVRect = imgV.bounds;
+ CGRect imageVRect = CGRectMake(0, 0, imgWidth, imgVHeight);
  
  
+横竖屏又一次遇到的问题： 当有新的控制器使用的是Modal的方式呈现的时候 之前写的横竖屏操作又不正常了
+ 目前选择考虑修改AppDelegate.m文件中的下列方法 对不允许横屏的控制器作出强制性的竖屏限制
  
+ - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+     //    return UIInterfaceOrientationPortrait|UIInterfaceOrientationMaskLandscapeRight;
+     if (![[[self topViewController]class] isEqual:[XXXFullScreenViewController class]]) {
+        return UIInterfaceOrientationMaskPortrait;
+     }
+     return UIInterfaceOrientationMaskAll;
+ }
+ 
+ 
+ 获取topViewControlle相关的方法：来自:NIMSessionViewController
+ 
+ - (UIViewController *)topViewController {
+ UIViewController *resultVC;
+     resultVC = [self _topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];
+     while (resultVC.presentedViewController) {
+     resultVC = [self _topViewController:resultVC.presentedViewController];
+     }
+     return resultVC;
+ }
+ 
+ - (UIViewController *)_topViewController:(UIViewController *)vc {
+     if ([vc isKindOfClass:[UINavigationController class]]) {
+         return [self _topViewController:[(UINavigationController *)vc topViewController]];
+     } else if ([vc isKindOfClass:[UITabBarController class]]) {
+     return [self _topViewController:[(UITabBarController *)vc selectedViewController]];
+     } else {
+         return vc;
+     }
+     return nil;
+ }
+ 
+ 
+ 类似更多：
+ #pragma mark -获取当前的ViewController
+ - (UIViewController*)topViewController
+ {
+ return [self topViewControllerWithRootViewController:self.window.rootViewController];
+ }
+ 
+ - (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController
+ {
+ if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+ UITabBarController *tabBarController = (UITabBarController *)rootViewController;
+ return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
+ } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+ UINavigationController* navigationController = (UINavigationController*)rootViewController;
+ return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
+ } else if (rootViewController.presentedViewController) {
+ UIViewController* presentedViewController = rootViewController.presentedViewController;
+ return [self topViewControllerWithRootViewController:presentedViewController];
+ } else {
+ return rootViewController;
+ }
+ }
+ 
+ //更多相关内容：
+ https://techblog.toutiao.com/2017/03/28/fullscreen/
+ http://daipei.me/posts/landscape_problem_in_ios/
  
  */
 
