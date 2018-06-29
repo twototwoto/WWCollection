@@ -2637,6 +2637,15 @@ NO YES NO YES YES YES YES       //从低到高
  
  记录一种问题 像有的用户退出的这种情况 有的时候可能我们在做网络请求的时候不仅仅是有请求体的请求参数 还会有在请求头里的请求参数 这种情况下 在用户退出的时候 记得把相应的与登录后的请求头的内容的值处理好 否则可能退出登录了 结果显示却与预期不符
  
+ 关于dynamic:
+ https://stackoverflow.com/questions/22143226/dynamic-how-to-set-properties
+考虑了下 关于更多隐藏接口细节的问题：https://blog.sunnyxx.com/2014/04/13/objc_dig_interface/
+ 除此以外 还有类簇的方式 像UIButton buttonWithType: 的方式 在EOC52个建议中有提及
+ 其实隐藏接口的细节部分的建立header文件我不清楚应该怎么建立头文件 来防止属性 这部分还得查证一下
+ 相关内容：https://www.jianshu.com/p/8d106e5e9ea6
+ 
+ 
+ 
  */
 
 
