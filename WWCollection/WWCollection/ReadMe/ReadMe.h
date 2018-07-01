@@ -2644,8 +2644,31 @@ NO YES NO YES YES YES YES       //从低到高
  其实隐藏接口的细节部分的建立header文件我不清楚应该怎么建立头文件 来防止属性 这部分还得查证一下
  相关内容：https://www.jianshu.com/p/8d106e5e9ea6
  
+  * 如果像首页有定时器的这种情况
+    * 是否可以考虑在视图已经显示出来的时候 看定时器是否存在 定时器是否需要开启
+    * 界面已消失的时候 停止定时器
+    * 
  
  
+
+ 关于Xcode Debug Memory graph
+ 测试内存图的时候 看有没有内存泄漏的问题目前的了解是当我们在push到某个控制器的时候 内存图谱中应该会有这个控制器的对应的节点 当时当我们pop出去的时候 相应的这个内存图谱节点也就应该消失了
+ https://blog.csdn.net/wenmingzheng/article/details/52817179
+ https://useyourloaf.com/blog/xcode-visual-memory-debugger/
+ https://www.jianshu.com/p/f792f9aa2e45
+ https://medium.com/@imas145/using-memory-graph-debugger-in-xcode-9-a50aa9d0243f
+ http://qiubaiying.top/2017/07/26/利用-Debug-Memory-Graph-检测内测泄漏/
+ 
+ 
+ localIdentifier：https://gist.github.com/jacobbubu/1836273
+ 
+ 
+  拿字典举例子 字典添加keyvalues的时候
+ 修饰符部分不仅仅要注意strong还是copy也要注意 是NSDictionary还是NSMutableDictionary 否则在后边添加keyvalue的时候也会出问题
+ FSCalendar修改显示的日期
+ _minimumDate = [self.formatter dateFromString:@"1970-01-01"];
+ //    _maximumDate = [self.formatter dateFromString:@"2099-12-31"];
+不过这个修改后貌似没有生效
  */
 
 
