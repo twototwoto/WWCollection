@@ -2669,6 +2669,33 @@ NO YES NO YES YES YES YES       //从低到高
  _minimumDate = [self.formatter dateFromString:@"1970-01-01"];
  //    _maximumDate = [self.formatter dateFromString:@"2099-12-31"];
 不过这个修改后貌似没有生效
+ 
+ 关于git stash 和git stash pop
+ https://www.cnblogs.com/exmyth/p/6213129.html
+ 
+ 在Asset中添加颜色资源
+ /**学习网址：https://www.jianshu.com/p/15b56a33de89
+ * iOS 11之后 Color可以在Asset中指定 color
+     *  if (@available(iOS 11.0, *)) {
+            self.view.backgroundColor = [UIColor colorNamed:@"redColor"];
+        } else {
+            // Fallback on earlier versions
+            self.view.backgroundColor = [UIColor redColor];
+        }
+ 
+ 关于属性修饰符:
+    * 关于class属性修饰符 https://blog.csdn.net/zhaochen_009/article/details/53612119
+    * http://www.cocoachina.com/ios/20161202/18257.html
+    * http://www.codingexplorer.com/property-attributes-in-objective-c/
+    * https://www.quora.com/What-is-the-difference-between-strong-retain-nonatomic-etc-in-the-Objective-C-iOS-property
+ 所有价格和货币－消耗型 App 内购买项目：https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/1189903048/pricingMatrix/consumable
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  */
 
 
