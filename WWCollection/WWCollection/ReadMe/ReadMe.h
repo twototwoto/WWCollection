@@ -2690,6 +2690,40 @@ NO YES NO YES YES YES YES       //从低到高
     * https://www.quora.com/What-is-the-difference-between-strong-retain-nonatomic-etc-in-the-Objective-C-iOS-property
  所有价格和货币－消耗型 App 内购买项目：https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/1189903048/pricingMatrix/consumable
  
+ 组件化学习网址收集学习：http://www.cocoachina.com/ios/20180312/22536.html
+ 
+ 
+关于内购添加商品的地址：
+ https://appstoreconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/1189903048/addons/create/consumable
+ https://developer.apple.com/app-store/promoting-in-app-purchases/
+ https://help.apple.com/app-store-connect/#/dev84b80958f
+ https://developer.apple.com/design/resources/
+ 
+添加内购项目的时候遇到了一个问题
+ 在添加APP推广所需的图片的时候 上传图片时
+ 提示：  图像不能包含 alpha 通道或透明度。
+ 根据提示是需要找设计师做调整了 自己简单查了下 也按照步骤在PS中查看了确实有透明度的问题 不过我去掉透明度后就会对之前的图片有视觉影响了 所以这个还是需要找设计师作调整
+ 之前有前辈遇到类似的问题：https://blog.csdn.net/u010545480/article/details/43451485
+ 其实有的时候没有上传宣传的图片并不会影响 内购项目的审核通过与否
+ 
+ 
+ 注意：
+ 新增的内购项目提交完了之后 显示新增的内购项目还处于准备提交的状态 查询后 发现有人说可能是要再次去更新App的时候
+ 苹果会提醒我们一起提交上新增的内购的项目的内容
+ * 不过我后来注意到 当我们点击那些准备提交状态的内购项目的时候 页面跳转以后 我们就能看到提交以供审核
+ 学习网址：http://www.cocoachina.com/bbs/read.php?tid-1708109-page-1.html
+ https://blog.csdn.net/nine_yao/article/details/53424340
+ 
+ 此时虽然内购项目处于准备提交状态 不过不影响我们测试 至少在购买前的操作(像根据产品ID做内购购买请求的ProductIdentifier直到登录账户前都是正常的) 和那些已经是批准状态的是一样的
+  * 不过我后来注意到 当我们点击那些准备提交状态的内购项目的时候 页面跳转以后 我们就能看到提交以供审核 提交后内购项目就会改变为正在等待审核的状态
+ 
+ git checkout相关内容：http://www.cnblogs.com/hutaoer/archive/2013/05/07/git_checkout.html?utm_source=tuicool&utm_medium=referral
+ 
+ 关于CocoaPods还要看实现原理部分：
+ https://objccn.io/issue-6-4/
+ https://juejin.im/entry/59dd94b06fb9a0451463030b
+ (http://www.cloudchou.com/ios/post-990.html)
+ 
  
  
  
